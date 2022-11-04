@@ -1,11 +1,13 @@
-const Login = ({ test }) => {
+import LoginForm from "../Components/Login/loginForm"
+
+
+const Login = () => {
 
 
     return (
         <>
             <h1>Login</h1>
-            <button onClick={() => { test() }}>click</button>
-
+            <LoginForm />
         </>
     )
 }
