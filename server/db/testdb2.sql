@@ -7,15 +7,16 @@ DROP TABLE IF EXISTS campus;
 
 CREATE TABLE campus(
     campus_id SERIAL PRIMARY KEY NOT NULL,
-    name TEXT
+    name TEXT,
+    UNIQUE(name)
 );
 
 CREATE TABLE accounts(
     user_id SERIAL PRIMARY KEY NOT NULL,
     userName TEXT,
     acessRole TEXT,
-    campus_id SERIAL,
-FOREIGN KEY(campus_id) REFERENCES campus(campus_id),
+    campus_name TEXT,
+FOREIGN KEY(campus_name) REFERENCES campus(name),
     email TEXT,
     profilePic TEXT,
     password TEXT
@@ -52,8 +53,8 @@ INSERT INTO campus(name) VALUES('Dallas');
 INSERT INTO campus(name) VALUES('Houston');
 INSERT INTO campus(name) VALUES('San Antonio');
 
-INSERT INTO accounts(userName,acessRole,campus_id,email,profilePic,password) VALUES('test','user',1,'test1@test.com',null,'test');
-INSERT INTO accounts(userName,acessRole,campus_id,email,profilePic,password) VALUES('test','tech',2,'test2@test.com',null,'test');
+INSERT INTO accounts(userName,acessRole,campus_name,email,profilePic,password) VALUES('test','user','Austin','test1@test.com',null,'test');
+INSERT INTO accounts(userName,acessRole,campus_name,email,profilePic,password) VALUES('test','tech','Dallas','test2@test.com',null,'test');
 
 INSERT INTO tickets (user_id, category, descrip, assigned, priority, ETA, email, status, campus_id, create_date ,resolved) VALUES(1, 'hardware', 'doesnt work', 'someone','2','02/11/2023','test1@test.com','in progress', 1, '11/02/2022',null);
 INSERT INTO tickets (user_id, category, descrip, assigned, priority, ETA, email, status, campus_id, create_date ,resolved) VALUES(1, 'hardware', 'doesnt work', 'someone','2','02/11/2023','tes1t@test.com','in progress', 1, '11/02/2022',null);
