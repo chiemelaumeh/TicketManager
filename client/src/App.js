@@ -15,6 +15,7 @@ function App() {
 
   const test = () => {
     setAuth(true)
+    localStorage.setItem('auth', String(auth))
   }
 
 
