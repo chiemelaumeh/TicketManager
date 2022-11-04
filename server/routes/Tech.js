@@ -1,4 +1,4 @@
-const { pool } = require("./pool");
+const { pool } = require("../config");
 const techRoute = express.Router();
 
 techRoute.get("/tickets/campus/:id", async (req, res) => {
