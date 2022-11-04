@@ -1,21 +1,25 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const port = 9001
+require('dotenv').config();
+
+const pool = require('./config')
+const port = process.env.PORT || 6001
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('public'))
 
-app.get('/', (req, res)=>{
+
+app.get('/test', async (req, res) => {
     try {
-        res.status(200).send('good test')
+        const {rows} = await pool.query('select * from accounts')
+        res.send(rows)
     } catch (error) {
         console.error(error.message)
     }
-} )
+});
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`listening on port ${port}`)
-})
+});
