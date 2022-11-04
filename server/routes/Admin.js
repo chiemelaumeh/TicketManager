@@ -1,22 +1,17 @@
-import { pool } from "./pool";
+const { pool } = require("./pool");
 
 const adminRoute = express.Router();
-exports.getAll = adminRoute.get("/Accounts", getAllAccounts);
-exports.getOne = adminRoute.get("/Accounts/:id", getOneAccount);
-exports.createOne = adminRoute.post("/Accounts/create", createAccount);
-exports.editOne = adminRoute.patch("/Accounts/edit/:id", editAccount);
-exports.deleteOne = adminRoute.delete("/Account/delete/:id", deleteAccount);
 
-const getAllAccounts = async (req, res) => {
+adminRoute.get("/Accounts", async (req, res) => {
   try {
     const { rows } = await pool.query("SELECT * FROM accounts");
     res.status(200).send(rows);
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-const getOneAccount = async (req, res) => {
+adminRoute.get("/Accounts/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const { rows } = pool.query("SELECT * FROM accounts WHERE user_id = $1;", [
@@ -26,9 +21,9 @@ const getOneAccount = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-const createAccount = async (req, res) => {
+adminRoute.post("/Accounts/create", async (req, res) => {
   const { userName, acessRole, campus_id, email, profilePic, password } =
     req.body;
   try {
@@ -40,9 +35,9 @@ const createAccount = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-const editAccount = async (req, res) => {
+adminRoute.patch("/Accounts/edit/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const { userName } = req.body;
@@ -54,9 +49,9 @@ const editAccount = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-exports.deleteAccount = async (req, res) => {
+adminRoute.delete("/Account/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const { rows } = await pool.query(
@@ -67,4 +62,6 @@ exports.deleteAccount = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
+
+module.exports = adminRoute

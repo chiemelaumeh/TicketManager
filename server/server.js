@@ -2,31 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = 9001;
+const userRoute = require("./routes/User")
+const adminRoute = require("./routes/Admin")
+const techRoute = require("./routes/Tech")
 
-//routes import
-import { getAll, getOne, createOne, editOne, deleteOne } from "./routes/Admin";
-import { getTickets } from "./routes/Tech";
-import { getTicket, createTicket, delTicket, getAllComments } from "./routes/User"
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-//Admin Routes
-app.use("/admin", getAll, getOne, createOne, editOne, deleteOne);
-// app.use("/admin", getOne);
-// app.use("/admin", createOne);
-// app.use("/admin", editOne);
-// app.use("/admin", deleteOne);
+//routes import
+app.use("/admin", adminRoute);
+app.use("/tech", techRoute);
+app.use("/user", userRoute)
 
-//Tech Routes
-app.use("/tech", getTickets);
-
-//User Routes
-app.use("/user", getTicket)
-app.use("/user", createTicket)
-app.use("/user", delTicket)
-app.use("/user", getAllComments)
 
 app.get("/", (req, res) => {
   try {

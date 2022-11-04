@@ -1,9 +1,7 @@
-import { pool } from "./pool";
-
+const { pool } = require("./pool");
 const techRoute = express.Router();
-exports.getTickets = techRoute.get("/tickets/campus/:id", getAllTickets);
 
-const getAllTickets = async (req, res) => {
+techRoute.get("/tickets/campus/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -14,4 +12,6 @@ const getAllTickets = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
+
+module.exports = techRoute

@@ -1,12 +1,7 @@
-import { pool } from "./pool";
-
+const { pool } = require("./pool");
 const userRoute = express.Router();
-exports.getTicket = userRoute.get('/:id/tickets', userTickets)
-exports.createTicket = userRoute.post('/ticket/create', newTicket)
-exports.delTicket = userRoute.delete('/ticket/delete/:id', deleteTicket)
-exports.getAllComments = userRoute.get('/ticket/:id/comments', getComments)
 
-const userTickets = async (req, res) => {
+userRoute.get('/:id/tickets', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -17,9 +12,9 @@ const userTickets = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-const newTicket = async (req, res) => {
+userRoute.post('/ticket/create', async (req, res) => {
   try {
     const {
       user_id,
@@ -53,9 +48,9 @@ const newTicket = async (req, res) => {
     res.status(200).send(rows);
   } catch (err) {}
   console.error(err.message);
-};
+});
 
-const deleteTicket = async (req, res) => {
+userRoute.delete('/ticket/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -66,9 +61,9 @@ const deleteTicket = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
 
-const getComments = async (req, res) => {
+userRoute.get('/ticket/:id/comments', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -79,4 +74,6 @@ const getComments = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-};
+});
+
+module.exports = userRoute
