@@ -1,4 +1,4 @@
-const { pool } = require("./pool");
+const { pool } = require("../config");
 const userRoute = express.Router();
 
 userRoute.get('/:id/tickets', async (req, res) => {
