@@ -1,3 +1,4 @@
+const express = require('express');
 const { pool } = require("../config");
 const userRoute = express.Router();
 
@@ -76,4 +77,4 @@ userRoute.get('/ticket/:id/comments', async (req, res) => {
   }
 });
 
-module.exports = userRoute
+module.exports = userRoute;
