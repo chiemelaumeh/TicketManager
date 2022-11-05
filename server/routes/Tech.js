@@ -1,3 +1,4 @@
+const express = require('express');
 const { pool } = require("../config");
 const techRoute = express.Router();
 
@@ -14,4 +15,4 @@ techRoute.get("/tickets/campus/:id", async (req, res) => {
   }
 });
 
-module.exports = techRoute
+module.exports = techRoute;
