@@ -5,4 +5,4 @@ const authenticateToken = (req, res) => {
 
 }
 
-module.exports = authenticateToken;
+// module.exports = authenticateToken;
