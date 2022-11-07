@@ -1,7 +1,10 @@
+import CreateUSer from './CreateUser'
+
+
 const Header = () => {
     return (
         <>
-            <h2>Create user</h2>
+            <CreateUSer />
             <h2>Manage accounts</h2>
             <h2>Tickets</h2>
         </>

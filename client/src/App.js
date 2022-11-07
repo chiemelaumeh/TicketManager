@@ -28,8 +28,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/login" element={!auth ? <Login /> : <Navigate to='/admin' />} />
-          <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/login' />} />
+          <Route exact path="/" element={!auth ? <Login /> : <Navigate to='/admin' />} />
+          <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/' />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
 
