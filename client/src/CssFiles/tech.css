@@ -8,21 +8,23 @@
 .navbar {
   width: 100vw;
   height: 3rem;
-  border: 1px solid black;
+  border: .1px solid black;
   border-radius: 5px;
   margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   /* align-content: center; */
+  /* background-color: ; */
+  margin-top: 0;
 }
 
 .search {
   outline: 0;
-  width: 100%;
+  width:90%;
   height: 80%;
   border-radius: 5px;
-  border: 1px solid rgb(169, 166, 166);
+  border: 1px solid rgba(169, 166, 166, 0.52);
   padding: 0 2rem;
 }
 
@@ -45,8 +47,10 @@
 
 }
 .signoff {
+  max-height: 2.5rem;
+
   border: 0;
-  background-color: black;
+  background-color: #222;
   color: aliceblue;
   border-radius: 5px;
 }
@@ -64,14 +68,17 @@
 
 .navlink {
 
-  background-color: rgb(224, 228, 237);
-  color: rgb(55, 66, 222);
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
+  font-weight: 900;
+}
+.logo{
+  max-height: 3rem;
+  color: rgb(234, 79, 55);
 }
 .usernav {
-
-  background-color: rgb(224, 228, 237);
-  color: rgb(55, 66, 222);
-  border-radius: 5px;
- 
+  font-weight: 200;
+}
+body {
+  margin: 0;
 }
