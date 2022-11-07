@@ -1,0 +1,61 @@
+.module-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 45rem;
+    height: 25rem;
+    transform: translate(-50%, -80%);
+    background-Color: #FFF;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.over-lay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+.header-profile {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column-1 {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.image-header {
+    width: 8rem;
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-settings {
+    width: 15rem;
+}
+
+.form-settings-input {
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 7rem;
+    justify-content: space-between;
+}
+
+.img-picture {
+    width: 5rem;
+}
+
+.input-settings {
+    width: 10rem;
+}
