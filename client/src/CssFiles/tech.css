@@ -1,0 +1,30 @@
+.oneticket {
+  height: 3rem;
+  width:10rem;
+  border: 1px solid red;
+  margin: 1rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 3rem;
+  border:1px solid black;
+  border-radius: 5px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+}
+
+.search{
+  outline: 0;
+  width: 40%;
+  height: 90%;
+  border-radius: 5px;
+  border: 1px solid rgb(169, 166, 166);
+  padding: 0 2rem;
+  
+
+ 
+}

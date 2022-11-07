@@ -1,4 +1,4 @@
-const tickets = [
+const userTickets = [
   {
     ticket_id: 1,
     user_id: 1,
@@ -70,3 +70,6 @@ const tickets = [
     resoved: null,
   },
 ];
+
+
+export default userTickets

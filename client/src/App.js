@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
+import SingleTicket from "./Pages/SingleTicket";
 import { useState } from "react";
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/login' />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
+          <Route path="/tech/:ticketId" element={<SingleTicket />} />
         </Routes>
       </div>
     </Router>

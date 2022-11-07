@@ -1,7 +1,28 @@
+import { Link, NavLink } from "react-router-dom";
+import userTickets from "../data";
+import "../CssFiles/tech.css"
 const Tech = () => {
-    return (
-        <h1>Tech</h1>
-    )
-}
+  console.log(userTickets);
+  return (
+    <>
 
-export default Tech
+      <nav className="navbar">
+            <input type="search" className="search" placeholder="Search"/>
+      </nav>
+      <div className="ticketboard">
+        
+        {userTickets.map((ticket) => {
+          return (
+            <article className="oneticket" key={ticket.ticket_id}>
+             
+                <h3>{ticket.category}</h3>
+            
+            </article>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+export default Tech;
