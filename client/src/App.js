@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
+import SinglePage from "./Components/SinglePage/SinglePage";
 import { useState } from "react";
 
 
@@ -28,11 +29,11 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/login" element={!auth ? <Login /> : <Navigate to='/admin' />} />
-          <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/login' />} />
+          <Route exact path="/" element={!auth ? <Login /> : <Navigate to='/admin' />} />
+          <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/' />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
-
+          <Route exact path="/singlePage" element={<SinglePage />} />
         </Routes>
       </div>
     </Router>
