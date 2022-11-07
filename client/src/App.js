@@ -7,7 +7,6 @@ import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 
 import SinglePage from "./Components/SinglePage/SinglePage";
-import { useState } from "react";
 
 
 import CreateAccount from "./Components/Admin/CreateAccount";
