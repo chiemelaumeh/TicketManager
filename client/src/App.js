@@ -32,7 +32,6 @@ function App() {
           <Route exact path="/admin" element={auth ? <Admin /> : <Navigate to='/login' />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
-
         </Routes>
       </div>
     </Router>
