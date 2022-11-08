@@ -40,6 +40,13 @@ function App() {
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
           <Route path="/tech/:ticketId" element={<SingleTicket />} />
+
+
+          <Route path="/admin" element={<SharedLayout />}>
+          <Route path= "/admin/CreateAccount" element={<CreateAccount />}/>
+          <Route path= "/admin/ManageAccounts" element={<ManageAccounts/>}/>
+          <Route path= "/admin/TicketHistory" element={<TicketHistory />}/>
+          </Route>
         </Routes>
       </div>
     </Router>
