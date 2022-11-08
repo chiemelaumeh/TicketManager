@@ -2,7 +2,7 @@ const express = require('express');
 const pool  = require("../config");
 const techRoute = express.Router();
 
-techRoute.get("/tickets/campus/:id", async (req, res) => {
+techRoute.get("/Tickets/campus/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -15,24 +15,19 @@ techRoute.get("/tickets/campus/:id", async (req, res) => {
   }
 });
 
-/* Add a tech route for the single page tickets.*/
-
-techRoute.get("/tickets/campus/:id", async (req, res) => {
+/* Patch route for comment editing on single ticket page.*/
+techRoute.patch("/Comments/edit/:id", async (req, res) =>{
+  const { id } = req.params;
   try {
-    const { id } = req.params;
-    const { status } = req.params;
-    const { campus } = req.params;
-    const { priority } = req.params;
+    const { comment } = req.body;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE campus_id = $1 RETURNING * AND WHERE status = ;",
-      [id]
+      "UPDATE ticket_Comments SET comment = $1 WHERE comment_id = $2 RETURNING *;"
+      [comment, id]
     );
-    res.status(200).send(rows);
+    res.status(200).send(rows)
   } catch (err) {
-    console.error(err.message);
+    console.error(err.message)
   }
-});
-
-/* Add patch route for edit comment on single ticket page.*/
+})
 
 module.exports = techRoute;
