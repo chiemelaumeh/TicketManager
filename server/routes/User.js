@@ -1,12 +1,12 @@
 const express = require('express');
-const { pool } = require("../config");
+const pool = require("../config");
 const userRoute = express.Router();
 
-userRoute.get('/:id/tickets', async (req, res) => {
+userRoute.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE user_id = $1 RETURNING *",
+      "SELECT * FROM tickets WHERE user_id = $1",
       [id]
     );
     res.status(200).send(rows);
@@ -55,7 +55,7 @@ userRoute.delete('/ticket/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "DELETE FROM tickets WHERE ticket_id = $1 RETURNING *;",
+      "DELETE FROM tickets WHERE ticket_id = $1;",
       [id]
     );
     res.status(200).send(rows);
