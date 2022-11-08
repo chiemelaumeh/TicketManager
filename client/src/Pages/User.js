@@ -1,9 +1,9 @@
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { useState } from 'react';
-import Avatar from 'react-avatar';
+import Avatar from 'react-avatar-edit';
 import { Button } from 'primereact/button'
-
+import ProfileInput from '../Portals/ProfileInput';
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.css';
@@ -74,7 +74,7 @@ const User = () => {
                                 shadingColor={"#474649"}
                                 backgroundColor={"#474649"}
                             />
-
+                        < ProfileInput />
 
 
                             <div className='flex flex-column align-items-center mt-5 w-12'>
