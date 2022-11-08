@@ -17,14 +17,11 @@ techRoute.get("/tickets/campus/:id", async (req, res) => {
 
 /* Add a tech route for the single page tickets.*/
 
-techRoute.get("/tickets/campus/:id", async (req, res) => {
+techRoute.get("/singleticket/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { status } = req.params;
-    const { campus } = req.params;
-    const { priority } = req.params;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE campus_id = $1 RETURNING * AND WHERE status = ;",
+      "SELECT ticket_id, user_id, category, description, assigned, create_date, priority FROM tickets WHERE ticket_id = $1;",
       [id]
     );
     res.status(200).send(rows);
