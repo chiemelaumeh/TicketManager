@@ -55,13 +55,13 @@ authRoute.post('/login', async (req, res) => {
         if(isAuthorized === true){
             const secretToken = jwt.sign({
                 user_id: user.user_id,
-                userName: user.userName,
+                userName: user.username,
                 email: user.email,
-                accessRole: user.accessRole,
+                accessRole: user.accessrole,
                 campus_name: user.campus_name
             }, process.env.ACCESS_TOKEN);
             
-            res.send({accessToken: secretToken});
+            res.send({accessToken: secretToken, role: user.accessrole});
             
         }else if(isAuthorized === false){
             res.send("Incorrect Password")
