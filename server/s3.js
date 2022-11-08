@@ -6,7 +6,7 @@ const randomBytes = promisify(crypto.randomBytes)
 require('dotenv').config()
 
 const region = "US East (N. Virginia) us-east-1";
-const bucketName = "blue-digitial-bucket";
+const bucketName = "blue-digital-bucket";
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 

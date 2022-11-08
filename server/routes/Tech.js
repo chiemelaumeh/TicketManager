@@ -1,5 +1,5 @@
-const express = require('express');
-const pool  = require("../config");
+const express = require("express");
+const pool = require("../config");
 const techRoute = express.Router();
 
 techRoute.get("/tickets/campus/:id", async (req, res) => {
@@ -17,14 +17,11 @@ techRoute.get("/tickets/campus/:id", async (req, res) => {
 
 /* Add a tech route for the single page tickets.*/
 
-techRoute.get("/tickets/campus/:id", async (req, res) => {
+techRoute.get("/ticket/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { status } = req.params;
-    const { campus } = req.params;
-    const { priority } = req.params;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE campus_id = $1 RETURNING * AND WHERE status = ;",
+      "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.category, campus.name FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id WHERE ticket_id = $1",
       [id]
     );
     res.status(200).send(rows);
@@ -33,6 +30,31 @@ techRoute.get("/tickets/campus/:id", async (req, res) => {
   }
 });
 
+techRoute.get("/ticket/:id/comment", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rows } = await pool.query(
+      "SELECT comment FROM ticket_Comments WHERE ticket_id = $1",
+      [id]
+    );
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+techRoute.post("/ticket/comment", async (req, res) => {
+  try {
+    const { user_id, ticket_id, comment } = req.body;
+    const { rows } = await pool.query(
+      "INSERT INTO ticket_Comments(user_id, ticket_id, comment) VALUES($1, $2, $3)",
+      [user_id, ticket_id, comment]
+    );
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 /* Add patch route for edit comment on single ticket page.*/
 
 module.exports = techRoute;
