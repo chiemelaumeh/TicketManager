@@ -2,6 +2,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import "./CssFiles/login.css"
 import "./CssFiles/TicketHistory.css"
 
+
+
+import CreateAccount from "./Components/Admin/CreateAccount";
+import ManageAccounts from "./Components/Admin/ManageAccounts";
+import TicketHistory from "./Components/Admin/TicketHistory";
+import SharedLayout from "./Pages/SharedLayout";
+
 import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";
 import User from "./Pages/User";
@@ -12,7 +19,7 @@ import { useState } from "react";
 function App() {
   // const storedValue = localStorage.getItem('auth')
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   // const test = () => {
   //   setAuth(true)
@@ -29,7 +36,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/login"
+            path="/"
             element={!auth ? <Login /> : <Navigate to="/admin" />}
           />
           <Route
