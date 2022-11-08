@@ -8,12 +8,12 @@ const Navbar = () => {
   }
   return (
     <nav className="navbar">
-      <div className="name">
+      <div className="presearch">
         <button className="navlink logo btn">ATHENA</button>
         <button className="navlink usernav btn">Users</button>
       </div>
       <input type="TEXT" className="search" placeholder="Search" value={text} onChange={handleChange} />
-      <div className="sign">
+      <div className="postsearch">
         <button className="signoff btn">Sign Off</button>
       </div>
     </nav>
