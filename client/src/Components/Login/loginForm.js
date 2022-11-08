@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useFormik } from "formik"
 import { dataSchema } from "./schemaValid"
+import "../../CssFiles/login.css"
 
 const LoginForm = () => {
 
