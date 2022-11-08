@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./CssFiles/login.css"
 import './CssFiles/profile.css'
+import "./CssFiles/SinglePage.css"
+import "./CssFiles/admin.css"
 
 import Login from "./Pages/Login";
 import Admin from "./Pages/Admin";

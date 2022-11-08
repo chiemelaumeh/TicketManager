@@ -1,3 +1,4 @@
+import "../../CssFiles/admin.css"
 const CreateAccount = () => {
 return (
     <div>
