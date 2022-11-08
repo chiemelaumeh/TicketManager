@@ -1,8 +1,10 @@
 const ManageAccounts = () => {
 return (
-    <>
-    <>DUMBASSSHIT 2</>
-    </>
+    <div>
+        <h2>Manage Accounts</h2>
+        <input placeholder="Name Chage (optional)" />
+
+    </div>
 )
 }
 
