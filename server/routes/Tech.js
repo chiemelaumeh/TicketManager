@@ -1,12 +1,12 @@
 const express = require('express');
-const { pool } = require("../config");
+const pool  = require("../config");
 const techRoute = express.Router();
 
 techRoute.get("/tickets/campus/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE campus_id = $1 RETURNING *;",
+      "SELECT * FROM tickets WHERE campus_id = $1;",
       [id]
     );
     res.status(200).send(rows);

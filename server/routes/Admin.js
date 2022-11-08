@@ -1,5 +1,5 @@
 const express = require('express');
-const { pool } = require("../config");
+const pool = require("../config");
 
 const adminRoute = express.Router();
 
@@ -15,8 +15,8 @@ adminRoute.get("/Accounts", async (req, res) => {
 adminRoute.get("/Accounts/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const { rows } = pool.query("SELECT * FROM accounts WHERE user_id = $1;", [
-      id,
+    const { rows } = await pool.query("SELECT * FROM accounts WHERE user_id = $1", [
+      id
     ]);
     res.status(200).send(rows);
   } catch (err) {
