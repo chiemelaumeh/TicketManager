@@ -5,7 +5,11 @@ const Login = ({ setLoginState }) => {
 
     return (
         <>
+
+            <h1 className="login">ATHENA</h1>
+            
             <LoginForm setLoginState={setLoginState} />
+
         </>
     )
 }
