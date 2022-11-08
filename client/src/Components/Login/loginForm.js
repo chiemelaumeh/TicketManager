@@ -35,30 +35,34 @@ const LoginForm = () => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label >Email</label>
-                <input type='email'
-                    name="email"
-                    placeholder="email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email && touched.email ? "input-error" : ""}
-                />
-                {errors.email && touched.email && <p>{errors.email}</p>}
-                <label>Password</label>
-                <input type='password'
-                    name="password"
-                    placeholder="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password && touched.password ? "input-error" : ""}
-                />
-                {errors.password && touched.password && <p>{errors.password}</p>}
-                <button type="submit">Log in</button>
-            </form>
+        <div className="login">
+            <div className="loginEmail">
+                <form onSubmit={handleSubmit}>
+                    <label >Email</label>
+                    <input type='email'
+                        name="email"
+                        placeholder="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={errors.email && touched.email ? "input-error" : ""}
+                    />
+                    {errors.email && touched.email && <p>{errors.email}</p>}
+                    <div className="loginPassword">
+                        <label>Password</label>
+                        <input type='password'
+                            name="password"
+                            placeholder="password"
+                            value={values.password}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={errors.password && touched.password ? "input-error" : ""}
+                        />
+                        {errors.password && touched.password && <p>{errors.password}</p>}
+                        <button className="loginbtn" type="submit">Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 
