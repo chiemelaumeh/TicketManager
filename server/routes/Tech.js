@@ -2,7 +2,7 @@ const express = require("express");
 const pool = require("../config");
 const techRoute = express.Router();
 
-techRoute.get("/tickets/campus/:id", async (req, res) => {
+techRoute.get("/Tickets/campus/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
@@ -24,9 +24,9 @@ techRoute.get("/ticket/:id", async (req, res) => {
       "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.category, campus.name FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id WHERE ticket_id = $1",
       [id]
     );
-    res.status(200).send(rows);
+    res.status(200).send(rows)
   } catch (err) {
-    console.error(err.message);
+    console.error(err.message)
   }
 });
 

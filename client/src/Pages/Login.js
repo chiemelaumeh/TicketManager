@@ -1,12 +1,15 @@
 import LoginForm from "../Components/Login/loginForm"
 
 
-const Login = () => {
-
+const Login = ({ setLoginState }) => {
 
     return (
         <>
-            <LoginForm />
+
+            <h1 className="login">ATHENA</h1>
+            
+            <LoginForm setLoginState={setLoginState} />
+
         </>
     )
 }
