@@ -55,19 +55,19 @@ techRoute.post("/ticket/comment", async (req, res) => {
     console.error(err.message);
   }
 });
-/* Add patch route for edit comment on single ticket page.*/
-techRoute.patch("//edit/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const { userName } = req.body;
-    const { rows } = await pool.query(
-      "UPDATE accounts SET userName = $1 WHERE user_id = $2 RETURNING *;",
-      [userName, id]
-    );
-    res.status(200).send(rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
+// /* Add patch route for edit comment on single ticket page.*/
+// techRoute.patch("//edit/:id", async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const { userName } = req.body;
+//     const { rows } = await pool.query(
+//       "UPDATE accounts SET userName = $1 WHERE user_id = $2 RETURNING *;",
+//       [userName, id]
+//     );
+//     res.status(200).send(rows);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
 
 module.exports = techRoute;
