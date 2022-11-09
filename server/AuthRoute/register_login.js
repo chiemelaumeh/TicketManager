@@ -61,10 +61,10 @@ authRoute.post('/login', async (req, res) => {
                 campus_name: user.campus_name
             }, process.env.ACCESS_TOKEN);
             
-            res.send({accessToken: secretToken, role: user.accessrole});
+            res.status(200).send({accessToken: secretToken, role: user.accessrole});
             
         }else if(isAuthorized === false){
-            res.send("Incorrect Password")
+            res.status(401).send("Incorrect Password")
         }
     } catch (error) {
         console.log(error.message)
