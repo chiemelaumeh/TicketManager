@@ -32,8 +32,6 @@ const {userRole} = useContext(LoginContext)
           <Route exact path="/tech" element={<Tech />} />
           <Route path='/login' element={<Login/>}/>
           <Route path="/tech/:ticketId" element={<SingleTicket />} />
-
-
           <Route path="/admin" element={<SharedLayout />}>
           <Route path= "/admin/CreateAccount" element={<CreateAccount />}/>
           <Route path= "/admin/ManageAccounts" element={<ManageAccounts/>}/>
