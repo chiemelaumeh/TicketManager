@@ -15,10 +15,10 @@ const LoginForm = () => {
             if (data.accessToken === undefined) return alert('Not Authorized');
             setUserRole(data.role)
             sessionStorage.setItem('testToken', data.accessToken)
+            actions.resetForm()
         } catch (error) {
             console.log(error.response.data)
         }
-        actions.resetForm()
     }
    
 
