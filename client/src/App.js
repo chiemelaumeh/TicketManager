@@ -14,6 +14,7 @@ import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 import SingleTicket from "./Pages/SingleTicket";
+import SinglePage from "./Components/SinglePage/SinglePage";
 
 
 
@@ -31,7 +32,7 @@ const {userRole} = useContext(LoginContext)
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
           <Route path='/login' element={<Login/>}/>
-          <Route path="/tech/:ticketId" element={<SingleTicket />} />
+          <Route path="/tech/:ticketId" element={<SinglePage />} />
           <Route path="/admin" element={<SharedLayout />}>
           <Route path= "/admin/CreateAccount" element={<CreateAccount />}/>
           <Route path= "/admin/ManageAccounts" element={<ManageAccounts/>}/>
