@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import LoginContext from "./Contexts/loginContext";
+import { useContext } from "react";
 import "./CssFiles/login.css"
 import "./CssFiles/TicketHistory.css"
 
@@ -12,36 +14,25 @@ import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 import SingleTicket from "./Pages/SingleTicket";
-import { useState } from "react";
 
-function App() {
 
-  const [login, setLogin] = useState('');
-  const setLoginState = (value) => {
-    setLogin(value)
-  }
+
+const App = () => {
+
+const {userRole} = useContext(LoginContext)
 
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route
-            exact
-            path="/"
+          <Route exact path="/" element={userRole === 'admin' ? <Navigate to="/admin"/> : <Login/>}/>
 
-            element={login === 'admin' ? <Navigate to="/admin" /> : <Login setLoginState={setLoginState} />}
-
-          />
-          <Route
-            exact
-            path="/admin"
-            element={<Admin />}
-          />
+          <Route exact path="/admin" element={<Admin />}/>
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
+          <Route path='/login' element={<Login/>}/>
           <Route path="/tech/:ticketId" element={<SingleTicket />} />
 
-          <Route path='/login' element={<Login setLoginState={setLoginState} />}/>
 
           <Route path="/admin" element={<SharedLayout />}>
           <Route path= "/admin/CreateAccount" element={<CreateAccount />}/>
