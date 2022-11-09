@@ -1,26 +1,26 @@
-import { useState } from "react"
+import {useContext} from "react";
+import LoginContext from "../../Contexts/loginContext";
 import { useFormik } from "formik"
 import { dataSchema } from "./schemaValid"
 import "../../CssFiles/login.css"
+import axios from 'axios';
 
 const LoginForm = () => {
-
-    // const [input, setInput] = useState({ email: '', password: '' })
-
-    // const { email, password } = input
-
-    // const handleChange = (e) => {
-    //     setInput({ ...input, [e.target.name]: e.target.value })
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(input)
-    // }
-    const onSubmit = (values, actions) => {
-        console.log(values)
-        actions.resetForm()
+    const {setUserRole} = useContext(LoginContext)
+   
+    const onSubmit = async (values, actions) => {
+        // console.log(values)
+        try {
+            const { data } = await axios.post('http://localhost:6001/account/login', values)
+            if (data.accessToken === undefined) return alert('Not Authorized');
+            setUserRole(data.role)
+            sessionStorage.setItem('testToken', data.accessToken)
+            actions.resetForm()
+        } catch (error) {
+            console.log(error.response.data)
+        }
     }
+   
 
     const { values, handleChange, handleSubmit, errors, touched, handleBlur } = useFormik({
         initialValues: {
@@ -31,34 +31,38 @@ const LoginForm = () => {
         onSubmit
     })
 
-    console.log(errors)
+    //console.log(errors)
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label >Email</label>
-                <input type='email'
-                    name="email"
-                    placeholder="email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email && touched.email ? "input-error" : ""}
-                />
-                {errors.email && touched.email && <p>{errors.email}</p>}
-                <label>Password</label>
-                <input type='password'
-                    name="password"
-                    placeholder="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password && touched.password ? "input-error" : ""}
-                />
-                {errors.password && touched.password && <p>{errors.password}</p>}
-                <button type="submit">Log in</button>
-            </form>
+        <div className="login">
+            <div className="loginEmail">
+                <form onSubmit={handleSubmit}>
+                    <label >Email</label>
+                    <input type='email'
+                        name="email"
+                        placeholder="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={errors.email && touched.email ? "input-error" : ""}
+                    />
+                    {errors.email && touched.email && <p>{errors.email}</p>}
+                    <div className="loginPassword">
+                        <label>Password</label>
+                        <input type='password'
+                            name="password"
+                            placeholder="password"
+                            value={values.password}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={errors.password && touched.password ? "input-error" : ""}
+                        />
+                        {errors.password && touched.password && <p>{errors.password}</p>}
+                        <button className="loginbtn" type="submit">Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 

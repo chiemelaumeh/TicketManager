@@ -2,3 +2,45 @@ input.input-error,
 select.input-error {
     border-color: red;
 }
+
+h1.login{
+  font-size: 3rem;
+}
+
+.loginbtn {
+    border: none;
+    font-size: 1.0rem;
+    padding: 0.25rem 0.5rem;
+    width: 50%;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+  }
+  .login {
+    flex-wrap: wrap;
+    border: none;
+    padding: 2rem 1rem;
+    width: 20rem;
+    border-radius: 1rem;
+    margin: 3rem auto;
+  
+  }
+  .loginEmail {
+      margin: 0 0 2rem;
+      border-radius: 2rem;
+  }
+  
+  .loginbtn:hover {
+    color:aqua;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+  }
+  
+  
+  .loginbtn:active {
+    position: relative;
+    top: 1px;
+  }
+  
+  
+  

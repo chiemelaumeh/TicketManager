@@ -3,10 +3,13 @@ import LoginForm from "../Components/Login/loginForm"
 
 const Login = () => {
 
-
     return (
         <>
-            <LoginForm />
+
+            <h1 className="login">ATHENA</h1>
+            
+            <LoginForm/>
+
         </>
     )
 }
