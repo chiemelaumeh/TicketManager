@@ -1,29 +1,18 @@
-import { useState } from "react"
+import {useContext} from "react";
+import LoginContext from "../../Contexts/loginContext";
 import { useFormik } from "formik"
 import { dataSchema } from "./schemaValid"
 import "../../CssFiles/login.css"
 import axios from 'axios';
 
-const LoginForm = ( {setLoginState} ) => {
-
-    // const [input, setInput] = useState({ email: '', password: '' })
-
-    // const { email, password } = input
-
-    // const handleChange = (e) => {
-    //     setInput({ ...input, [e.target.name]: e.target.value })
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(input)
-    // }
+const LoginForm = () => {
+    const {setUserRole} = useContext(LoginContext)
    
     const onSubmit = async (values, actions) => {
         console.log(values)
         const { data } = await axios.post('http://localhost:6001/account/login', values)
         if (data.accessToken === undefined) return alert('Not Authorized');
-        setLoginState(data.role)
+        setUserRole(data.role)
         sessionStorage.setItem('testToken', data.accessToken)
         actions.resetForm()
     }
