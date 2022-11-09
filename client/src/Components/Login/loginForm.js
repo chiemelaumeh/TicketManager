@@ -9,11 +9,15 @@ const LoginForm = () => {
     const {setUserRole} = useContext(LoginContext)
    
     const onSubmit = async (values, actions) => {
-        console.log(values)
-        const { data } = await axios.post('http://localhost:6001/account/login', values)
-        if (data.accessToken === undefined) return alert('Not Authorized');
-        setUserRole(data.role)
-        sessionStorage.setItem('testToken', data.accessToken)
+        // console.log(values)
+        try {
+            const { data } = await axios.post('http://localhost:6001/account/login', values)
+            if (data.accessToken === undefined) return alert('Not Authorized');
+            setUserRole(data.role)
+            sessionStorage.setItem('testToken', data.accessToken)
+        } catch (error) {
+            console.log(error.response.data)
+        }
         actions.resetForm()
     }
    

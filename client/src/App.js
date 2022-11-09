@@ -25,9 +25,9 @@ const {userRole} = useContext(LoginContext)
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={userRole === 'admin' ? <Navigate to="/admin"/> : <Login/>}/>
+          <Route path="/" element={userRole === 'admin' ? <Navigate to="/admin"/> : <Login/>}/>
 
-          <Route exact path="/admin" element={<Admin />}/>
+          <Route exact path="/admin" element={userRole === 'admin' ? <Admin />:<Login/>}/>
           <Route exact path="/user" element={<User />} />
           <Route exact path="/tech" element={<Tech />} />
           <Route path='/login' element={<Login/>}/>
