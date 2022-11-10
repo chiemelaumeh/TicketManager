@@ -1,46 +1,78 @@
+body {
+  background-color: #EBF2FA;
+}
+
 input.input-error,
 select.input-error {
-    border-color: red;
+  border-color: red;
 }
 
-h1.login{
+.logo-header {
   font-size: 3rem;
+  padding: 2rem 1rem;
+  width: 20rem;
+  margin: 3rem auto;
+  color: #E3655B;
+  padding-left: 2rem;
 }
+
 
 .loginbtn {
-    border: none;
-    font-size: 1.0rem;
-    padding: 0.25rem 0.5rem;
-    width: 50%;
-    border-radius: 1rem;
-    margin-top: 1.5rem;
-  }
-  .login {
-    flex-wrap: wrap;
-    border: none;
-    padding: 2rem 1rem;
-    width: 20rem;
-    border-radius: 1rem;
-    margin: 3rem auto;
-  
-  }
-  .loginEmail {
-      margin: 0 0 2rem;
-      border-radius: 2rem;
-  }
-  
-  .loginbtn:hover {
-    color:aqua;
-    position: relative;
-    top: 1px;
-    cursor: pointer;
-  }
-  
-  
-  .loginbtn:active {
-    position: relative;
-    top: 1px;
-  }
-  
-  
-  
+  border: none;
+  font-size: 20px;
+  padding: 0.25rem 0.5rem;
+  width: 12rem;
+  height: 2.5rem;
+  border-radius: 10rem;
+  margin: 2rem 1.5rem;
+  background-color: #40798C;
+  color: #fff;
+  font-weight: 700;
+}
+
+.login {
+  flex-wrap: wrap;
+  border: none;
+  padding: 2rem 1rem;
+  width: 20rem;
+  border-radius: 1rem;
+  margin: 3rem auto;
+
+}
+
+.loginEmail {
+  margin: 0 0 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPassword {
+  margin: 0 0 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginbtn:hover {
+  background-color: #40798C;
+  cursor: pointer;
+}
+
+.error-p {
+  width: 5rem;
+  height: 1rem;
+  margin: 10px 0px 0px 0px;
+  color: red;
+}
+
+.label-text {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+
+#input-login {
+  width: 15rem;
+  height: 2rem;
+}
