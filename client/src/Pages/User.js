@@ -26,7 +26,7 @@ const User = () => {
 
 
   const [bigFile, setBigFile] = useState();
-    const[pic, setPic] = useState()
+  const[pic, setPic] = useState()
   const changeImage = (e) => {
     e.preventDefault();
     setBigFile(e.target.files[0]);
@@ -126,13 +126,14 @@ const urgencyItems =[
     <>
     <div className="user-main">
 
-      <h1>Welcome, user!</h1>
+      <h1 className="main-header">Welcome, user!</h1>
       <div className="profile_img text-center p-4">
         <div className="flex flex-column justify-content-center align-items-center">
           <img
+          className="avatar-image"
             style={{
-              width: "200px",
-              height: "200px",
+              width: "100px",
+              height: "100px",
               borderRadius: "50%",
               objectFit: "cover",
               border: "4px solid green",
@@ -211,7 +212,7 @@ const urgencyItems =[
             <div class="paddingLayer">
                <textarea tabIndex="-1" placeholder=""></textarea>
             </div>
-                <button>Submit</button>
+                <button className="ticket-submit">Submit</button>
          </div>      
                               
                 
