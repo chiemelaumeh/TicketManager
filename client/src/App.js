@@ -14,6 +14,7 @@ import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 import SingleTicket from "./Pages/SingleTicket";
+import SinglePage from "./Components/SinglePage/SinglePage";
 
 
 
@@ -37,7 +38,12 @@ const App = () => {
           <Route exact path="/tech" element={userRole === 'tech' ? <Tech /> : <Login />} />
 
           <Route exact path="/tech" element={<Tech />} />
-          <Route path="/tech/:ticketId" element={<SingleTicket />} />
+          
+           //new?
+          <Route path="/tech/:ticketId" element={<SinglePage />} />
+           //old?
+          //<Route path="/tech/:ticketId" element={<SingleTicket />} />
+
 
           <Route path="/admin" element={<SharedLayout />}>
             <Route path="/admin/CreateAccount" element={<CreateAccount />} />
