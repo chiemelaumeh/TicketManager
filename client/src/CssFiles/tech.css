@@ -91,13 +91,32 @@ body {
   border: 1px solid red;
   display: flex;
   height: 80vh;
-  width: 90vw;
+  width: 100vw;
   margin: auto;
+  overflow: hidden;
+}
+.menubars {
+
+  position: absolute;
+  right: 0.5rem;
+  top: 1.4rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.sidenav {
-  width: 15%;
+.open-sidenav {
+  width:15%;
+  position: relative;
+  /* display: none; */
   background-color: rgb(185, 185, 220);
+  overflow: hidden;
+
+}
+.close-sidenav {
+  /* display: none; */
+  width: 2%;
+  /* background-color: rgb(185, 185, 220); */
+  position: relative;
 }
 
 .unclaimed-tickets {
@@ -114,7 +133,7 @@ body {
 }
 .claimed-tickets {
   display: grid;
-  grid-template-columns: repeat(auto-fit,1, 1fr);
+  grid-template-columns: repeat(auto-fit, 1, 1fr);
   /* grid-column-gap: 0.1rem;
   grid-row-gap: 0.2rem; */
   grid-gap: 0.1rem;
@@ -124,10 +143,18 @@ body {
   height: inherit;
 }
 .ticket-board {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+.ticket-board {
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
 }
 .ticket-board .portal-text {
   text-align: center;
@@ -135,14 +162,14 @@ body {
   width: 100%;
   height: 2rem;
   /* display: inline; */
+  position: relative;
 }
 .all-tickets {
   /* background-color: aqua; */
   height: 100%;
   display: flex;
   /* flex-direction: row; */
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: space-evenly;
 }
 .claimed-oneticket {
   background-color: blue;
@@ -222,4 +249,42 @@ body {
     border: 1px solid red;
     margin: 1rem;
   }
+}
+.menu-items{
+  margin-top: 5rem;
+  list-style: none;
+  height: 20rem;
+  /* background-color: brown; */
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  align-items: center;
+  
+ 
+}
+.menu-items-hide li {
+  display: none
+}
+.menu-items li {
+  font-weight: 200;
+
+}
+.menu-list{
+  font-size: 1rem;
+  /* background-color: beige; */
+  height: 3rem;
+  width: 16em;
+  padding-left: 4rem;
+  padding-top: 1rem;
+  cursor: pointer;
+
+}
+.menu-list:hover {
+  background-color: rgb(160, 160, 232);
+  transition: 0.25s;
+
+}
+
+.menu-icon {
+  margin-right: 0.1rem;
 }
