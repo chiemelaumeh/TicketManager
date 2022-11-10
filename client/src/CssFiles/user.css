@@ -1,0 +1,64 @@
+/* * {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    zoom: 1;
+    -webkit-tap-highlight-color: transparent;
+} */
+
+.create-Ticket{
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Arial',Arial;
+    font-size: 18.0pt;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.span-category{
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Arial',Arial;
+    font-size: 10.5pt;
+    font-style: normal;
+    font-weight: 700;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.ticket-Creation-Container{
+    margin-left: 4rem;
+}
+
+#urgency-Span{
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Arial',Arial;
+    font-size: 10.5pt;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.category-Drop{
+    margin-top: .6rem;
+    margin-bottom: .8rem;
+    width: 300px;
+}
+
+.urgency-Drop{
+    margin-top: .6rem;
+    width: 300px;
+}
+
+.ticket-Table{
+    width: 700px;
+    margin-left: 2rem;
+    margin-bottom: 5rem;
+    float: none;
+}
