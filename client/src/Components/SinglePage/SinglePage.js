@@ -52,14 +52,14 @@ const SinglePage = () => {
                 <h3>Ticket Title: {ticket.category}</h3>
                 <p>Ticket Description: {ticket.descrip}</p>
                 <h6>Change Ticket Status</h6>
-                <Dropdown options={options} conChange={onSelect} value={defaultOption} />
             </div>
 
             <div>
                 <h2>Ticket #{ticket.ticket_id}</h2>
                 <h3>Campus: {ticket.name}</h3>
                 <h3>Priority: {ticket.priority}</h3>
-                <h3>Date: TODAY</h3>
+                <h3>Date: {ticket.create_date}</h3>
+                <Dropdown options={options} conChange={onSelect} value={defaultOption} />
                 <form onSubmit={handleSubmit} className="postComment">
                     <input type="text" value={text} onChange={handleChange} className="commentInputBox" />
                     <button type="submit">Submit Comment</button>

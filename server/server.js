@@ -11,7 +11,7 @@ const userRoute = require("./routes/User")
 const adminRoute = require("./routes/Admin")
 const techRoute = require("./routes/Tech")
 const authRoute = require('./AuthRoute/register_login');
-const {generateUploadURL} = require('./s3.js');
+const generateUploadURL = require('./s3.js');
 const authorizeToken = require("./AuthRoute/authToken");
 
 app.use(cors());
@@ -19,7 +19,7 @@ app.use(express.json());
 
 //testing s3 url route
 app.get('/s3Url', async (req, res)=>{
-  const url = await s3.generateUploadURL()
+  const url = await generateUploadURL()
   res.send({url})
 })
 

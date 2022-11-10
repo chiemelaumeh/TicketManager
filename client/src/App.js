@@ -20,23 +20,32 @@ import SinglePage from "./Components/SinglePage/SinglePage";
 
 const App = () => {
 
-const {userRole} = useContext(LoginContext)
+  const { userRole } = useContext(LoginContext)
 
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={userRole === 'admin' ? <Navigate to="/admin"/> : <Login/>}/>
+          <Route path='/login' element={<Login />} />
 
-          <Route exact path="/admin" element={userRole === 'admin' ? <Admin />:<Login/>}/>
-          <Route exact path="/user" element={<User />} />
+          <Route path="/" element={userRole === 'admin' ? <Navigate to='/admin' /> : <Login />} />
+          <Route exact path="/admin" element={userRole === 'admin' ? <Admin /> : <Login />} />
+
+          <Route path="/" element={userRole === 'User' ? <Navigate to='/user' /> : <Login />} />
+          <Route exact path="/user" element={userRole === 'User' ? <User /> : <Login />} />
+
+          <Route path="/" element={userRole === 'tech' ? <Navigate to='/tech' /> : <Login />} />
+          <Route exact path="/tech" element={userRole === 'tech' ? <Tech /> : <Login />} />
+
           <Route exact path="/tech" element={<Tech />} />
-          <Route path='/login' element={<Login/>}/>
+
           <Route path="/tech/:ticketId" element={<SinglePage />} />
+
+
           <Route path="/admin" element={<SharedLayout />}>
-          <Route path= "/admin/CreateAccount" element={<CreateAccount />}/>
-          <Route path= "/admin/ManageAccounts" element={<ManageAccounts/>}/>
-          <Route path= "/admin/TicketHistory" element={<TicketHistory />}/>
+            <Route path="/admin/CreateAccount" element={<CreateAccount />} />
+            <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
+            <Route path="/admin/TicketHistory" element={<TicketHistory />} />
           </Route>
 
         </Routes>
