@@ -46,20 +46,23 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
-            <h1>Single Page</h1>
+            
             <div className='SingleTicket'>
-                <h4>UserName</h4>
-                <h3>Ticket Title: {ticket.category}</h3>
-                <p>Ticket Description: {ticket.descrip}</p>
-                <h6>Change Ticket Status</h6>
+                <h4>UserName Pic??</h4>
+                <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
+                <p className='ticketDescrip'>Ticket Description: {ticket.descrip}</p>
+                
+                
+            </div>
+            <div className='Line'>
+
             </div>
 
-            <div>
+            <div className='SingleTicket2'>
                 <h2>Ticket #{ticket.ticket_id}</h2>
-                <h3>Campus: {ticket.name}</h3>
-                <h3>Priority: {ticket.priority}</h3>
-                <h3>Date: {ticket.create_date}</h3>
-                <Dropdown options={options} conChange={onSelect} value={defaultOption} />
+                <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
+                <h3 id='camp'>Priority: <span id='highlight'>{ticket.priority}</span></h3>
+                <h3 id='camp'>Date: <span id='highlight'>{ticket.create_date}</span></h3>
                 <form onSubmit={handleSubmit} className="postComment">
                     <input type="text" value={text} onChange={handleChange} className="commentInputBox" />
                     <button type="submit">Submit Comment</button>
