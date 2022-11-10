@@ -124,6 +124,8 @@ const urgencyItems =[
 
   return (
     <>
+    <div className="user-main">
+
       <h1>Welcome, user!</h1>
       <div className="profile_img text-center p-4">
         <div className="flex flex-column justify-content-center align-items-center">
@@ -189,6 +191,12 @@ const urgencyItems =[
         </form>
         <img src = {bigFile} alt = ''/>
       </div>
+
+    </div>
+
+
+      <div className="ticket-card">
+
       <div className='ticket-Creation-Container'>
             <h2 className='create-Ticket'>Create a Ticket</h2>                    
             <span id="rtr-s-Paragraph_2_0" className='span-category'>Please select a category.</span>               
@@ -205,16 +213,18 @@ const urgencyItems =[
             </div>
                 <button>Submit</button>
          </div>      
-                 <div class="valign">                
-                <h2>Your Tickets</h2>             
-                  </div>
-                  
+                              
+                
                   
             <div className="card">
+            <h2>Your Tickets</h2>             
+
                 <DataTable value={tickets} className="ticket-Table" responsiveLayout="scroll">
                     {dynamicColumns}
                 </DataTable>
             </div>                                 
+      </div>
+                  
     </>
   );
 };

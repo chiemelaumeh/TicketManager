@@ -62,3 +62,15 @@ option {
     margin-bottom: 5rem;
     float: none;
 }
+.card {
+    text-align: center;
+}
+
+.ticket-card {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.user-main{
+    margin-left: 15rem;
+}
