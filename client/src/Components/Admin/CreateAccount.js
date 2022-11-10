@@ -1,23 +1,23 @@
 import "../../CssFiles/admin.css"
 const CreateAccount = () => {
 return (
-    <div>
-        <h2>CREATE ACCOUNT</h2>
-        <input placeholder="Full Name"></input>
-        <input placeholder="EMAIL"></input>
-        <select>
+    <div className="AdminCreateAccount">
+        <h2 id = "CreateAccount">CREATE ACCOUNT</h2>
+        <input placeholder="Full Name" className="inputBox"></input>
+        <input placeholder="EMAIL" className="inputBox"></input>
+        <select className="inputBox">
             <option>San Antonio</option>
             <option>Austin</option>
             <option>Houston</option>
             <option>Dallas</option>
         </select>
-        <select>
+        <select className="inputBox">
             <option>ADMIN</option>
             <option>TECH</option> 
             <option>USER</option>
         </select>
-        <input placeholder="Initial Password"></input>
-        <button>CREATE ACCOUNT</button>
+        <input placeholder="Initial Password" className="inputBox"></input>
+        <button id="AdminCreateAccountBTN">CREATE ACCOUNT</button>
     </div>
 )
 }

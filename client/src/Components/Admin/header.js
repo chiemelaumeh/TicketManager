@@ -8,12 +8,12 @@ const Header = () => {
     const {handleLogOut} = useContext(LoginContext)
 
     return(
-        <nav>
-        <h1>ATHENA</h1>
-        <NavLink to ="/admin/CreateAccount">Create Accout</NavLink>
-        <NavLink to = "/admin/ManageAccounts">ManageAccounts</NavLink>
-        <NavLink to = "/admin/TicketHistory">TicketHistory</NavLink>
-        <button onClick={handleLogOut}>log out</button>
+        <nav className="NavBar">
+        <h1 className="NavBarTitle">ATHENA</h1>
+        <NavLink to ="/admin/CreateAccount" className="NavBarComp">Create Accout</NavLink>
+        <NavLink to = "/admin/ManageAccounts" className="NavBarComp">ManageAccounts</NavLink>
+        <NavLink to = "/admin/TicketHistory" className="NavBarComp">TicketHistory</NavLink>
+        <button onClick={handleLogOut} className="NavBarComp" id = "LogOutBTN">log out</button>
         </nav>
     )
     }
