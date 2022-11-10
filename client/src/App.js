@@ -3,7 +3,9 @@ import LoginContext from "./Contexts/loginContext";
 import { useContext } from "react";
 import "./CssFiles/login.css"
 import "./CssFiles/TicketHistory.css"
+import './CssFiles/user.css'
 import "./CssFiles/admin.css"
+
 
 import CreateAccount from "./Components/Admin/CreateAccount";
 import ManageAccounts from "./Components/Admin/ManageAccounts";

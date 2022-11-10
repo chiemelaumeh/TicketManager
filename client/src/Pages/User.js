@@ -1,13 +1,20 @@
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-import { useState } from "react";
-import Avatar from "react-avatar";
+import { useState,useEffect } from "react";
+import Avatar from "react-avatar-edit";
 import { Button } from "primereact/button";
 
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
 import axios from "axios";
+
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Dropdown } from 'primereact/dropdown';
+
+
+
 
 const User = () => {
   // const [src, setSrc] = useState(false);
@@ -63,6 +70,57 @@ const User = () => {
       setImage(null);
     }
   };
+
+  const [category, setCategory] = useState([])
+  const [urgency, setUrgency] = useState([])
+
+  const [tickets, setTickets] = useState([]);
+  const columns = [
+      {field: 'ticket_id', header: 'Ticket #'},
+      {field: 'create_date', header: 'Submission'},
+      {field: 'category', header: 'Category'},
+      {field: 'priority', header: 'Urgency'},
+      {field: 'status', header: 'Status'},
+      {field: 'assigned', header: 'Tech'}
+  ];
+
+  // const ticketService = new TicketService();
+
+  useEffect(() => {
+      const renderTickets = async() =>{
+          const response = await axios.get('http://localhost:6001/user/1');
+          console.log(response.data);
+          setTickets(response.data)
+      //   await ticketService.getTicketsSmall().then(data => setTickets(data));
+      } 
+      renderTickets();
+  }, []);
+
+  const dynamicColumns = columns.map((col,i) => {
+      return <Column key={col.field} field={col.field} header={col.header} />;
+  });
+
+  
+const categorySelectItems = [
+  {label: 'Hardware', value: 'Hardware'},
+  {label: 'Software', value: 'Software'},
+  {label: 'Infrastructure', value: 'Infrastructure'},
+  {label: 'Wi-Fi', value: 'Wi-Fi'},
+  {label: 'Other', value: 'Other'}
+];
+
+const urgencyItems =[
+  {label: '1- Urgent', value: '1- Urgent'},
+  {label: '2- Priority', value: '2- Priority'},
+  {label: '3- Routine', value: '3- Routine'},
+  {label: '4- Minor', value: '4- Minor'}
+]
+
+
+
+
+
+
 
   return (
     <>
@@ -131,6 +189,32 @@ const User = () => {
         </form>
         <img src = {bigFile} alt = ''/>
       </div>
+      <div className='ticket-Creation-Container'>
+            <h2 className='create-Ticket'>Create a Ticket</h2>                    
+            <span id="rtr-s-Paragraph_2_0" className='span-category'>Please select a category.</span>               
+           <div className='Ticket-Creation'>
+             <Dropdown className="category-Drop" value={category} options={categorySelectItems} onChange={(e) => setCategory(e.value)} placeholder="Select a Category"/>
+           </div>
+           <span id="urgency-Span">Please select an urgency.</span>             
+               <div className='ticket-Urgency'>
+               <Dropdown className="urgency-Drop" value={urgency} options={urgencyItems} onChange={(e) => setUrgency(e.value)} placeholder="Select Urgency"/>
+               </div>
+            <span id="rtr-s-Paragraph_9_0">Please provide specific details.</span> 
+            <div class="paddingLayer">
+               <textarea tabIndex="-1" placeholder=""></textarea>
+            </div>
+                <button>Submit</button>
+         </div>      
+                 <div class="valign">                
+                <h2>Your Tickets</h2>             
+                  </div>
+                  
+                  
+            <div className="card">
+                <DataTable value={tickets} className="ticket-Table" responsiveLayout="scroll">
+                    {dynamicColumns}
+                </DataTable>
+            </div>                                 
     </>
   );
 };
