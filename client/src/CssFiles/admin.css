@@ -1,0 +1,78 @@
+/* CREATE ACCOUNT PAGE CSS */
+.AdminCreateAccount{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+.inputBox{
+    margin-bottom: 10%;
+    box-shadow: 5px 5px 10px 2px;
+    border-radius: 10px 140px 30px 140px;
+    text-align: center;
+}
+
+#AdminCreateAccountBTN{
+    background-color: aqua;
+    border: none;
+    padding: 10%;
+    border-radius: 140px 140px 140px 140px;
+    box-shadow: 5px 5px 10px 2px lightBlue;
+    transition:.5s ease;
+}
+
+
+#AdminCreateAccountBTN:hover{
+    background-color: rgba(48, 48, 210, 0.752);
+}
+
+#AdminCreateAccountBTN:active{
+    background-color: lightgreen;
+    box-shadow: 0 5px lightcoral;
+    transform: translate(4px);
+}
+
+
+
+
+
+/* NAV BAR CSS */
+.NavBar{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.NavBarTitle{
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.NavBarComp{
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20%;
+    text-decoration: none;
+    color: red;
+    transition: .5s ease;
+}
+
+.NavBarComp:hover{
+    background-color: lightskyblue;
+    box-shadow: 10px 5px red ;
+    transform: translate(10px);
+}
+
+.NavBarComp:active{
+    box-shadow: 0 5px lightcoral;
+    transform: translate(4px);
+}
+
+#LogOutBTN{
+    position: absolute;
+    top: 0;
+    right: 3%;
+    
+}
