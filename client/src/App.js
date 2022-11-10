@@ -38,8 +38,11 @@ const App = () => {
           <Route exact path="/tech" element={userRole === 'tech' ? <Tech /> : <Login />} />
 
           <Route exact path="/tech" element={<Tech />} />
-
+          
+           //new?
           <Route path="/tech/:ticketId" element={<SinglePage />} />
+           //old?
+          //<Route path="/tech/:ticketId" element={<SingleTicket />} />
 
 
           <Route path="/admin" element={<SharedLayout />}>
