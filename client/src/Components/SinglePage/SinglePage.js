@@ -8,7 +8,7 @@ import SingleTicketContext from '../../Contexts/SingleTicketContext';
 const SinglePage = () => {
     const ticketTarget = useParams()
 
-    const [text, setText] = useState('')
+    
 
     const {ticket ,setTicket} = useContext(SingleTicketContext)
 
@@ -17,8 +17,11 @@ const SinglePage = () => {
     ]
     const defaultOption = options[0]
 
-    const onSelect = () => {
+   
 
+    const getComments = (e) => {
+        e.preventDefault()
+        console.log("some comments will go here")
     }
 
     useEffect(() => {
@@ -32,16 +35,10 @@ const SinglePage = () => {
 
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        //Make a post request to comments
 
-        setText('')
-    }
+  
 
-    const handleChange = (e) => {
-        setText(e.target.value)
-    }
+   
 
 
     return (
@@ -63,9 +60,9 @@ const SinglePage = () => {
                 <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
                 <h3 id='camp'>Priority: <span id='highlight'>{ticket.priority}</span></h3>
                 <h3 id='camp'>Date: <span id='highlight'>{ticket.create_date}</span></h3>
-                <form onSubmit={handleSubmit} className="postComment">
-                    <input type="text" value={text} onChange={handleChange} className="commentInputBox" />
-                    <button type="submit">Submit Comment</button>
+                <form onSubmit={getComments} className="postComment">
+                   <button type="submit">Get Comments</button>
+                   
                 </form>
             </div>
         </div>

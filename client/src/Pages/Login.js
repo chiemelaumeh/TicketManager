@@ -6,9 +6,9 @@ const Login = () => {
     return (
         <>
 
-            <h1 className="login">ATHENA</h1>
-            
-            <LoginForm/>
+            <h1 className="logo-header">ATHENA</h1>
+
+            <LoginForm />
 
         </>
     )
