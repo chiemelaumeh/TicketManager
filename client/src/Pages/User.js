@@ -1,6 +1,7 @@
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-import { useState,useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import PicContext from "../Contexts/UserPContext";
 import Avatar from "react-avatar-edit";
 import { Button } from "primereact/button";
 
@@ -24,30 +25,8 @@ const User = () => {
   const [pview, setPview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
 
-
-  const [bigFile, setBigFile] = useState();
-  const[pic, setPic] = useState()
-  const changeImage = (e) => {
-    e.preventDefault();
-    setBigFile(e.target.files[0]);
-    console.log(bigFile);
-  };
-
-  const fetchRequest = async (e) => {
-    e.preventDefault()
-    const getUrl = await axios.get("http://localhost:6001/s3Url")
-    const {url} = await getUrl.data
-    console.log(url);
-    const pushFile = await fetch(url, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "multiport/form-data"
-        },
-        body: bigFile
-    })
-    const tester = await url.split('?')[0]
-    setPic(tester)
-  };
+  const {fetchReq, fileState, pic, file} = useContext(PicContext)
+  
 
   const onClose = () => {
     setPview(null);
@@ -186,11 +165,11 @@ const urgencyItems =[
 
       <div>
         test
-        <form onSubmit={fetchRequest}>
-          <input type="file" onChange={changeImage}></input>
+        <form onSubmit={fetchReq}>
+          <input type="file" onChange={fileState}></input>
           <input className="upload" type="submit" />
         </form>
-        <img src = {bigFile} alt = ''/>
+        <img src = {file} alt = ''/>
       </div>
 
     </div>
