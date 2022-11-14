@@ -3,16 +3,16 @@ import { useState, createContext } from "react";
 const LoginContext = createContext();
 
 export const LoginProvider = ({children}) => {
-    const [userRole, setUserRole] = useState('');
+    const [user, setUser] = useState('');
 
     const handleLogOut = () => {
-        setUserRole('')
+        setUser('')
         sessionStorage.removeItem('testToken')
     }
 
     return (
         <LoginContext.Provider
-            value = {{userRole, setUserRole, handleLogOut}}>
+            value = {{user, setUser, handleLogOut}}>
                 {children}
             </LoginContext.Provider>
     )
