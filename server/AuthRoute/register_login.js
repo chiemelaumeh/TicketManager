@@ -57,11 +57,17 @@ authRoute.post('/login', async (req, res) => {
                 user_id: user.user_id,
                 userName: user.username,
                 email: user.email,
-                accessRole: user.accessrole,
-                campus_name: user.campus_name
+                password: user.password
             }, process.env.ACCESS_TOKEN);
             
-            res.status(200).send({accessToken: secretToken, role: user.accessrole});
+            res.status(200).send({
+                user_id: user.user_id,
+                userName: user.username,
+                email: user.email,
+                accessRole: user.accessrole,
+                campus_name: user.campus_name,
+                accessToken: secretToken
+            });
             
         }else if(isAuthorized === false){
             res.status(401).send("Incorrect Password")
