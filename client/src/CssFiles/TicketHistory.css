@@ -1,15 +1,31 @@
 .table-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    border: 2px solid red;
-    color: red;
+    justify-content: space-around;
+    width: 70rem;
+    height: 3rem;
+    margin: 3rem auto;
+    border: 2px solid black;
 }
 
-;
-
-.table-col {}
 
 .table-text {
-    color: blue;
+    width: 6rem;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.3rem;
+}
+
+.single-ticket {
+    display: flex;
+    width: 70rem;
+    height: 4rem;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.ticket-div {
+    width: 6rem;
+    text-align: center;
+    height: 3rem;
 }
