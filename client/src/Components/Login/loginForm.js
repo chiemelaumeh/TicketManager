@@ -6,14 +6,15 @@ import "../../CssFiles/login.css"
 import axios from 'axios';
 
 const LoginForm = () => {
-    const { setUserRole, userRole } = useContext(LoginContext)
+    const { setUser, user } = useContext(LoginContext)
 
     const onSubmit = async (values, actions) => {
         try {
             const { data } = await axios.post('http://localhost:6001/account/login', values)
             if (data.accessToken === undefined) return alert('Not Authorized');
-            setUserRole(data.role)
+            setUser(data)
             sessionStorage.setItem('testToken', data.accessToken)
+            console.log(data)
             actions.resetForm()
         } catch (error) {
             console.log(error.response.data)

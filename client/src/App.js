@@ -21,8 +21,9 @@ import SinglePage from "./Components/SinglePage/SinglePage";
 
 
 const App = () => {
+  const { user } = useContext(LoginContext)
 
-  const { userRole } = useContext(LoginContext)
+  
 
   return (
     <Router>
@@ -30,20 +31,20 @@ const App = () => {
         <Routes>
           <Route path='/login' element={<Login />} />
 
-          <Route path="/" element={userRole === 'admin' ? <Navigate to='/admin' /> : <Login />} />
-          <Route exact path="/admin" element={userRole === 'admin' ? <Admin /> : <Login />} />
+          <Route path="/" element={user.accessRole === 'admin' ? <Navigate to='/admin' /> : <Login />} />
+          <Route exact path="/admin" element={user.accessRole === 'admin' ? <Admin /> : <Navigate to='/'/>} />
 
-          <Route path="/" element={userRole === 'User' ? <Navigate to='/user' /> : <Login />} />
-          <Route exact path="/user" element={userRole === 'User' ? <User /> : <Login />} />
+          <Route path="/" element={user.accessRole === 'User' ? <Navigate to='/user' /> : <Login />} />
+          <Route exact path="/user" element={user.accessRole === 'User' ? <User /> : <Login />} />
 
-          <Route path="/" element={userRole === 'tech' ? <Navigate to='/tech' /> : <Login />} />
-          <Route exact path="/tech" element={userRole === 'tech' ? <Tech /> : <Login />} />
+          <Route path="/" element={user.accessRole === 'tech' ? <Navigate to='/tech' /> : <Login />} />
+          <Route exact path="/tech" element={user.accessRole === 'tech' ? <Tech /> : <Login />} />
 
           <Route exact path="/tech" element={<Tech />} />
 
           <Route path="/tech/:ticketId" element={<SinglePage />} />
 
-          <Route path="/admin" element={<SharedLayout />}>
+          <Route path="/admin" element={user.accessRole === 'admin' ? <SharedLayout /> : <Navigate to='/'/>}>
             <Route path="/admin/CreateAccount" element={<CreateAccount />} />
             <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
             <Route path="/admin/TicketHistory" element={<TicketHistory />} />
