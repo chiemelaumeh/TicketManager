@@ -5,7 +5,7 @@ const CommentContext = createContext();
 
 export const CommentProvider = ({children}) => {
     
-    const [comments, setComments] = useState('')
+    const [comments, setComments] = useState([])
 
 
     return <CommentContext.Provider
