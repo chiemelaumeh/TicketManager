@@ -21,10 +21,6 @@ const ProfileInput = () => {
                     </div>
                 </form>
             </div>
-
-
-
-
         </>
     )
 }

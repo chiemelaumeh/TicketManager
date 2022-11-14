@@ -4,8 +4,6 @@ import ProfileInput from "./ProfileInput"
 const Profile = ({ close, open }) => {
 
 
-
-
     if (!open) return null
     return ReactDOM.createPortal(
         <><div className="over-lay">
