@@ -1,0 +1,16 @@
+.Header {
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid;
+    width: 62rem;
+    margin: auto;
+}
+
+.Data_Table {
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    width: 62rem;
+    margin: auto;
+}
