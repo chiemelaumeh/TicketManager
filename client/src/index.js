@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { LoginProvider } from './Contexts/loginContext';
 import { SingleTicketProvider } from './Contexts/SingleTicketContext';
 import { CommentProvider } from './Contexts/CommentsContext';
-
+import { PicProvider } from './Contexts/UserPContext';
 import App from './App';
 
 
@@ -13,7 +13,9 @@ root.render(
   <CommentProvider>
     <SingleTicketProvider>
      <LoginProvider>
+      <PicProvider>
       <App />
+      </PicProvider>
      </LoginProvider>
     </SingleTicketProvider>
   </CommentProvider>
