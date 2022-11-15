@@ -1,29 +1,29 @@
-import { useState, useEffect, useContext } from 'react'
-import axios from 'axios'
+import { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { useParams } from "react-router-dom";
-import '../../CssFiles/SinglePage.css'
+import '../../CssFiles/SinglePage.css';
 import Comment from './Comment';
 import CommentContext from '../../Contexts/CommentsContext';
 import SingleTicketContext from '../../Contexts/SingleTicketContext';
 
 const SinglePage = () => {
-    const { ticket_id } = useParams()
-    const { comments, setComments } = useContext(CommentContext)
-    const { ticket, setTicket } = useContext(SingleTicketContext)
-    const [techComment, setTechComment] = useState('')
+    const { ticket_id } = useParams();
+    const { comments, setComments } = useContext(CommentContext);
+    const { ticket, setTicket } = useContext(SingleTicketContext);
+    const [techComment, setTechComment] = useState('');
     
     function handleChange(e) {
         setTechComment(e.target.value)
     }; 
+
     const postComment = async () => {
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
-            user_id: 1,
-            ticket_id: 2,
+            user_id: 11,
+            ticket_id: 27,
             comment: techComment
         })
         console.log(response)
     };
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -31,31 +31,18 @@ const SinglePage = () => {
         setTechComment('')
     };
 
-    // const getComment = async () => {
-    //     const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
-    //     setComments(data)
-    //     console.log(data)
-    // }
-
     useEffect(() => {
         const getComments = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/2/comment`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/27/comment`)
             setComments(data)
             //console.log(data)
         }
         getComments()
     }, [comments]);
-
-    useEffect(() => {
-        const getSingleTicket = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/2`)
-            setTicket(data[0])
-        }
-    }, []);
     
     useEffect(() => {
         const getSingleTicket = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/1`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/27`)
             setTicket(data[0])
         }
         getSingleTicket()
@@ -93,4 +80,4 @@ const SinglePage = () => {
     )
 }
 
-export default SinglePage
+export default SinglePage;
