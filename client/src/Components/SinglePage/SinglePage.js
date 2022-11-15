@@ -9,12 +9,13 @@ import SingleTicketContext from '../../Contexts/SingleTicketContext';
 const SinglePage = () => {
     const {ticket_id} = useParams()
 
-    const {comments, setComments} = useContext(CommentContext)
-    const {ticket ,setTicket} = useContext(SingleTicketContext)
+    const { comments, setComments } = useContext(CommentContext)
+    const { ticket, setTicket } = useContext(SingleTicketContext)
 
   
 
-   
+
+
 
     // const getComment = async () => {
     //     const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
@@ -33,12 +34,13 @@ const SinglePage = () => {
         getComments()
     }, []);
     
+
     useEffect(() => {
         const getSingleTicket = async () => {
-            const {data} = await axios.get(`http://localhost:6001/tech/ticket/1`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/1`)
             setTicket(data[0])
         }
-        
+
         getSingleTicket()
     }, []);
 
@@ -47,7 +49,7 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
-            
+
             <div className='SingleTicket'>
                 <h4>UserName Pic??</h4>
                 <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
