@@ -11,11 +11,10 @@ const SinglePage = () => {
     const { comments, setComments } = useContext(CommentContext)
     const { ticket, setTicket } = useContext(SingleTicketContext)
     const [techComment, setTechComment] = useState('')
-
+    
     function handleChange(e) {
         setTechComment(e.target.value)
-    };
-
+    }; 
     const postComment = async () => {
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
             user_id: 1,
@@ -24,6 +23,7 @@ const SinglePage = () => {
         })
         console.log(response)
     };
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -51,11 +51,15 @@ const SinglePage = () => {
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/2`)
             setTicket(data[0])
         }
+    }, []);
+    
+    useEffect(() => {
+        const getSingleTicket = async () => {
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/1`)
+            setTicket(data[0])
+        }
         getSingleTicket()
     }, []);
-
-
-
 
     return (
         <div className='singlePageContainer'>

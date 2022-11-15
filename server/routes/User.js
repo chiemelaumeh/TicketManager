@@ -6,7 +6,7 @@ userRoute.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT * FROM tickets WHERE user_id = $1",
+      "SELECT *, TO_CHAR(create_date, 'Mon dd, yyyy') FROM tickets WHERE user_id = $1",
       [id]
     );
     res.status(200).send(rows);
