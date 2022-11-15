@@ -1,40 +1,39 @@
-import { useState, useEffect, useContext } from 'react'
-import Dropdown from 'react-dropdown'
+import {  useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useParams } from "react-router-dom";
 import '../../CssFiles/SinglePage.css'
+import Comment from './Comment';
 import CommentContext from '../../Contexts/CommentsContext';
 import SingleTicketContext from '../../Contexts/SingleTicketContext';
 
 const SinglePage = () => {
-    const ticketTarget = useParams()
+    const {ticket_id} = useParams()
 
     const { comments, setComments } = useContext(CommentContext)
     const { ticket, setTicket } = useContext(SingleTicketContext)
 
-    const options = [
-        'Not Started', 'In Progress', 'Completed'
-    ]
-    const defaultOption = options[0]
+  
 
 
 
-    const getComment = async () => {
-        const { data } = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
-        console.log(data)
-        setComments(data)
 
+    // const getComment = async () => {
+    //     const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
+    //     setComments(data)
+    //     console.log(data)
+        
+        
+    // }
+    useEffect(() => {
+        const getComments = async () => {
+            const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
+            setComments(data)
+            console.log(data)
+        }
 
-    }
-    // useEffect(() => {
-    //     const getComments = async () => {
-    //         const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
-    //         setComments(data[0])
-    //         console.log(data)
-    //     }
-
-    //     getComments()
-    // }, []);
+        getComments()
+    }, []);
+    
 
     useEffect(() => {
         const getSingleTicket = async () => {
@@ -64,8 +63,10 @@ const SinglePage = () => {
                 <h3 id='camp'>Priority: <span id='highlight'>{ticket.priority}</span></h3>
                 <h3 id='camp'>Date: <span id='highlight'>{ticket.create_date}</span></h3>
                 <div>
-                    <div>{comments}</div>
-                    <button onClick={getComment}>Get Comments</button>
+                    <div className='Comment'>{comments.map((data) => (
+            <Comment key={data.ticket_id} data={data}/>   
+        ))} </div>
+                   
                 </div>
             </div>
         </div>
