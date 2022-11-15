@@ -13,7 +13,6 @@
 
 .ticket {
   height: 5rem;
-  width: 8rem;
   border: 1px solid red;
   margin: 1rem;
 }
@@ -129,27 +128,13 @@ body {
 }
 
 .unclaimed-tickets {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  /* grid-column-gap: 0.1rem; */
-  /* grid-row-gap: 0.2rem; */
-  grid-gap: 0.1rem;
   border: 1px solid blue;
-  width: 12rem;
-  height: 30rem;
-  /* margin-top: 1rem; */
+  width: 50%;
   height: inherit;
 }
 .claimed-tickets {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  /* grid-column-gap: 0.1rem; */
-  /* grid-row-gap: 0.2rem; */
-  grid-gap: 0.1rem;
-  border: 1px solid blue;
-  width: 12rem;
-  height: 30rem;
-  /* margin-top: 1rem; */
+  border: 1px solid green;
+  width: 50%;
   height: inherit;
 }
 .ticket-board {
@@ -158,6 +143,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  padding-left: 4%;
 }
 .ticket-board {
   width: 80%;
@@ -165,6 +151,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 0;
+  padding-top: 1rem;
 }
 .portal-text {
   text-align: center;
