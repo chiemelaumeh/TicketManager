@@ -73,7 +73,7 @@ const Tech = () => {
                   >
                     {/* <h3>{ticket.ticket_id}</h3> */}
                     <p>{tickets.ticket_id}</p>
-                    <p>{tickets.descrip}</p>
+                    <p>{tickets.category}</p>
                   </article>
                 );
               })}
@@ -86,7 +86,7 @@ const Tech = () => {
                     key={tickets.ticket_id}
                   >
                     <p>{tickets.ticket_id}</p>
-                    <p>{tickets.descrip}</p>
+                    <p>{tickets.category}</p>
                   </article>
                 );
               })}

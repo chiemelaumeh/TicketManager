@@ -13,6 +13,7 @@ import axios from "axios";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dropdown } from 'primereact/dropdown';
+import { Calendar } from 'primereact/calendar';
 
 
 
@@ -54,9 +55,10 @@ const User = () => {
   const [urgency, setUrgency] = useState([])
 
   const [tickets, setTickets] = useState([]);
+  const [date, setDate] = useState(null);
   const columns = [
       {field: 'ticket_id', header: 'Ticket #'},
-      {field: 'create_date', header: 'Submission'},
+      {field: 'to_char', header: 'Submission'},
       {field: 'category', header: 'Category'},
       {field: 'priority', header: 'Urgency'},
       {field: 'status', header: 'Status'},
@@ -73,6 +75,9 @@ const User = () => {
   const payloadObj = (JSON.parse(atob(getPayload)))
   const {iat, email, userName, user_id, } = payloadObj
 
+    //This allows us to re-render the page // 
+    const [submitTicket, setSubmitTicket] = useState(false)
+
   const onSubmitForm = async (e) => {
     e.preventDefault();  
     console.log(category)
@@ -83,15 +88,16 @@ const User = () => {
         user_id: user_id,
         category,
         descrip: "doesnt work",
-        assigned: null,
-        priority: 1,
+        assigned: false,
+        priority: urgency,
         eta: null,
        email: email,
         status: "in progress",
         campus_id: 1,
-        create_date: "2022-11-02T07:00:00.000Z",
+        create_date: date,
         resolved: null  });
-        // console.log(response.data);
+        setSubmitTicket(true)
+         console.log(response);
     
 
   }
@@ -100,11 +106,12 @@ const User = () => {
       const renderTickets = async(e) =>{
           const response = await axios.get(`http://localhost:6001/user/${user_id}`);
           console.log(response.data);
+          setSubmitTicket(false)
           setTickets(response.data)
       //   await ticketService.getTicketsSmall().then(data => setTickets(data));
       } 
       renderTickets();
-  }, []);
+  }, [submitTicket]);
 
   const dynamicColumns = columns.map((col,i) => {
       return <Column key={col.field} field={col.field} header={col.header} />;
@@ -218,6 +225,10 @@ const urgencyItems =[
                <div className='ticket-Urgency'>
                <Dropdown className="urgency-Drop" value={urgency} options={urgencyItems} onChange={(e) => setUrgency(e.value)} placeholder="Select Urgency"/>
                </div>
+               <span className="date-Span">Please select Date</span>
+               <div className="ticket-Date">
+               <Calendar dateFormat="mm/dd/yy" value={date} onChange={(e) => setDate(e.value)}></Calendar>
+              </div>
             <span id="rtr-s-Paragraph_9_0">Please provide specific details.</span> 
             <div class="paddingLayer">
                <textarea tabIndex="-1" placeholder=""></textarea>

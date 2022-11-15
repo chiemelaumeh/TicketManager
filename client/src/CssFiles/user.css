@@ -69,6 +69,16 @@
     font-weight: 700;
 }
 
+.date-Span{
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Arial',Arial;
+    font-size: 10.5pt;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: .9rem;
+}
+
 option {
     font-weight: normal;
     display: block;
@@ -99,6 +109,7 @@ option {
 .urgency-Drop{
     margin-top: .6rem;
     width: 300px;
+    margin-bottom: .9rem;
 }
 
 .ticket-Table{
