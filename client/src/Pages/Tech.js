@@ -78,7 +78,7 @@ const Tech = () => {
                 );
               })}
             </div>
-            <div className="unclaimed-tickets">
+            <div className="unclaimed-tickets" >
               {unclaimed.map((tickets) => {
                 return (
                   <article

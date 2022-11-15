@@ -13,8 +13,15 @@
 
 .ticket {
   height: 5rem;
-  border: 1px solid red;
+  border: 3px solid var(--gray);
   margin: 1rem;
+  border-radius: 10px;
+  transition: ease-in-out .1s;
+}
+.ticket:hover {
+  cursor: pointer;
+  border: 3px solid var(--offBlack);
+  transform: scale(0.98);
 }
 
 .navbar {
@@ -96,9 +103,9 @@ body {
 }
 
 .mainticket {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
-  height: 80vh;
+  height: 100%;
   width: 100vw;
   margin: auto;
   overflow: hidden;
@@ -128,14 +135,18 @@ body {
 }
 
 .unclaimed-tickets {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 50%;
   height: inherit;
+  overflow:scroll;
+  overflow-x:hidden;
 }
 .claimed-tickets {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 50%;
   height: inherit;
+  overflow:scroll;
+  overflow-x:hidden;
 }
 .ticket-board {
   width: 90%;
@@ -155,7 +166,7 @@ body {
 }
 .portal-text {
   text-align: center;
-  border: 1px solid #222;
+  /* border: 1px solid #222; */
   width: 100%;
   height: 2rem;
   /* display: inline; */
