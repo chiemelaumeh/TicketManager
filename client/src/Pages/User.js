@@ -76,9 +76,6 @@ const User = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();  
     console.log(category)
-    
-    
-      
        const response = await axios.post("http://localhost:6001/User/ticket/create", { 
         user_id: user_id,
         category,
