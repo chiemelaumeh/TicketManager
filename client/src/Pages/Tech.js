@@ -35,6 +35,7 @@ const Tech = () => {
   useEffect(() => {
     const getTickets = async () => {
       const {data} = await axios.get(`http://localhost:6001/tech/Tickets/campus/1`)
+
       setTickets(data)
     }
     getTickets()
@@ -63,7 +64,7 @@ const Tech = () => {
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
           <div className="all-tickets">
-            <div className="unclaimed-tickets">
+            <div className="claimed-tickets">
               {claimed.map((tickets) => {
                 return (
                   <article
@@ -77,7 +78,7 @@ const Tech = () => {
                 );
               })}
             </div>
-            <div className="claimed-tickets">
+            <div className="unclaimed-tickets">
               {unclaimed.map((tickets) => {
                 return (
                   <article
