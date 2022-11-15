@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import userTickets from "./data";
 import "../CssFiles/tech.css";
 import Navbar from "../Components/Navbar";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { FaRegBuilding} from "react-icons/fa";
@@ -11,8 +11,10 @@ import { FaGear } from "react-icons/fa";
 import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt} from "react-icons/fa";
 import TechContext from "../Contexts/TechPageContext";
+import axios from "axios";
 
 const Tech = () => {
+
 
   const {tickets, setTickets} = useContext(TechContext)
 
@@ -30,6 +32,14 @@ const Tech = () => {
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    const getTickets = async () => {
+      const {data} = await axios.get(`http://localhost:6001/tech/Tickets/campus/1`)
+      console.log(data)
+    }
+    getTickets()
+  }, [])
 
   
 
@@ -67,7 +77,7 @@ const Tech = () => {
                 );
               })}
             </div>
-            <div className="claimed-tickets">
+            {/* <div className="claimed-tickets">
               {unclaimed.map((ticket) => {
                 return (
                   <article
@@ -78,7 +88,7 @@ const Tech = () => {
                   </article>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
