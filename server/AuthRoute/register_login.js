@@ -3,15 +3,32 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../config');
 require('dotenv').config()
-
+const { check, validationResult } = require('express-validator')
 const authRoute = express.Router();
 
-authRoute.post('/register', async (req, res) => {
-    // const { userName, accessRole, campus_name, email, password } = req.body;
-    const { name, role, campus, email, password } = req.body;
-    res.send('hit register backend')
+authRoute.post('/register', [
+    check("email").isEmail().withMessage("Invalid email").not().isEmpty().withMessage("Please enter a email"),
+    check("name", "Enter name").not().isEmpty(),
+    check("campus", "Enter campus").not().isEmpty(),
+    check("role", "Enter Role").not().isEmpty(),
+    check("password", "Enter password").isLength({ min: 4 }).not().isEmpty()
+], async (req, res) => {
 
-    // if(userName === "" || accessRole === "" || campus_name === "" || email === "" || password === "") return res.send('Fields cannot be empty');
+    const { name, role, campus, email, password } = req.body;
+
+    const error = validationResult(req).formatWith(({ msg }) => msg)
+
+    if (!error.isEmpty()) {
+        console.log('if')
+        res.json({ error: error.array() })
+    } else {
+        console.log('else')
+        res.send('hit backend ')
+    }
+
+
+
+
 
     // //check if email exists; make database query and filter to check if email exists
     // const {rows} = await pool.query('select * from accounts');
@@ -27,7 +44,7 @@ authRoute.post('/register', async (req, res) => {
     //         //hash the password with salt rounds
     //         const hashedPassword = await bcrypt.hash(password,salt);
     //         //insert input data into database with hashed password, NOT typed password
-    //         const {rows} = await pool.query('insert into accounts (userName, accessRole, campus_name, email, password) values ($1,$2,$3,$4,$5) returning *', [userName, accessRole, campus_name, email, hashedPassword]);
+    //         const {rows} = await pool.query('INSERT INTO accounts (userName, accessRole, campus_name, email, password) VALUES ($1,$2,$3,$4,$5) RETURNING *', [name, role, campus, email, hashedPassword]);
     //         res.send(rows);
     //     } catch (error) {
     //         res.status(404).send(error.message);
