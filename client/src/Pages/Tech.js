@@ -1,8 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import userTickets from "./data";
 import "../CssFiles/tech.css";
 import Navbar from "../Components/Navbar";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { FaRegBuilding} from "react-icons/fa";
@@ -10,13 +9,20 @@ import { FaCheck } from "react-icons/fa";
 import { FaGear } from "react-icons/fa";
 import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt} from "react-icons/fa";
+import TechContext from "../Contexts/TechPageContext";
+import axios from "axios";
 
 const Tech = () => {
+
+
+  const {tickets, setTickets} = useContext(TechContext)
+
+
   const [open, setOpen] = useState(true);
   // console.log(userTickets);
-  const claimed = userTickets.filter((c) => c.assigned == true);
+  const claimed = tickets.filter((c) => c.assigned == true);
   // console.log(claimed)
-  const unclaimed = userTickets.filter((c) => c.assigned == false);
+  const unclaimed = tickets.filter((c) => c.assigned == false);
   // console.log(unclaimed)
   const handleClick = () => {
     if (open) {
@@ -25,6 +31,20 @@ const Tech = () => {
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    const getTickets = async () => {
+      const {data} = await axios.get(`http://localhost:6001/tech/Tickets/campus/1`)
+
+      setTickets(data)
+    }
+    getTickets()
+  }, [])
+
+  
+
+
+
 
   return (
     <>
@@ -36,7 +56,6 @@ const Tech = () => {
           <div className={open ? "menu-items" : "menu-items-hide"}>
             <li className="menu-list">HOME <FaHome className="menu-icon"/></li>
             <li className="menu-list">TICKETS <FaTicketAlt className="menu-icon"/></li>
-            <li className="menu-list">CAMPUSES <FaRegBuilding className="menu-icon"/></li>
             <li className="menu-list">RESOLVED <FaCheck className="menu-icon"/></li>
             <li className="menu-list">SETTINGS <AiFillSetting className="menu-icon"/></li>
 
@@ -45,27 +64,29 @@ const Tech = () => {
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
           <div className="all-tickets">
-            <div className="unclaimed-tickets">
-              {claimed.map((ticket) => {
+            <div className="claimed-tickets">
+              {claimed.map((tickets) => {
                 return (
                   <article
                     className="ticket unclaimed-oneticket"
-                    key={ticket.ticket_id}
+                    key={tickets.ticket_id}
                   >
                     {/* <h3>{ticket.ticket_id}</h3> */}
-                    <p>{ticket.description}</p>
+                    <p>{tickets.ticket_id}</p>
+                    <p>{tickets.descrip}</p>
                   </article>
                 );
               })}
             </div>
-            <div className="claimed-tickets">
-              {unclaimed.map((ticket) => {
+            <div className="unclaimed-tickets">
+              {unclaimed.map((tickets) => {
                 return (
                   <article
                     className="ticket claimed-oneticket"
-                    key={ticket.ticket_id}
+                    key={tickets.ticket_id}
                   >
-                    <h3>{ticket.ticket_id}</h3>
+                    <p>{tickets.ticket_id}</p>
+                    <p>{tickets.descrip}</p>
                   </article>
                 );
               })}
