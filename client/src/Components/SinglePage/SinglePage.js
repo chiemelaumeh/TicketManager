@@ -9,22 +9,22 @@ import SingleTicketContext from '../../Contexts/SingleTicketContext';
 const SinglePage = () => {
     const ticketTarget = useParams()
 
-    const {comments, setComments} = useContext(CommentContext)
-    const {ticket ,setTicket} = useContext(SingleTicketContext)
+    const { comments, setComments } = useContext(CommentContext)
+    const { ticket, setTicket } = useContext(SingleTicketContext)
 
     const options = [
         'Not Started', 'In Progress', 'Completed'
     ]
     const defaultOption = options[0]
 
-   
+
 
     const getComment = async () => {
-        const {data} = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
-        setComments(data)
+        const { data } = await axios.get(`http://localhost:6001/tech/ticket/1/comment`)
         console.log(data)
-        
-        
+        setComments(data)
+
+
     }
     // useEffect(() => {
     //     const getComments = async () => {
@@ -35,13 +35,13 @@ const SinglePage = () => {
 
     //     getComments()
     // }, []);
-    
+
     useEffect(() => {
         const getSingleTicket = async () => {
-            const {data} = await axios.get(`http://localhost:6001/tech/ticket/1`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/1`)
             setTicket(data[0])
         }
-        
+
         getSingleTicket()
     }, []);
 
@@ -50,7 +50,7 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
-            
+
             <div className='SingleTicket'>
                 <h4>UserName Pic??</h4>
                 <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
@@ -65,7 +65,7 @@ const SinglePage = () => {
                 <h3 id='camp'>Date: <span id='highlight'>{ticket.create_date}</span></h3>
                 <div>
                     <div>{comments}</div>
-                   <button onClick={getComment}>Get Comments</button>
+                    <button onClick={getComment}>Get Comments</button>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ const CreateAccount = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
+        console.log(values)
         const result = await axios.post('http://localhost:6001/account/register', values)
         console.log(result.data)
     }
