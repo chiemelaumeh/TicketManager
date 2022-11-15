@@ -9,6 +9,7 @@ const ManageAccounts = () => {
 
 //    const {fakeData} = useContext()
 const [account, setAccount] = useState([])
+const [render, setRender] = useState(false)
    useEffect(() => {
 const getDatatFromDB = async() => {
 const {data} = await axios.get("http://localhost:6001/admin/Accounts");
@@ -16,7 +17,14 @@ setAccount(data)
 console.log(data)
 }
 getDatatFromDB()
-   }, [])
+   }, [render])
+
+const reRender = () => {
+    setRender(!render)
+}
+
+
+
 
 return (
 
@@ -29,7 +37,7 @@ return (
     <div>Campus</div>
 </div>
         {account.map((data) => (
-            <DataTable key={data.user_id} data={data}/>
+            <DataTable key={data.user_id} data={data} reRender={reRender}/>
            
         ))} 
     </div>
