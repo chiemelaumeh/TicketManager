@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import userTickets from "./data";
 import "../CssFiles/tech.css";
 import Navbar from "../Components/Navbar";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { FaRegBuilding} from "react-icons/fa";
@@ -10,8 +10,13 @@ import { FaCheck } from "react-icons/fa";
 import { FaGear } from "react-icons/fa";
 import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt} from "react-icons/fa";
+import TechContext from "../Contexts/TechPageContext";
 
 const Tech = () => {
+
+  const {tickets, setTickets} = useContext(TechContext)
+
+
   const [open, setOpen] = useState(true);
   // console.log(userTickets);
   const claimed = userTickets.filter((c) => c.assigned == true);
@@ -26,6 +31,11 @@ const Tech = () => {
     }
   };
 
+  
+
+
+
+
   return (
     <>
       <Navbar />
@@ -36,7 +46,6 @@ const Tech = () => {
           <div className={open ? "menu-items" : "menu-items-hide"}>
             <li className="menu-list">HOME <FaHome className="menu-icon"/></li>
             <li className="menu-list">TICKETS <FaTicketAlt className="menu-icon"/></li>
-            <li className="menu-list">CAMPUSES <FaRegBuilding className="menu-icon"/></li>
             <li className="menu-list">RESOLVED <FaCheck className="menu-icon"/></li>
             <li className="menu-list">SETTINGS <AiFillSetting className="menu-icon"/></li>
 
