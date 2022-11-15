@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+* {
+  --offWhite: #ebf2fa;
+  --offBlack: #1d201f;
+  --highLight: #f07167;
+  --gray: rgb(96, 96, 96);
+  --lowLight: #40798c;
+
+}
+
 .ticket {
   height: 5rem;
   width: 8rem;
@@ -154,15 +163,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin: 0;
 }
-.ticket-board .portal-text {
+.portal-text {
   text-align: center;
   border: 1px solid #222;
   width: 100%;
   height: 2rem;
   /* display: inline; */
-  position: relative;
+  position: sticky;
 }
 .all-tickets {
   /* background-color: aqua; */
