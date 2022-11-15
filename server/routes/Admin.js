@@ -12,6 +12,18 @@ adminRoute.get("/Accounts", async (req, res) => {
   }
 });
 
+
+adminRoute.get("/tickets", async (req, res) => {
+  try {
+    const { rows } = await pool.query(" SELECT tickets.ticket_id,  tickets.category, tickets.priority, tickets.status, tickets.eta, campus.name FROM tickets JOIN campus ON tickets.campus_id = campus.campus_id;");
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+
 adminRoute.get("/Accounts/:id", async (req, res) => {
   const { id } = req.params;
   try {

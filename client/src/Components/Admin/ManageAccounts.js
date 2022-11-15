@@ -6,6 +6,7 @@ import axios from "axios"
 
 
 const ManageAccounts = () => {
+
 //    const {fakeData} = useContext()
 const [account, setAccount] = useState([])
    useEffect(() => {
@@ -33,6 +34,7 @@ return (
         ))} 
     </div>
 )
+
 }
 
 export default ManageAccounts

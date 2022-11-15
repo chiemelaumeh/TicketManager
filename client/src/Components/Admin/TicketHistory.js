@@ -1,14 +1,38 @@
+import AdminSingle from "./AdminSingle"
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+
+
+
+
 const TicketHistory = () => {
-return(
-    <div class="table-container" role="table">
-        <div class="flex-row first" role="columnheader">Ticket Number</div>
-        <div class="flex-row" role="columnheader">Submission</div>
-        <div class="flex-row" role="columnheader">Category</div>
-        <div class="flex-row" role="columnheader">Urgency</div>
-        <div class="flex-row" role="columnheader">Your Tech</div>
-        <div class="flex-row" role="columnheader">Status</div>
-        <div class="flex-row" role="columnheader">ETR</div>
-    </div>
-)}
+
+    const [ticket, setTicket] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios.get('http://localhost:6001/admin/tickets')
+            setTicket(result.data)
+        }
+        fetchData()
+    }, [])
+
+    return (
+        <>
+            <div className="table-container">
+                <div className="table-text" >Ticket#</div>
+                <div className="table-text" >Campus</div>
+                <div className="table-text" >Category</div>
+                <div className="table-text" >Urgency</div>
+                <div className="table-text" >Status</div>
+                <div className="table-text" >ETR</div>
+            </div>
+            {ticket.map((elem) => (
+                <AdminSingle elem={elem} key={elem.ticket_id} />
+            ))}
+        </>
+
+    )
+}
 
 export default TicketHistory
