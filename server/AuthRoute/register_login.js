@@ -7,11 +7,11 @@ const { check, validationResult } = require('express-validator')
 const authRoute = express.Router();
 
 authRoute.post('/register', [
-    check("email").isEmail().withMessage("Invalid email").not().isEmpty().withMessage("Please enter a email"),
-    check("name", "Enter name").not().isEmpty(),
+    check("email").not().isEmpty().withMessage("Required").isEmail().withMessage("Invalid email"),
+    check("name").not().isEmpty().withMessage("Required"),
     check("campus", "Enter campus").not().isEmpty(),
     check("role", "Enter Role").not().isEmpty(),
-    check("password", "Enter password").isLength({ min: 4 }).not().isEmpty()
+    check("password").not().isEmpty().withMessage("Required").isLength({ min: 4 }).withMessage("To short")
 ], async (req, res) => {
 
     const { name, role, campus, email, password } = req.body;
@@ -19,37 +19,32 @@ authRoute.post('/register', [
     const error = validationResult(req).formatWith(({ msg }) => msg)
 
     if (!error.isEmpty()) {
-        console.log('if')
-        res.json({ error: error.array() })
+        res.json({ error: error.mapped() })
     } else {
-        console.log('else')
-        res.send('hit backend ')
+        //check if email exists; make database query and filter to check if email exists
+        const { rows } = await pool.query('select * from accounts');
+        const account = rows.filter(account => account.email === email);
+
+        //if account is NOT empty accounts already exist
+        if (account.length !== 0) {
+            return res.send('account already exists');
+        } else {
+            try {
+                //create salt rounds
+                const salt = await bcrypt.genSalt(10);
+                //hash the password with salt rounds
+                const hashedPassword = await bcrypt.hash(password, salt);
+                const lowerRole = role.toLowerCase()
+                //insert input data into database with hashed password, NOT typed password
+                const { rows } = await pool.query('INSERT INTO accounts (userName, accessRole, campus_name, email, password) VALUES ($1,$2,$3,$4,$5) RETURNING *', [name, lowerRole, campus, email, hashedPassword]);
+                res.send(rows);
+            } catch (error) {
+                res.status(404).send(error.message);
+            }
+        }
+
     }
 
-
-
-
-
-    // //check if email exists; make database query and filter to check if email exists
-    // const {rows} = await pool.query('select * from accounts');
-    // const account = rows.filter(account => account.email === email);
-
-    // //if account is NOT empty accounts already exist
-    // if(account.length !== 0){
-    //     return res.send('account already exists');
-    // }else{
-    //     try {
-    //         //create salt rounds
-    //         const salt = await bcrypt.genSalt(10);
-    //         //hash the password with salt rounds
-    //         const hashedPassword = await bcrypt.hash(password,salt);
-    //         //insert input data into database with hashed password, NOT typed password
-    //         const {rows} = await pool.query('INSERT INTO accounts (userName, accessRole, campus_name, email, password) VALUES ($1,$2,$3,$4,$5) RETURNING *', [name, role, campus, email, hashedPassword]);
-    //         res.send(rows);
-    //     } catch (error) {
-    //         res.status(404).send(error.message);
-    //     }
-    // }
 });
 
 authRoute.post('/login', async (req, res) => {

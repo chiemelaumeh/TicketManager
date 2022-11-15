@@ -3,7 +3,11 @@ import axios from 'axios'
 import "../../CssFiles/admin.css"
 
 const CreateAccount = () => {
-
+    const [err, setErr] = useState({
+        name: '',
+        password: '',
+        email: '',
+    })
     const [values, setValues] = useState({
         name: '',
         email: '',
@@ -14,9 +18,15 @@ const CreateAccount = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log(values)
         const result = await axios.post('http://localhost:6001/account/register', values)
-        console.log(result.data)
+        console.log(result)
+        if (result.data.error) {
+            setErr(result.data.error)
+        } else {
+            setErr({})
+            setValues({ ...values, name: '', email: '', password: '' })
+        }
+
     }
 
     const handleChange = (e) => {
@@ -28,7 +38,9 @@ const CreateAccount = () => {
         <form className="AdminCreateAccount" onSubmit={onSubmit}>
             <h2 id="CreateAccount">CREATE ACCOUNT</h2>
             <input type='text' placeholder="Full Name" className="inputBox" onChange={handleChange} value={values.name} name='name' />
+            {err.name && <p className="error-reg">{err.name}</p>}
             <input type='text' placeholder="EMAIL" className="inputBox" onChange={handleChange} value={values.email} name='email' />
+            {err.email && <p className="error-reg">{err.email}</p>}
             <select className="inputBox" onChange={handleChange} value={values.campus} name='campus' >
                 <option value='San Antonio'>San Antonio</option>
                 <option value='Austin'>Austin</option>
@@ -41,6 +53,7 @@ const CreateAccount = () => {
                 <option value='USER'>USER</option>
             </select>
             <input type='password' placeholder="Initial Password" className="inputBox" onChange={handleChange} value={values.password} name='password' />
+            {err.password && <p className="error-reg">{err.password}</p>}
             <button id="AdminCreateAccountBTN" type="submit">CREATE ACCOUNT</button>
         </form>
     )
