@@ -65,9 +65,40 @@ const User = () => {
 
   // const ticketService = new TicketService();
 
+  //access token through sessionStorage
+  const testToken = sessionStorage.getItem('testToken');
+  //set the payload portion into a variable
+  const getPayload = testToken.split('.')[1]; 
+  //parse the decoded payload to access obj
+  const payloadObj = (JSON.parse(atob(getPayload)))
+  const {iat, email, userName, user_id, } = payloadObj
+
+  const onSubmitForm = async (e) => {
+    e.preventDefault();  
+    console.log(category)
+    
+    
+      
+       const response = await axios.post("http://localhost:6001/User/ticket/create", { 
+        user_id: user_id,
+        category,
+        descrip: "doesnt work",
+        assigned: null,
+        priority: 1,
+        eta: null,
+       email: email,
+        status: "in progress",
+        campus_id: 1,
+        create_date: "2022-11-02T07:00:00.000Z",
+        resolved: null  });
+        // console.log(response.data);
+    
+
+  }
+
   useEffect(() => {
-      const renderTickets = async() =>{
-          const response = await axios.get('http://localhost:6001/user/1');
+      const renderTickets = async(e) =>{
+          const response = await axios.get(`http://localhost:6001/user/${user_id}`);
           console.log(response.data);
           setTickets(response.data)
       //   await ticketService.getTicketsSmall().then(data => setTickets(data));
@@ -191,7 +222,7 @@ const urgencyItems =[
             <div class="paddingLayer">
                <textarea tabIndex="-1" placeholder=""></textarea>
             </div>
-                <button className="ticket-submit">Submit</button>
+                <button className="ticket-submit" onClick={onSubmitForm}>Submit</button>
          </div>      
                               
                 
