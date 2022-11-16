@@ -4,7 +4,7 @@ const PicContext = createContext()
 
 export const PicProvider = ({children}) =>{
     //state goes here
-    const [pic, setPic] = useState();
+    const [pic, setPic] = useState("");
     const [file, setFile] = useState();
     //functionality that changes the state
     const fileState = (e) =>{

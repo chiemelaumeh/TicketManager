@@ -54,7 +54,17 @@ const User = () => {
   const getPayload = testToken.split(".")[1];
   //parse the decoded payload to access obj
   const payloadObj = JSON.parse(atob(getPayload));
-  const { iat, email, userName, user_id } = payloadObj;
+  
+  const { iat, email, userName, user_id, profilePic } = payloadObj;
+
+  useEffect(()=>{
+    let pfp = pic
+    if(pfp === '') return
+    const renderPFP = async () =>{
+      await axios.patch(`http://localhost:6001/user/${user_id}/pfp`, {pfp})
+    }
+    renderPFP()
+  }, [pic])
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -121,7 +131,7 @@ try{
                 border: "4px solid green",
               }}
               onClick={() => setImageCrop(true)}
-              src={pic}
+              src={pic || profilePic}
               alt=""
             />
             {/* <label htmlFor='' className='mt-3 font-semibold text-5x1'>placeHolder</label> */}
