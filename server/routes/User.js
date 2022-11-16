@@ -92,7 +92,7 @@ userRoute.get('/ticket/:id/comments', async (req, res) => {
   }
 });
 
-userRoute.patch("/:id/pfp", async (req, res) => {
+userRoute.patch("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { pfp } = req.body;

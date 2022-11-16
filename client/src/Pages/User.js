@@ -61,7 +61,7 @@ const User = () => {
     let pfp = pic
     if(pfp === '') return
     const renderPFP = async () =>{
-      await axios.patch(`http://localhost:6001/user/${user_id}/pfp`, {pfp})
+      await axios.patch(`http://localhost:6001/user/${user_id}`, {pfp})
     }
     renderPFP()
   }, [pic])
@@ -132,7 +132,7 @@ try{
               }}
               onClick={() => setImageCrop(true)}
               src={pic || profilePic}
-              alt=""
+              alt=''
             />
             {/* <label htmlFor='' className='mt-3 font-semibold text-5x1'>placeHolder</label> */}
             <Dialog
