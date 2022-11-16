@@ -53,15 +53,16 @@ authRoute.post('/login', async (req, res) => {
     if (email === "" || password === "") return res.send('Fields cannot be empty');
 
     //check if email exists
-    const { rows } = await pool.query('select * from accounts');
+    const { rows } = await pool.query('select accounts.user_id, accounts.username, accounts.accessrole, accounts.campus_name, accounts.email, accounts.profilepic, accounts.password, campus.campus_id from accounts,campus where accounts.campus_name = campus.name');
     const account = rows.filter(account => account.email === email);
 
     //if account length is 0 then there is no account found
-    if (account.length === 0) return res.status(404).send("account not found");
+    if (account.length === 0) return res.status(404).send({ msg: "Not Found" });
 
     try {
         //create variable for found account and access at index
         const user = account[0]
+        
         //compare the input password with the database hashed password
         const isAuthorized = await bcrypt.compare(password, user.password)
 
@@ -78,6 +79,7 @@ authRoute.post('/login', async (req, res) => {
                 user_id: user.user_id,
                 userName: user.username,
                 email: user.email,
+                campus_id: user.campus_id,
                 accessRole: user.accessrole,
                 campus_name: user.campus_name,
                 isAuth: true,
@@ -85,7 +87,7 @@ authRoute.post('/login', async (req, res) => {
             });
 
         } else if (isAuthorized === false) {
-            res.status(401).send("Incorrect Password")
+            res.status(401).send({ msg: "Incorrect Password" })
         }
     } catch (error) {
         console.log(error.message)

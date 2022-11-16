@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import LoginContext from "../../Contexts/loginContext";
 import { useFormik } from "formik"
 import { dataSchema } from "./schemaValid"
@@ -7,16 +7,18 @@ import axios from 'axios';
 
 const LoginForm = () => {
     const { setUser, user } = useContext(LoginContext)
+    const [err, setErr] = useState({})
 
     const onSubmit = async (values, actions) => {
         try {
             const { data } = await axios.post('http://localhost:6001/account/login', values)
+
             if (data.accessToken === undefined) return alert('Not Authorized');
             setUser(data)
             sessionStorage.setItem('testToken', data.accessToken)
-            console.log(data)
             actions.resetForm()
         } catch (error) {
+            if (error.response.data.msg) return setErr(error.response.data)
             console.log(error.response.data)
         }
     }
@@ -62,7 +64,8 @@ const LoginForm = () => {
                         onBlur={handleBlur}
                         className={errors.password && touched.password ? "input-error" : ""}
                     />
-                    {errors.password && touched.password && <p className="error-p" >{errors.password}</p>}
+                    {((errors.password && touched.password) || err.msg) && <p className="error-p" >{errors.password || err.msg}</p>}
+
                 </div>
 
                 <button className="loginbtn" type="submit">Log in</button>

@@ -20,12 +20,13 @@ const User = () => {
   const [urgency, setUrgency] = useState([]);
   const [tickets, setTickets] = useState([]);
   const [date, setDate] = useState(null);
-  const [inputBox, setInputBox] = useState([]);
+  const [inputBox, setInputBox] = useState('');
 
   const { handleLogOut} = useContext(LoginContext)
 
   //This allows us to re-render the page //
   const [submitTicket, setSubmitTicket] = useState(false);
+  const [err, setErr]  = useState({})
   useEffect(() => {
     const renderTickets = async (e) => {
       const response = await axios.get(`http://localhost:6001/user/${user_id}`);
@@ -59,25 +60,30 @@ const User = () => {
     e.preventDefault();
     console.log(category);
     console.log(inputBox)
-
-    const response = await axios.post(
-      "http://localhost:6001/User/ticket/create",
-      {
-        user_id: user_id,
-        category,
-        descrip: inputBox,
-        assigned: false,
-        priority: urgency,
-        eta: null,
-        email: email,
-        status: "in progress",
-        campus_id: 1,
-        create_date: date,
-        resolved: null,
-      }
-    );
-    setSubmitTicket(true);
-    console.log(response);
+try{
+  console.log(inputBox)
+  const response = await axios.post(
+    "http://localhost:6001/User/ticket/create",
+    {
+      user_id: user_id,
+      category,
+      descrip: inputBox,
+      assigned: false,
+      priority: urgency,
+      eta: null,
+      email: email,
+      status: "in progress",
+      campus_id: 1,
+      create_date: date,
+      resolved: null,
+    }
+  );
+  setSubmitTicket(true);
+  console.log(response);
+}catch(error){
+  console.log(error.response.data.error)
+  if (error.response.data.error) return setErr(error.response.data.error)
+}
   };
 
   const dynamicColumns = columns.map((col, i) => {
@@ -153,6 +159,7 @@ const User = () => {
               onChange={(e) => setCategory(e.value)}
               placeholder="Select a Category"
             />
+            {err.category && <p>{err.category}</p>}
           </div>
           <span id="urgency-Span">Please select an urgency.</span>
           <div className="ticket-Urgency">
@@ -163,6 +170,7 @@ const User = () => {
               onChange={(e) => setUrgency(e.value)}
               placeholder="Select Urgency"
             />
+             {err.priorty && <p>{err.priorty}</p>}
           </div>
           <span className="date-Span">Please select Date</span>
           <div className="ticket-Date">
@@ -172,10 +180,12 @@ const User = () => {
               value={date}
               onChange={(e) => setDate(e.value)}
             ></Calendar>
+            {err.create_date && <p>{err.create_date}</p>}
           </div>
           <span className="span-Input">Please provide specific details.</span>
           <div className="paddingLayer">
-            <textarea tabIndex="-1" placeholder="" className="input-Box" onChange={(e) => setInputBox(e.value)}></textarea>
+            <textarea tabIndex="-1" placeholder="" className="input-Box" value={inputBox} onChange={(e) => setInputBox(e.target.value)}></textarea>
+            {err.descrip && <p>{err.descrip}</p>}
           </div>
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
