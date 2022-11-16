@@ -18,7 +18,7 @@ userRoute.get('/:id', async (req, res) => {
 
 userRoute.post('/ticket/create',[
 check('category').not().isEmpty().withMessage('Choose a Category'),
-check('priorty').not().isEmpty().withMessage('Choose Priorty'),
+check('priority').not().isEmpty().withMessage('Choose Priorty'),
 check('create_date').not().isEmpty().withMessage('Input Date'),
 check('descrip').not().isEmpty().withMessage('Input a Description')
 ], async (req, res) => {
@@ -39,7 +39,7 @@ check('descrip').not().isEmpty().withMessage('Input a Description')
 const error =validationResult(req).formatWith(({msg})=> msg)
 // if (descrip === "" || create_date === "" ||category === "" || priority === "" ) return res.send('Fields cannot be empty');
   if(!error.isEmpty()){
-    res.json({error: error.mapped() })
+    res.status(404).json({error: error.mapped() })
   }else{
     try {
       const { rows } = await pool.query(
