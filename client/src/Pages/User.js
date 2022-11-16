@@ -20,6 +20,8 @@ const User = () => {
   const [urgency, setUrgency] = useState([]);
   const [tickets, setTickets] = useState([]);
   const [date, setDate] = useState(null);
+  const [inputBox, setInputBox] = useState([]);
+
   const { handleLogOut} = useContext(LoginContext)
 
   //This allows us to re-render the page //
@@ -42,6 +44,7 @@ const User = () => {
     { field: "priority", header: "Urgency" },
     { field: "status", header: "Status" },
     { field: "assigned", header: "Tech" },
+    { field: "descrip", header: "Details" },
   ];
 
   //access token through sessionStorage
@@ -53,15 +56,16 @@ const User = () => {
   const { iat, email, userName, user_id } = payloadObj;
 
   const onSubmitForm = async (e) => {
-    e.preventDefault();  
-    console.log(category) 
+    e.preventDefault();
+    console.log(category);
+    console.log(inputBox)
+
     const response = await axios.post(
       "http://localhost:6001/User/ticket/create",
       {
-
         user_id: user_id,
         category,
-        descrip: "doesnt work",
+        descrip: inputBox,
         assigned: false,
         priority: urgency,
         eta: null,
@@ -163,14 +167,15 @@ const User = () => {
           <span className="date-Span">Please select Date</span>
           <div className="ticket-Date">
             <Calendar
+            className="date-Drop"
               dateFormat="mm/dd/yy"
               value={date}
               onChange={(e) => setDate(e.value)}
             ></Calendar>
           </div>
-          <span id="rtr-s-Paragraph_9_0">Please provide specific details.</span>
-          <div class="paddingLayer">
-            <textarea tabIndex="-1" placeholder=""></textarea>
+          <span className="span-Input">Please provide specific details.</span>
+          <div className="paddingLayer">
+            <textarea tabIndex="-1" placeholder="" className="input-Box" onChange={(e) => setInputBox(e.value)}></textarea>
           </div>
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
