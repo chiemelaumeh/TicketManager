@@ -57,7 +57,7 @@ authRoute.post('/login', async (req, res) => {
     const account = rows.filter(account => account.email === email);
 
     //if account length is 0 then there is no account found
-    if (account.length === 0) return res.status(404).send("account not found");
+    if (account.length === 0) return res.status(404).send({ msg: "Not Found" });
 
     try {
         //create variable for found account and access at index
@@ -85,7 +85,7 @@ authRoute.post('/login', async (req, res) => {
             });
 
         } else if (isAuthorized === false) {
-            res.status(401).send("Incorrect Password")
+            res.status(401).send({ msg: "Incorrect Password" })
         }
     } catch (error) {
         console.log(error.message)
