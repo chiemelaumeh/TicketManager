@@ -1,4 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
+import LoginContext from "../Contexts/loginContext";
 import "../CssFiles/tech.css";
 import Navbar from "../Components/Navbar";
 import { useContext, useEffect, useState } from "react";
@@ -13,8 +14,7 @@ import TechContext from "../Contexts/TechPageContext";
 import axios from "axios";
 
 const Tech = () => {
-
-
+  const {user} = useContext(LoginContext)
   const { tickets, setTickets } = useContext(TechContext)
 
   const [searchText, setSearchText] = useState('')
@@ -41,16 +41,13 @@ const Tech = () => {
 
   useEffect(() => {
     const getTickets = async () => {
-      const { data } = await axios.get(`http://localhost:6001/tech/Tickets/campus/1`)
+      const { data } = await axios.get(`http://localhost:6001/tech/Tickets/campus/${user.campus_id}`)
 
       setTickets(data)
     }
     getTickets()
+
   }, [])
-
-
-
-
 
 
   return (
@@ -82,7 +79,8 @@ const Tech = () => {
                 }
               }).map((tickets) => {
                 return (
-                  <article
+                    <article
+                    id={tickets.ticket_id}
                     className="ticket unclaimed-oneticket"
                     key={tickets.ticket_id}
                   >
