@@ -8,6 +8,8 @@ import SingleTicketContext from '../../Contexts/SingleTicketContext';
 
 const SinglePage = () => {
     const { ticket_id } = useParams();
+    console.log(ticket_id)
+    
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
