@@ -14,3 +14,23 @@
     width: 62rem;
     margin: auto;
 }
+
+.AccountTable{
+    width: 62rem;
+    margin: auto;
+    text-align: left;
+}
+
+.AccountTableCells{
+    width: 15%;
+}
+
+.EditAndDelete{
+    width: 1%
+}
+
+.ManageAccountH2{
+    justify-content: center;
+    display: flex;
+}
+
