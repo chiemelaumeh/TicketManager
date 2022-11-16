@@ -79,4 +79,18 @@ userRoute.get('/ticket/:id/comments', async (req, res) => {
   }
 });
 
+userRoute.patch("/:id/pfp", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { pfp } = req.body;
+    const { rows } = await pool.query(
+      "UPDATE accounts SET profilePic = $1 WHERE user_id = $2 RETURNING *",
+      [pfp, id]
+    );
+    res.status(200).send(rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 module.exports = userRoute;

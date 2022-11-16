@@ -62,7 +62,6 @@ authRoute.post('/login', async (req, res) => {
     try {
         //create variable for found account and access at index
         const user = account[0]
-        
         //compare the input password with the database hashed password
         const isAuthorized = await bcrypt.compare(password, user.password)
 
@@ -72,7 +71,8 @@ authRoute.post('/login', async (req, res) => {
                 user_id: user.user_id,
                 userName: user.username,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                profilePic: user.profilepic
             }, process.env.ACCESS_TOKEN);
 
             res.status(200).send({
