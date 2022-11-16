@@ -9,23 +9,24 @@ import { FaCheck } from "react-icons/fa";
 import { FaGear } from "react-icons/fa";
 import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt } from "react-icons/fa";
-import TechContext from "../Contexts/TechPageContext";
+import TechContext from "../Contexts/TechContext";
+import TechPageContext from "../Contexts/TechPageContext";
+
 import axios from "axios";
 
 const Tech = () => {
+  const { tickets, setTickets } = useContext(TechPageContext);
+  const { open, setOpen} = useContext(TechContext)
 
 
-  const { tickets, setTickets } = useContext(TechContext)
-
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState("");
 
   const handleSearch = (e) => {
-    setSearchText(e.target.value)
-    console.log(searchText)
-  }
+    setSearchText(e.target.value);
+    console.log(searchText);
+  };
 
 
-  const [open, setOpen] = useState(true);
   // console.log(userTickets);
   const claimed = tickets.filter((c) => c.assigned == true);
   // console.log(claimed)
@@ -41,78 +42,98 @@ const Tech = () => {
 
   useEffect(() => {
     const getTickets = async () => {
-      const { data } = await axios.get(`http://localhost:6001/tech/Tickets/campus/1`)
+      const { data } = await axios.get(
+        `http://localhost:6001/tech/tickets/campus/1`
+        );
+        console.log(data)
 
-      setTickets(data)
-    }
-    getTickets()
-  }, [])
-
-
-
-
-
+      setTickets(data);
+    };
+    getTickets();
+  }, []);
 
   return (
     <>
       <Navbar handleSearch={handleSearch} searchText={searchText} />
       <div className="mainticket">
         <div className={open ? "open-sidenav" : "close-sidenav"}>
-
           <FaBars className="menubars" onClick={handleClick} />
           <div className={open ? "menu-items" : "menu-items-hide"}>
-            <li className="menu-list">HOME <FaHome className="menu-icon" /></li>
-            <li className="menu-list">TICKETS <FaTicketAlt className="menu-icon" /></li>
-            <li className="menu-list">RESOLVED <FaCheck className="menu-icon" /></li>
-            <li className="menu-list">SETTINGS <AiFillSetting className="menu-icon" /></li>
-
+            <li className="menu-list">
+              HOME <FaHome className="menu-icon" />
+            </li>
+            <li className="menu-list">
+              TICKETS <FaTicketAlt className="menu-icon" />
+            </li>
+            <li className="menu-list">
+              RESOLVED <FaCheck className="menu-icon" />
+            </li>
+            <li className="menu-list">
+              SETTINGS <AiFillSetting className="menu-icon" />
+            </li>
           </div>
         </div>
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
           <div className="all-tickets">
             <div className="claimed-tickets">
-              {claimed.filter((value) => {
-                if (searchText === '') {
-                  return value;
-                } else if (value.category.toLowerCase().includes(searchText.toLowerCase()) ||
-                  value.ticket_id.toString().toLowerCase().includes(searchText.toLowerCase())
-                ) {
-                  return value;
-                }
-              }).map((tickets) => {
-                return (
-                  <article
-                    className="ticket unclaimed-oneticket"
-                    key={tickets.ticket_id}
-                  >
-                    {/* <h3>{ticket.ticket_id}</h3> */}
-                    <p>{tickets.ticket_id}</p>
-                    <p>{tickets.category}</p>
-                  </article>
-                );
-              })}
+              {claimed
+                .filter((value) => {
+                  if (searchText === "") {
+                    return value;
+                  } else if (
+                    value.category
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase()) ||
+                    value.ticket_id
+                      .toString()
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                })
+                .map((tickets) => {
+                  return (
+                    <article
+                      className="ticket unclaimed-oneticket"
+                      key={tickets.ticket_id}
+                    >
+                      {/* <h3>{ticket.ticket_id}</h3> */}
+                      <p>{tickets.ticket_id}</p>
+                      <p>{tickets.category}</p>
+                    </article>
+                  );
+                })}
             </div>
-            <div className="unclaimed-tickets" >
-              {unclaimed.filter((value) => {
-                if (searchText === '') {
-                  return value;
-                } else if (value.category.toLowerCase().includes(searchText.toLowerCase()) ||
-                  value.ticket_id.toString().toLowerCase().includes(searchText.toLowerCase())
-                ) {
-                  return value;
-                }
-              }).map((tickets) => {
-                return (
-                  <article
-                    className="ticket claimed-oneticket"
-                    key={tickets.ticket_id}
-                  >
-                    <p>{tickets.ticket_id}</p>
-                    <p>{tickets.category}</p>
-                  </article>
-                );
-              })}
+            <div className="unclaimed-tickets">
+              {unclaimed
+                .filter((value) => {
+                  if (searchText === "") {
+                    return value;
+                  } else if (
+                    value.category
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase()) ||
+                    value.ticket_id
+                      .toString()
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                })
+                .map((tickets) => {
+                  return (
+                    <article
+                      className="ticket claimed-oneticket"
+                      key={tickets.ticket_id}
+                    >
+                      <p>{tickets.ticket_id}</p>
+                      <p>{tickets.category}</p>
+                    </article>
+                  );
+                })}
             </div>
           </div>
         </div>
