@@ -1,28 +1,20 @@
 import { createContext, useState } from "react";
 
+const TechPageContext = createContext();
 
-const TechContext = createContext()
+export const TechPageProvider = ({ children }) => {
+  const [tickets, setTickets] = useState([]);
 
-export const TechProvider = ({children}) => {
-
-    const [tickets, setTickets] = useState([])
-
-
-
-
-
-
-
-
-
-
-    return <TechContext.Provider value={{
+  return (
+    <TechPageContext.Provider
+      value={{
         tickets,
-        setTickets
-    }}>
-        {children}
-    </TechContext.Provider>
+        setTickets,
+      }}
+    >
+      {children}
+    </TechPageContext.Provider>
+  );
+};
 
-}
-
-export default TechContext;
+export default TechPageContext;
