@@ -17,38 +17,37 @@ import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 import SinglePage from "./Components/SinglePage/SinglePage";
+import ProtectedRoutes from "./Components/ProtectedRoutes";
+
 
 
 
 const App = () => {
   const { user } = useContext(LoginContext)
 
-  
+
 
   return (
     <Router>
       <div className="App">
+
         <Routes>
-          <Route path='/login' element={<Login />} />
 
-          <Route path="/" element={user.accessRole === 'admin' ? <Navigate to='/admin' /> : <Login />} />
-          <Route exact path="/admin" element={user.accessRole === 'admin' ? <Admin /> : <Navigate to='/'/>} />
+        <Route exact path="/" element={user.isAuth? <ProtectedRoutes user={user} /> : <Login/>}/>
 
-          <Route path="/" element={user.accessRole === 'User' ? <Navigate to='/user' /> : <Login />} />
-          <Route exact path="/user" element={user.accessRole === 'User' ? <User /> : <Login />} />
+            <Route exact path="/admin" element={user.isAuth? <SharedLayout /> : <Navigate to='/'/> }>
 
-          <Route path="/" element={user.accessRole === 'tech' ? <Navigate to='/tech' /> : <Login />} />
-          <Route exact path="/tech" element={user.accessRole === 'tech' ? <Tech /> : <Login />} />
+                <Route path="/admin/TicketHistory" element={<TicketHistory />} />
+                <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
+                <Route path="/admin/CreateAccount" element={<CreateAccount />} />
+            </Route>
 
-          <Route exact path="/tech" element={<Tech />} />
+            <Route path="/tech" element={user.isAuth? <Tech /> : <Navigate to='/'/> }>
+                  <Route path="/tech/:ticketId" element={<SinglePage />} />
+            </Route>
 
-          <Route path="/tech/:ticketId" element={<SinglePage />} />
 
-          <Route path="/admin" element={user.accessRole === 'admin' ? <SharedLayout /> : <Navigate to='/'/>}>
-            <Route path="/admin/CreateAccount" element={<CreateAccount />} />
-            <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
-            <Route path="/admin/TicketHistory" element={<TicketHistory />} />
-          </Route>
+            <Route path="/User" element={user.isAuth? <User /> : <Navigate to='/'/> }/>
 
         </Routes>
       </div>
