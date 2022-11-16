@@ -1,6 +1,7 @@
 import { Dialog } from "primereact/dialog";
 import { useState, useEffect, useContext } from "react";
 import PicContext from "../Contexts/UserPContext";
+import LoginContext from "../Contexts/loginContext";
 
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -19,6 +20,7 @@ const User = () => {
   const [urgency, setUrgency] = useState([]);
   const [tickets, setTickets] = useState([]);
   const [date, setDate] = useState(null);
+  const { handleLogOut} = useContext(LoginContext)
 
   //This allows us to re-render the page //
   const [submitTicket, setSubmitTicket] = useState(false);
@@ -173,6 +175,7 @@ const User = () => {
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
           </button>
+          <button className="ticket-submit" onClick={handleLogOut}>LogOut</button>
         </div>
 
         <div className="card">
