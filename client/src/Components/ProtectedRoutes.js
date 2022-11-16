@@ -3,7 +3,7 @@ import {Outlet, Navigate } from "react-router-dom";
 
 const ProtectedRoutes = ({user}) => {
 
-    if(user.accessRole === 'admin' || user.accessRole === 'tech' || user.accessRole === 'User'){
+    if(user.accessRole === 'admin' || user.accessRole === 'tech' || user.accessRole === 'user'){
         return <>
         <Navigate to={`/${user.accessRole}`} />
         <Outlet />
