@@ -43,8 +43,9 @@ const Tech = () => {
   useEffect(() => {
     const getTickets = async () => {
       const { data } = await axios.get(
-        `http://localhost:6001/tech/Tickets/campus/1`
-      );
+        `http://localhost:6001/tech/tickets/campus/1`
+        );
+        console.log(data)
 
       setTickets(data);
     };

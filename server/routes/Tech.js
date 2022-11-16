@@ -2,7 +2,7 @@ const express = require("express");
 const pool = require("../config");
 const techRoute = express.Router();
 
-techRoute.get("/Tickets/campus/:id", async (req, res) => {
+techRoute.get("/tickets/campus/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
