@@ -80,6 +80,7 @@ authRoute.post('/login', async (req, res) => {
                 email: user.email,
                 accessRole: user.accessrole,
                 campus_name: user.campus_name,
+                isAuth: true,
                 accessToken: secretToken
             });
 
