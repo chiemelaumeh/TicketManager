@@ -106,8 +106,9 @@ const Tech = () => {
                       key={tickets.ticket_id}
                     >
                       {/* <h3>{ticket.ticket_id}</h3> */}
-                      <p>{tickets.ticket_id}</p>
-                      <p>{tickets.category}</p>
+                      <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
+                      <h3 className="ticketCat">Category: {tickets.category}</h3>
+                      <h3 className="ticketDescription">{tickets.priority}</h3>
                     </article>
                   );
                 })}
@@ -135,8 +136,9 @@ const Tech = () => {
                       className="ticket claimed-oneticket"
                       key={tickets.ticket_id}
                     >
-                      <p>{tickets.ticket_id}</p>
-                      <p>{tickets.category}</p>
+                      <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
+                      <h3 className="ticketCat">Category: {tickets.category}</h3>
+                      <h3 className="ticketDescription">Priority: {tickets.priority}</h3>
                     </article>
                   );
                 })}

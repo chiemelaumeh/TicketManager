@@ -123,7 +123,7 @@ body {
   width:15%;
   position: relative;
   /* display: none; */
-  background-color: rgb(185, 185, 220);
+  background-color: var(--lowLight);
   overflow: hidden;
 
 }
@@ -136,14 +136,14 @@ body {
 
 .unclaimed-tickets {
   /* border: 1px solid blue; */
-  width: 50%;
+  width: 45%;
   height: inherit;
   overflow:scroll;
   overflow-x:hidden;
 }
 .claimed-tickets {
   /* border: 1px solid green; */
-  width: 50%;
+  width: 45%;
   height: inherit;
   overflow:scroll;
   overflow-x:hidden;
@@ -180,86 +180,46 @@ body {
   justify-content: space-evenly;
 }
 .claimed-oneticket {
-  background-color: var(--highLight);
+  background-color: #f6968f;
+  /* display: flex;
+  justify-content: space-between;
+  margin: 5px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  
 }
 .unclaimed-oneticket {
-  background-color: var(--lowLight);
+  background-color: #62c77b;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-/* @media screen and (min-width: 768px) {
-  .unclaimed-tickets {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 20rem;
-  }
-} */
+.ticketDescription {
+  margin: 0;
+  height: 80px;
+  width: 120px;
 
-/* @media screen and (min-width: 768px) {
-  .claimed-tickets {
-    display: grid;
-    width: 20rem;
+}
 
-    grid-template-columns: repeat(1, 1fr);
-  }
-} */
+.ticketCat {
+  margin: 0;
+  height: 80px;
+  width: 120px;
 
-/* @media screen and (min-width: 1024px) {
-  .unclaimed-tickets {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 30rem;
-  }
-  /* .ticket {
-    height: 3rem;
-    width: 2rem;
-    border: 1px solid red;
-    margin: 1rem;
-  } */
-/* } */
-/* @media screen and (min-width: 1024px) {
-  .claimed-tickets {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+}
 
-    width: 30rem;
-  }
-  .claimed-oneticket {
-    height: 5rem;
-    width: 10rem;
-    border: 1px solid red;
-    margin: 1rem;
-  }
-} */
+.ticketNumber {
+  margin: 0;
+  height: 80px;
+  width: 80px;
 
-/* @media screen and (min-width: 1324px) {
-  .unclaimed-tickets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 40rem;
-  }
-  /* .ticket {
-    height: 3rem;
-    width: 2rem;
-    border: 1px solid red;
-    margin: 1rem;
-  } */
+}
 
-/* @media screen and (min-width: 1324px) {
-  .claimed-tickets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
 
-    width: 40rem;
-  }
-  .claimed-oneticket {
-    height: 5rem;
-    width: 8rem;
-    border: 1px solid red;
-    margin: 1rem;
-  }
-} */
 .menu-items{
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   list-style: none;
   height: 20rem;
   /* background-color: brown; */
@@ -268,7 +228,6 @@ body {
   justify-content:space-evenly;
   align-items: center;
   
- 
 }
 .menu-items-hide li {
   display: none
@@ -288,8 +247,8 @@ body {
 
 }
 .menu-list:hover {
-  background-color: rgb(160, 160, 232);
-  transition: 0.25s;
+  background-color: #1c6f8b;
+  transition: .8s;
 
 }
 
