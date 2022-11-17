@@ -8,20 +8,18 @@ import SingleTicketContext from '../../Contexts/SingleTicketContext';
 
 const SinglePage = () => {
     const { ticket_id } = useParams();
-    console.log(ticket_id)
-    
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
-    
+
     function handleChange(e) {
         setTechComment(e.target.value)
-    }; 
+    };
 
     const postComment = async () => {
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
             user_id: 11,
-            ticket_id: 27,
+            ticket_id: ticket_id,
             comment: techComment
         })
         console.log(response)
@@ -35,16 +33,15 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getComments = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/27/comment`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
             setComments(data)
-            //console.log(data)
         }
         getComments()
-    }, [comments]);
-    
+    }, [techComment]);
+
     useEffect(() => {
         const getSingleTicket = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/27`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
             setTicket(data[0])
         }
         getSingleTicket()
@@ -68,7 +65,7 @@ const SinglePage = () => {
                 <div>
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
-                    ))} 
+                    ))}
                     </div>
 
                     <form onSubmit={handleSubmit}>
