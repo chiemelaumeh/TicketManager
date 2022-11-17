@@ -26,7 +26,7 @@ export const PicProvider = ({children}) =>{
         setPic(appendImage)
     }
     //return the functionality we made
-    return <PicContext.Provider value={{fetchReq, fileState, pic, file}}>
+    return <PicContext.Provider value={{fetchReq, fileState, pic, file, setPic}}>
         {children}
     </PicContext.Provider>
 }
