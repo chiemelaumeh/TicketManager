@@ -18,7 +18,7 @@ const CreateAccount = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        const result = await axios.post('http://localhost:6001/account/register', values)
+        const result = await axios.post('https://taskappapi.onrender.com/account/register', values)
         console.log(result)
         if (result.data.error) {
             setErr(result.data.error)

@@ -48,7 +48,7 @@ const Tech = () => {
     const getTickets = async () => {
 
       const { data } = await axios.get(
-        `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
+        `https://taskappapi.onrender.com/tech/Tickets/campus/${user.campus_id}`
         );
         console.log(data)
 
