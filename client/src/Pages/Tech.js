@@ -32,7 +32,7 @@ const Tech = () => {
 
 
   // console.log(userTickets);
-  const claimed = tickets.filter((c) => c.assigned == false);
+  const claimed = tickets.filter((c) => c.assigned == true);
   // console.log(claimed)
   const unclaimed = tickets.filter((c) => c.assigned == false);
   // console.log(unclaimed)
