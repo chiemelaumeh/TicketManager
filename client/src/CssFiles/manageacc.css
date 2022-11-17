@@ -37,7 +37,7 @@
     width: 25%;
     border: 2px solid var(--gray);
     margin: auto;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     background-color: white;
     border-left: none;
     border-right: none;
@@ -45,13 +45,10 @@
     height: 35px;
 }
 
-.EditAndDelete{
-    width: 1%
-}
-
 .ManageAccountH2{
     justify-content: space-evenly;
     display: flex;
+    font-size: 1.6rem;
     text-decoration: underline var(--gray);
 }
 

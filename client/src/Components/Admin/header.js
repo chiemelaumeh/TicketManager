@@ -8,13 +8,15 @@ const Header = () => {
     const { handleLogOut } = useContext(LoginContext)
 
     return (
+        <> 
+        <h1 className="NavBarTitle">ATHENA</h1>
         <nav className="NavBar">
-            <h1 className="NavBarTitle">ATHENA</h1>
             <NavLink to="/admin/CreateAccount" className="NavBarComp">Create Accout</NavLink>
             <NavLink to="/admin/ManageAccounts" className="NavBarComp">ManageAccounts</NavLink>
             <NavLink to="/admin/TicketHistory" className="NavBarComp">TicketHistory</NavLink>
-            <button onClick={handleLogOut} className="NavBarComp" id="LogOutBTN">log out</button>
         </nav>
+            <button onClick={handleLogOut} id="LogOutBTN">log out</button>
+        </>
     )
 }
 
