@@ -1,5 +1,5 @@
 import DataTable from "../Components 2/DataTable"
-import { ReactDOM } from "react"
+import ReactDOM from "react-dom"
 const Manage = ({ close, open }) => {
 
 

@@ -18,7 +18,7 @@ const SinglePage = () => {
     };
 
     const postComment = async () => {
-        const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
+        const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment", {
             user_id: 11,
             ticket_id: ticket_id,
             comment: techComment
@@ -34,7 +34,7 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getComments = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
             setComments(data)
         }
         getComments()
@@ -42,7 +42,7 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getSingleTicket = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
+            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
             setTicket(data[0])
         }
         getSingleTicket()
