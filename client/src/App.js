@@ -42,8 +42,8 @@ const App = () => {
             </Route>
 
             <Route exact path="/tech" element={user.isAuth? <Tech /> : <Navigate to='/'/> }>
-                  <Route path="/tech/:ticket_id" element={ <SinglePage />}/>
             </Route>
+                  <Route path="/tech/:ticket_id" element={ <SinglePage />}/>
 
 
             <Route path="/User" element={user.isAuth? <User /> : <Navigate to='/'/> }/>
