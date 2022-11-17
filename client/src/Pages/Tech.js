@@ -101,15 +101,15 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                  <Link to={`/tech/${tickets.ticket_id}`}>
+                  <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                     <article
-                      className="ticket unclaimed-oneticket"
+                      className="ticket claimed-oneticket"
                       key={tickets.ticket_id}
                     >
-                      {/* <h3>{ticket.ticket_id}</h3> */}
-                      <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
-                      <h3 className="ticketCat">Category: {tickets.category}</h3>
-                      <h3 className="ticketDescription">{tickets.priority}</h3>
+                      
+                      <p className="ticketNumber">Ticket: #{tickets.ticket_id}</p>
+                      <p className="ticketCat">Category: {tickets.category}</p>
+                      <p className="ticketDescription">Status: {tickets.status}</p>
                     </article>
                   </Link>
                   );
@@ -134,14 +134,15 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                    <Link to={`/tech/${tickets.ticket_id}`}>
+                    <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                     <article
-                      className="ticket claimed-oneticket"
+                      className="ticket unclaimed-oneticket"
                       key={tickets.ticket_id}
                     >
-                      <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
-                      <h3 className="ticketCat">Category: {tickets.category}</h3>
-                      <h3 className="ticketDescription">Priority: {tickets.priority}</h3>
+                      
+                      <p className="ticketNumber">Ticket: #{tickets.ticket_id}</p>
+                      <p className="ticketCat">Category: {tickets.category}</p>
+                      <p className="ticketDescription">Status: {tickets.priority}</p>
                     </article>
                     </Link>
                   );
