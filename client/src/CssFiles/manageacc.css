@@ -1,3 +1,14 @@
+* {
+    --offWhite: #ebf2fa;
+    --offBlack: #1d201f;
+    --highLight: #f07167;
+    --gray: rgb(96, 96, 96);
+    --lowLight: #40798c;
+  
+  }
+
+
+
 .Header {
     color: black;
     display: flex;
@@ -24,8 +35,14 @@
 
 .AccountTableCells{
     width: 25%;
-    border: 1px solid red;
+    border: 2px solid var(--gray);
     margin: auto;
+    font-size: 1.3rem;
+    background-color: white;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    height: 35px;
 }
 
 .EditAndDelete{
@@ -35,5 +52,10 @@
 .ManageAccountH2{
     justify-content: space-evenly;
     display: flex;
+    text-decoration: underline var(--gray);
+}
+
+.Lables {
+    text-decoration: underline var(--gray);
 }
 

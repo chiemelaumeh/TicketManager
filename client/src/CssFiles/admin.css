@@ -1,7 +1,15 @@
 body {
-    background-color: #EBF2FA;
+    background-color: var(--offWhite);
 }
 
+* {
+    --offWhite: #ebf2fa;
+    --offBlack: #1d201f;
+    --highLight: #f07167;
+    --gray: rgb(96, 96, 96);
+    --lowLight: #40798c;
+  
+  }
 
 /* CREATE ACCOUNT PAGE CSS */
 .AdminCreateAccount {
@@ -98,12 +106,15 @@ body {
 .AccountLables {
     display: flex;
     justify-content: space-evenly;
-    
+    /* border: 1px solid green; */
     margin: auto;
+    background-color: var(--offWhite)
 }
 
 .ManageDiv {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 90%;   
     margin: auto;
+    background-color: white;
+    border-radius: 25px;
 }

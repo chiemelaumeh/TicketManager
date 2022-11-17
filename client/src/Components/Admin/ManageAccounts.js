@@ -32,11 +32,11 @@ return (
         <h1 className="ManageAccountH2">Manage Accounts</h1>
 
                      <div className="AccountLables">
-                        <h2>User Name</h2>
-                        <h2>Email</h2>
-                        <h2>Role</h2>
-                        <h2>Campus</h2>
-                        <h2>Edit</h2>
+                        <h2 className="Lables">User Name</h2>
+                        <h2 className="Lables">Email</h2>
+                        <h2 className="Lables">Role</h2>
+                        <h2 className="Lables">Campus</h2>
+                        <h2 className="Lables">Edit</h2>
                     </div>
      
         {account.map((data) => (
