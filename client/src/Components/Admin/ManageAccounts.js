@@ -28,14 +28,22 @@ const reRender = () => {
 
 return (
 
-    <>
-        <h2 className="ManageAccountH2">Manage Accounts</h2>
+    <div className="ManageDiv">
+        <h1 className="ManageAccountH2">Manage Accounts</h1>
+
+                     <div className="AccountLables">
+                        <h2>User Name</h2>
+                        <h2>Email</h2>
+                        <h2>Role</h2>
+                        <h2>Campus</h2>
+                        <h2>Edit</h2>
+                    </div>
      
         {account.map((data) => (
             <DataTable key={data.user_id} data={data} reRender={reRender}/>
            
         ))} 
-    </>
+    </div>
 )
 
 }

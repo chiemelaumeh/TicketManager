@@ -103,7 +103,7 @@ const Tech = () => {
                         <h3 className="ticketDescription">{tickets.priority}</h3>
                       </article>
                     </Link>
-
+ 
                   <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                     <article
                       className="ticket claimed-oneticket"
@@ -168,7 +168,8 @@ const Tech = () => {
         </div>
       </div>
     </>
-  );
+    );
+  
 };
 
 export default Tech;

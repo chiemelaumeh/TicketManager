@@ -17,12 +17,15 @@
 
 .AccountTable{
     width: 62rem;
-    margin: auto;
+    margin: 0;
+
     text-align: left;
 }
 
 .AccountTableCells{
-    width: 15%;
+    width: 25%;
+    border: 1px solid red;
+    margin: auto;
 }
 
 .EditAndDelete{
@@ -30,7 +33,7 @@
 }
 
 .ManageAccountH2{
-    justify-content: center;
+    justify-content: space-evenly;
     display: flex;
 }
 

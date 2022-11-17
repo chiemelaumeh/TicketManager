@@ -93,3 +93,17 @@ body {
     margin: 10px 0px 0px 0px;
     color: red;
 }
+
+
+.AccountLables {
+    display: flex;
+    justify-content: space-evenly;
+    
+    margin: auto;
+}
+
+.ManageDiv {
+    border: 1px solid blue;
+    width: 90%;   
+    margin: auto;
+}

@@ -26,13 +26,15 @@ const DataTable = ({ data, reRender }) => {
         <>
             
                 <div id={data.user_id} className="Data_Table">
+
+
                 <table className="AccountTable">
                         <thead>
                         <tr>
-                            <th className="UserNameData" scope="col">User Name</th>
-                            <th className="EmailData" scope="col">Email</th>
-                            <th className="RoleData" scope="col">Role</th>
-                            <th className="CampusData" scope="col">Campus</th>
+                            <th className="UserNameData" scope="col"></th>
+                            <th className="EmailData" scope="col"></th>
+                            <th className="RoleData" scope="col"></th>
+                            <th className="CampusData" scope="col"></th>
                             <th className="EditAndDelete" scope="col"></th>
                             <th className="EditAndDelete" scope="col"></th>
                         </tr>
