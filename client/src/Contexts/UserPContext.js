@@ -13,7 +13,7 @@ export const PicProvider = ({children}) =>{
     }
     const fetchReq = async(e) =>{
         e.preventDefault()
-        const getUrl = await axios.get("http://localhost:6001/s3Url")
+        const getUrl = await axios.get("https://taskappapi.onrender.com/s3Url")
         const {url} = await getUrl.data
         await fetch(url, {
             method: "PUT",

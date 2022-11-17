@@ -12,7 +12,7 @@ const [account, setAccount] = useState([])
 const [render, setRender] = useState(false)
    useEffect(() => {
 const getDatatFromDB = async() => {
-const {data} = await axios.get("http://localhost:6001/admin/Accounts");
+const {data} = await axios.get("https://taskappapi.onrender.com/admin/Accounts");
 setAccount(data)
 console.log(data)
 }
