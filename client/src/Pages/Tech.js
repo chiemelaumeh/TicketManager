@@ -26,7 +26,12 @@ const Tech = () => {
     console.log(searchText);
   };
 
+
+
+
+
   const claimed = tickets.filter((c) => c.assigned == true);
+
   const unclaimed = tickets.filter((c) => c.assigned == false);
 
   const handleClick = () => {
@@ -110,7 +115,7 @@ const Tech = () => {
                       key={tickets.ticket_id}
                     >
                       
-                      <p className="ticketNumber">Ticket: #{tickets.ticket_id}</p>
+                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
                       <p className="ticketCat">Category: {tickets.category}</p>
                       <p className="ticketDescription">Status: {tickets.status}</p>
                     </article>
@@ -155,7 +160,7 @@ const Tech = () => {
                       key={tickets.ticket_id}
                     >
                       
-                      <p className="ticketNumber">Ticket: #{tickets.ticket_id}</p>
+                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
                       <p className="ticketCat">Category: {tickets.category}</p>
                       <p className="ticketDescription">Status: {tickets.priority}</p>
                     </article>
