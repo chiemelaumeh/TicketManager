@@ -33,20 +33,20 @@ const App = () => {
 
         <Routes>
 
-        <Route exact path="/" element={user.isAuth? <ProtectedRoutes user={user} /> : <Login/>}/>
+          <Route exact path="/" element={user.isAuth ? <ProtectedRoutes user={user} /> : <Login />} />
 
-            <Route exact path="/admin" element={user.isAuth? <SharedLayout /> : <Navigate to='/'/> }>
-                <Route path="/admin/TicketHistory" element={<TicketHistory />} />
-                <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
-                <Route path="/admin/CreateAccount" element={<CreateAccount />} />
-            </Route>
+          <Route exact path="/admin" element={user.isAuth ? <SharedLayout /> : <Navigate to='/' />}>
+            <Route path="/admin/TicketHistory" element={<TicketHistory />} />
+            <Route path="/admin/ManageAccounts" element={<ManageAccounts />} />
+            <Route path="/admin/CreateAccount" element={<CreateAccount />} />
+          </Route>
 
-            <Route exact path="/tech" element={user.isAuth? <Tech /> : <Navigate to='/'/> }>
-            </Route>
-                  <Route path="/tech/:ticket_id" element={ <SinglePage />}/>
+          <Route exact path="/tech" element={user.isAuth ? <Tech /> : <Navigate to='/' />}>
+          </Route>
+          <Route path="/tech/:ticket_id/" element={<SinglePage />} />
 
 
-            <Route path="/User" element={user.isAuth? <User /> : <Navigate to='/'/> }/>
+          <Route path="/User" element={user.isAuth ? <User /> : <Navigate to='/' />} />
 
         </Routes>
       </div>
