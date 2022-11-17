@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import '../../CssFiles/SinglePage.css';
 import Comment from './Comment';
 import CommentContext from '../../Contexts/CommentsContext';

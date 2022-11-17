@@ -101,6 +101,7 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
+                  <Link to={`/tech/${tickets.ticket_id}`}>
                     <article
                       className="ticket unclaimed-oneticket"
                       key={tickets.ticket_id}
@@ -110,6 +111,7 @@ const Tech = () => {
                       <h3 className="ticketCat">Category: {tickets.category}</h3>
                       <h3 className="ticketDescription">{tickets.priority}</h3>
                     </article>
+                  </Link>
                   );
                 })}
             </div>
@@ -132,6 +134,7 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
+                    <Link to={`/tech/${tickets.ticket_id}`}>
                     <article
                       className="ticket claimed-oneticket"
                       key={tickets.ticket_id}
@@ -140,6 +143,7 @@ const Tech = () => {
                       <h3 className="ticketCat">Category: {tickets.category}</h3>
                       <h3 className="ticketDescription">Priority: {tickets.priority}</h3>
                     </article>
+                    </Link>
                   );
                 })}
             </div>
