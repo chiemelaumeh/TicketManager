@@ -66,6 +66,11 @@ const SinglePage = () => {
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
                     ))}
+                    
+              <Link to="/tech">
+                <button className="back-to-tickets">Tickets</button>
+              </Link>
+
                     </div>
 
                     <form onSubmit={handleSubmit}>

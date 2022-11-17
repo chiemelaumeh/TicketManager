@@ -11,17 +11,11 @@
 
 }
 
-.ticket {
-  height: 5rem;
-  border: 3px solid var(--gray);
-  margin: 1rem;
-  border-radius: 10px;
-  transition: ease-in-out .1s;
-}
+
 .ticket:hover {
   cursor: pointer;
-  border: 3px solid var(--offBlack);
-  transform: scale(0.98);
+
+  /* transform: scale(1.02); */
 }
 
 .navbar {
@@ -148,14 +142,14 @@ body {
   overflow:scroll;
   overflow-x:hidden;
 }
-.ticket-board {
+/* .ticket-board {
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
   padding-left: 4%;
-}
+} */
 .ticket-board {
   width: 80%;
   display: flex;
@@ -180,40 +174,41 @@ body {
   justify-content: space-evenly;
 }
 .claimed-oneticket {
-  background-color: #f6968f;
+  background-color: #ddd;
   /* display: flex;
   justify-content: space-between;
   margin: 5px; */
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+ 
   
 }
 .unclaimed-oneticket {
   background-color: #62c77b;
+
+}
+.ticket {
+  height: 6.5rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 13rem;
+  border-radius: 10px;
+  transition: ease-in-out .1s;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  color: #222;
+  font-weight: 400;
 }
 
 .ticketDescription {
   margin: 0;
-  height: 80px;
-  width: 120px;
+  height: 10px;
 
-}
-
-.ticketCat {
-  margin: 0;
-  height: 80px;
-  width: 120px;
 
 }
 
 .ticketNumber {
   margin: 0;
-  height: 80px;
-  width: 80px;
+  height: 10px;
+ 
 
 }
 
@@ -255,3 +250,8 @@ body {
 .menu-icon {
   margin-right: 0.1rem;
 }
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
