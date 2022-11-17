@@ -62,7 +62,7 @@ const Tech = () => {
     <>
       <Navbar handleSearch={handleSearch} searchText={searchText} />
       <div className="mainticket">
-        <div className={open ? "open-sidenav" : "close-sidenav"}>
+        {/* <div className={open ? "close-sidenav" : "close-sidenav"}>
           <FaBars className="menubars" onClick={handleClick} />
           <div className={open ? "menu-items" : "menu-items-hide"}>
             <li className="menu-list">
@@ -78,7 +78,7 @@ const Tech = () => {
               SETTINGS <AiFillSetting className="menu-icon" />
             </li>
           </div>
-        </div>
+        </div> */}
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
           <div className="all-tickets">
