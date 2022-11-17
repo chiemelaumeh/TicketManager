@@ -5,6 +5,7 @@ import "./CssFiles/login.css"
 import "./CssFiles/TicketHistory.css"
 import './CssFiles/user.css'
 import "./CssFiles/admin.css"
+import "./CssFiles/profile.css"
 
 
 import CreateAccount from "./Components/Admin/CreateAccount";

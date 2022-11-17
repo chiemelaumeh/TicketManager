@@ -1,35 +1,26 @@
-
 import axios from "axios"
+import { useState } from "react"
 import { BsTrash } from "react-icons/bs"
 import { FaPencilAlt } from "react-icons/fa"
 import Manage from "../Portals/ManageInput"
-
-
-
-const DataTable = ({ data, reRender }) => {
+const DataTable = ({ data, reRender, edit, changeEditState, editAcc, setEditAcc }) => {
     // console.log(data)
-// const handleEdit = () => {
-// return (
-//     <>
-//     <Manage />
-//     </>
-// )
-// }
-
-    const  handledelete = async (id) => {
-        await axios.delete(`https://taskappapi.onrender.com/admin/Account/delete/${id}`)
+    const [open, setOpen] = useState(false)
+    const handleEdit = () => {
+        changeEditState()
+    }
+    const handledelete = async (id) => {
+        await axios.delete(`http://localhost:6001/admin/Account/delete/${id}`)
         reRender()
         // console.log(id)
-// console.log(data.user_id)
+        // console.log(data.user_id)
     }
     return (
         <>
-            
-                <div id={data.user_id} className="Data_Table">
-
+            <div id={data.user_id} className="Data_Table">
 
                 <table className="AccountTable">
-                        <thead>
+                    <thead>
                         <tr>
                             <th className="UserNameData" scope="col"></th>
                             <th className="EmailData" scope="col"></th>
@@ -38,31 +29,34 @@ const DataTable = ({ data, reRender }) => {
                             <th className="EditAndDelete" scope="col"></th>
                             <th className="EditAndDelete" scope="col"></th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td className="AccountTableCells">{data.username}</td>
                             <td className="AccountTableCells">{data.email}</td>
                             <td className="AccountTableCells">{data.accessrole}</td>
                             <td className="AccountTableCells">{data.campus_name}</td>
-                            <td ><FaPencilAlt /></td>
-                            <td onClick={() => {handledelete(data.user_id)}} ><BsTrash /></td>
+                            <td onClick={() => setOpen(true)}><FaPencilAlt /></td>
+                            <Manage edit={edit} editAcc={editAcc} setEditAcc={setEditAcc} open={open} close={() => setOpen(false)} data={data} />
+                            <td onClick={() => { handledelete(data.user_id) }} ><BsTrash /></td>
                         </tr>
                         <tr>
-
                         </tr>
-                        </tbody>
-                    </table>
-                    </div>
-
-                    
-                
-
-
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
-
-
 export default DataTable
 // /admin/Accounts
+// onClick={handleEdit(data.user_id)
+
+
+
+
+
+
+
+
+
