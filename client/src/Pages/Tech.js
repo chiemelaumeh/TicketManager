@@ -16,10 +16,14 @@ import TechPageContext from "../Contexts/TechPageContext";
 import axios from "axios";
 
 const Tech = () => {
-  const { user } = useContext(LoginContext)
+
+  const {user} = useContext(LoginContext)
+
   const { tickets, setTickets } = useContext(TechPageContext);
-  const { open, setOpen } = useContext(TechContext)
+  const { open, setOpen} = useContext(TechContext)
+
   const [searchText, setSearchText] = useState("");
+
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
@@ -27,13 +31,11 @@ const Tech = () => {
   };
 
 
-
-
-
-  const claimed = tickets.filter((c) => c.assigned == true);
-
+  // console.log(userTickets);
+  const claimed = tickets.filter((c) => c.assigned == false);
+  // console.log(claimed)
   const unclaimed = tickets.filter((c) => c.assigned == false);
-
+  // console.log(unclaimed)
   const handleClick = () => {
     if (open) {
       setOpen(!true);
@@ -47,7 +49,10 @@ const Tech = () => {
 
       const { data } = await axios.get(
         `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
-      );
+        );
+        console.log(data)
+
+
       setTickets(data);
     };
     getTickets();
@@ -96,19 +101,6 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-
-                    <Link to={`/tech/${tickets.ticket_id}`}>
-                      <article
-                        className="ticket unclaimed-oneticket"
-                        key={tickets.ticket_id}
-                      >
-                        {/* <h3>{ticket.ticket_id}</h3> */}
-                        <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
-                        <h3 className="ticketCat">Category: {tickets.category}</h3>
-                        <h3 className="ticketDescription">{tickets.priority}</h3>
-                      </article>
-                    </Link>
-
                   <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                     <article
                       className="ticket claimed-oneticket"
@@ -120,7 +112,6 @@ const Tech = () => {
                       <p className="ticketDescription">Status: {tickets.status}</p>
                     </article>
                   </Link>
-
                   );
                 })}
             </div>
@@ -143,17 +134,6 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-
-                    <Link to={`/tech/${tickets.ticket_id}`}>
-                      <article
-                        className="ticket claimed-oneticket"
-                        key={tickets.ticket_id}
-                      >
-                        <h3 className="ticketNumber">Ticket: #{tickets.ticket_id}</h3>
-                        <h3 className="ticketCat">Category: {tickets.category}</h3>
-                        <h3 className="ticketDescription">Priority: {tickets.priority}</h3>
-                      </article>
-
                     <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                     <article
                       className="ticket unclaimed-oneticket"
@@ -164,7 +144,6 @@ const Tech = () => {
                       <p className="ticketCat">Category: {tickets.category}</p>
                       <p className="ticketDescription">Status: {tickets.priority}</p>
                     </article>
-
                     </Link>
                   );
                 })}
