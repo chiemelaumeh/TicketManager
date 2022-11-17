@@ -14,23 +14,39 @@ import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 
 const User = () => {
-  const { fetchReq, fileState, pic } = useContext(PicContext);
+  const { fetchReq, fileState, pic , setPic} = useContext(PicContext);
+  const { handleLogOut} = useContext(LoginContext)
+
   const [imageCrop, setImageCrop] = useState(false);
   const [category, setCategory] = useState([]);
   const [urgency, setUrgency] = useState([]);
   const [tickets, setTickets] = useState([]);
   const [date, setDate] = useState(null);
   const [inputBox, setInputBox] = useState('');
+  const [updatePic, setUpdatePic] = useState(null)
 
-  const { handleLogOut} = useContext(LoginContext)
+
+    //access token through sessionStorage
+    const testToken = sessionStorage.getItem("testToken");
+    //set the payload portion into a variable
+    const getPayload = testToken.split(".")[1];
+    //parse the decoded payload to access obj
+    const payloadObj = JSON.parse(atob(getPayload));
+    
+    const { iat, email, userName, user_id, profilePic } = payloadObj;
+
 
   //This allows us to re-render the page //
   const [submitTicket, setSubmitTicket] = useState(false);
   const [err, setErr]  = useState({})
+
   useEffect(() => {
+    //set the photo initially from databse
+    setUpdatePic(profilePic)
+
     const renderTickets = async (e) => {
       const response = await axios.get(`http://localhost:6001/user/${user_id}`);
-      console.log(response.data);
+      // console.log(response.data);
       setSubmitTicket(false);
       setTickets(response.data);
       //   await ticketService.getTicketsSmall().then(data => setTickets(data));
@@ -48,23 +64,23 @@ const User = () => {
     { field: "descrip", header: "Details" },
   ];
 
-  //access token through sessionStorage
-  const testToken = sessionStorage.getItem("testToken");
-  //set the payload portion into a variable
-  const getPayload = testToken.split(".")[1];
-  //parse the decoded payload to access obj
-  const payloadObj = JSON.parse(atob(getPayload));
-  
-  const { iat, email, userName, user_id, profilePic } = payloadObj;
 
   useEffect(()=>{
+    //once imaage is uploaded on s3 bucket
+    //reassign pic to pfp
     let pfp = pic
     if(pfp === '') return
     const renderPFP = async () =>{
-      await axios.patch(`http://localhost:6001/user/${user_id}`, {pfp})
+      const {data} = await axios.patch(`http://localhost:6001/user/${user_id}`, {pfp})
+      //setUpdatePic state to new photo once updated on db
+      const newPhoto = data[0].profilepic
+      setUpdatePic(newPhoto)
+      //reset pic to entry string
+      setPic('')
     }
     renderPFP()
   }, [pic])
+
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -131,7 +147,7 @@ try{
                 border: "4px solid green",
               }}
               onClick={() => setImageCrop(true)}
-              src={pic || profilePic}
+              src={updatePic}
               alt=''
             />
             {/* <label htmlFor='' className='mt-3 font-semibold text-5x1'>placeHolder</label> */}
