@@ -99,9 +99,8 @@ body {
 }
 
 #LogOutBTN {
-    position: fixed;
-    top: 14%;
-    right: 5%;
+    position: static;
+    margin-left: 90%;
     border: none;
     /* font-size: 20px; */
       padding: 0.25rem 0.5rem;

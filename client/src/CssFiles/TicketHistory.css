@@ -1,11 +1,22 @@
+* {
+    --offWhite: #ebf2fa;
+    --offBlack: #1d201f;
+    --highLight: #f07167;
+    --gray: rgb(96, 96, 96);
+    --lowLight: #40798c;
+  
+  }
+
+
 .table-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 70rem;
-    height: 3rem;
-    margin: 3rem auto;
-    border: 2px solid black;
+    width: 100%;
+    height: 4rem;
+    margin: 1rem auto;
+    background-color: var(--offWhite);
+    text-decoration: underline;
 }
 
 
@@ -13,19 +24,21 @@
     width: 6rem;
     text-align: center;
     padding-top: 10px;
-    font-size: 1.3rem;
 }
 
 .single-ticket {
     display: flex;
-    width: 70rem;
-    height: 4rem;
-    margin: auto;
+    width: 100%;
+    margin-bottom: 1px;
     justify-content: space-around;
+    border-bottom: 2px solid var(--gray);
+    font-size: 1.2rem;
+    margin-top: 1.7rem;
+    
 }
 
 .ticket-div {
     width: 6rem;
     text-align: center;
-    height: 3rem;
+   
 }
