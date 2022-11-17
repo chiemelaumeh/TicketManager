@@ -31,7 +31,6 @@ const ManageAccounts = () => {
     return (
 
         <>
-            <h2 className="ManageAccountH2">Manage Accounts</h2>
 
 
     <div className="ManageDiv">
