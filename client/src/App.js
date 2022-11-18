@@ -42,7 +42,7 @@ const App = () => {
             <Route path="/admin/CreateAccount" element={<CreateAccount />} />
           </Route>
 
-          <Route exact path="/tech" element={user.isAuth ? <Tech /> : <Navigate to='/' /> || loggedIn ? <Tech /> : <Navigate to='/' />}>
+          <Route exact path="/tech" element={user.isAuth ? <Tech /> : <Navigate to='/' />}>
           </Route>
           <Route path="/tech/:ticket_id" element={<SinglePage />} />
 

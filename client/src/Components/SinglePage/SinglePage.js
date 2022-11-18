@@ -17,8 +17,8 @@ const SinglePage = () => {
     function handleChange(e) {
         setTechComment(e.target.value)
     };
-     //const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment", {
-            user_id: user.user_id,
+    //const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment"
+
 
     const postComment = async () => {
 
@@ -38,7 +38,8 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getComments = async () => {
-            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
+            // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
             setComments(data)
         }
         getComments()
@@ -76,7 +77,7 @@ const SinglePage = () => {
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
                     ))}
-                    
+
                     </div>
                     <form onSubmit={handleSubmit}>
                         <input type='text' value={techComment} onChange={handleChange} />
