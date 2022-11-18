@@ -21,9 +21,10 @@ techRoute.get("/ticket/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.category, create_date, campus.name FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id WHERE ticket_id = $1",
+      "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.category,tickets.user_id, TO_CHAR(create_date, 'Mon dd, yyyy'), campus.name FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id WHERE ticket_id = $1",
       [id]
     );
+
     res.status(200).send(rows)
   } catch (err) {
     console.error(err.message)
