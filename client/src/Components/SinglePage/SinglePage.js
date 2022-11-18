@@ -63,7 +63,8 @@ const SinglePage = () => {
             </Link>
 
             <div className='SingleTicket'>
-                <h4>UserName Pic??</h4>
+                <h4 className="userName">{ticket.username}</h4>
+                <img className ='testPfp' style={{width: '5 rem', height: '5 rem'}} src = {ticket.profilepic} alt=""/>
                 <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
                 <p className='ticketDescrip'>Ticket Description: {ticket.descrip}</p>
             </div>
