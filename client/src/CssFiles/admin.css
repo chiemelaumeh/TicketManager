@@ -49,8 +49,9 @@ body {
     height: 40px;
     padding: 10px 16px;
     text-align: center;
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto Slab', serif;
     transition: ease .5s;
+    font-size: 1.2rem;
 }
 
 
@@ -58,6 +59,7 @@ body {
     background-color: var(--highLight);
     cursor: pointer;
     transform: scale(1.1);
+    color: white;
     
 }
 
@@ -73,8 +75,8 @@ body {
 
 /* NAV BAR CSS */
 .NavBar {
-    justify-content: space-between;
     align-items: center;
+    margin-bottom: 2.5rem;
 }
 
 .NavBarTitle {
@@ -95,9 +97,9 @@ body {
     background-color: var(--lowLight);
     cursor: pointer;
     height: 40px;
-    padding: 10px 20px;
+    padding: 10px 13px;
     text-align: center;
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto Slab', serif;
     transition: ease .5s;
     color: var(--offBlack);
     font-size: 1rem;
@@ -107,6 +109,7 @@ body {
     background-color: var(--highLight);
     cursor: pointer;
     transform: scale(1.1);
+    color: white;
 }
 
 /* .NavBarComp:active {
@@ -115,7 +118,8 @@ body {
 } */
 
 #LogOutBTN {
-    position: static;
+    position: relative;
+    bottom: 75px;
     margin-left: 90%;
     border: none;
     border-radius: 8px;
@@ -133,6 +137,7 @@ body {
     background-color: var(--highLight);
     cursor: pointer;
     transform: scale(1.1);
+    color: white;
 }
 
 .error-reg {
@@ -158,4 +163,10 @@ body {
     margin: auto;
     background-color: white;
     border-radius: 25px;
+}
+
+.singleTicketContainer {
+    height: 25rem;
+    overflow: scroll;
+    margin-bottom: 5rem;
 }

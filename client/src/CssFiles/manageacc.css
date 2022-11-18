@@ -35,22 +35,66 @@
 
 .AccountTableCells{
     width: 14rem;
-    border: 2px solid var(--gray);
+    border: 1px solid var(--lowLight);
     font-size: 1rem;
     background-color: white;
     border-left: none;
-    border-right: none;
+    /* border-right: none; */
     border-top: none;
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
 }
 
+.AccountTableCells2 {
+    width: 12.5rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem;
+    background-color: white;
+    border-left: none;
+    /* border-right: none; */
+    border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+}
+
+.AccountTableCells3 {
+    width: 12rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem;
+    background-color: white;
+    border-left: none;
+    /* border-right: none; */
+    border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+}
+
+.AccountTableCells4 {
+    width: 15rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem;
+    background-color: white;
+    border-left: none;
+    /* border-right: none; */
+    border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+}
+
+.editBTN {
+    padding-left: 1.3rem;
+    width: 3rem;
+}
+
 .ManageAccountH2{
     justify-content: space-evenly;
     display: flex;
     font-size: 1.6rem;
-    text-decoration: underline var(--highLight);
+    /* text-decoration: underline var(--highLight); */
     padding-top: 15px;
     font-family: 'Montserrat', sans-serif;
 }
