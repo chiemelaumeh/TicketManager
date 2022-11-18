@@ -8,6 +8,8 @@ export const LoginProvider = ({children}) => {
     const handleLogOut = () => {
         setUser('')
         sessionStorage.removeItem('testToken')
+        window.localStorage.removeItem('isLoggedIn')
+        
     }
 
     return (
