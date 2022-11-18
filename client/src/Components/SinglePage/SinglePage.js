@@ -5,10 +5,11 @@ import '../../CssFiles/SinglePage.css';
 import Comment from './Comment';
 import CommentContext from '../../Contexts/CommentsContext';
 import SingleTicketContext from '../../Contexts/SingleTicketContext';
+import LoginContext from "../../Contexts/loginContext";
 
 const SinglePage = () => {
     const { ticket_id } = useParams();
-
+    const { user } = useContext(LoginContext)
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
@@ -16,10 +17,13 @@ const SinglePage = () => {
     function handleChange(e) {
         setTechComment(e.target.value)
     };
+     //const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment", {
+            user_id: user.user_id,
 
     const postComment = async () => {
-        const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment", {
-            user_id: 11,
+
+        const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
+            user_id: user.user_id,
             ticket_id: ticket_id,
             comment: techComment
         })
@@ -52,6 +56,7 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
+
             <Link to="/tech">
                 <button className="back-to-tickets">X</button>
             </Link>
@@ -62,7 +67,6 @@ const SinglePage = () => {
                 <p className='ticketDescrip'>Ticket Description: {ticket.descrip}</p>
             </div>
             <div className='Line'></div>
-
             <div className='SingleTicket2'>
                 <h2>Ticket #{ticket.ticket_id}</h2>
                 <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
@@ -72,16 +76,12 @@ const SinglePage = () => {
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
                     ))}
-
-
-
+                    
                     </div>
-
                     <form onSubmit={handleSubmit}>
                         <input type='text' value={techComment} onChange={handleChange} />
                         <input type='submit' value='Submit' className='post-btn' />
                     </form>
-
                 </div>
             </div>
         </div>
