@@ -5,10 +5,11 @@ import '../../CssFiles/SinglePage.css';
 import Comment from './Comment';
 import CommentContext from '../../Contexts/CommentsContext';
 import SingleTicketContext from '../../Contexts/SingleTicketContext';
+import LoginContext from "../../Contexts/loginContext";
 
 const SinglePage = () => {
     const { ticket_id } = useParams();
-
+    const { user } = useContext(LoginContext)
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
@@ -19,7 +20,7 @@ const SinglePage = () => {
 
     const postComment = async () => {
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
-            user_id: 11,
+            user_id: user.user_id,
             ticket_id: ticket_id,
             comment: techComment
         })
@@ -50,14 +51,12 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
-
             <div className='SingleTicket'>
                 <h4>UserName Pic??</h4>
                 <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
                 <p className='ticketDescrip'>Ticket Description: {ticket.descrip}</p>
             </div>
             <div className='Line'></div>
-
             <div className='SingleTicket2'>
                 <h2>Ticket #{ticket.ticket_id}</h2>
                 <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
@@ -67,18 +66,15 @@ const SinglePage = () => {
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
                     ))}
-                    
-              <Link to="/tech">
-                <button className="back-to-tickets">Tickets</button>
-              </Link>
 
+                        <Link to="/tech">
+                            <button className="back-to-tickets">Tickets</button>
+                        </Link>
                     </div>
-
                     <form onSubmit={handleSubmit}>
                         <input type='text' value={techComment} onChange={handleChange} />
                         <input type='submit' value='Submit Comment' />
                     </form>
-
                 </div>
             </div>
         </div>

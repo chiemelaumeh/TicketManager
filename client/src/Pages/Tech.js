@@ -12,24 +12,18 @@ import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt } from "react-icons/fa";
 import TechContext from "../Contexts/TechContext";
 import TechPageContext from "../Contexts/TechPageContext";
-
 import axios from "axios";
 
 const Tech = () => {
-
   const {user} = useContext(LoginContext)
-
   const { tickets, setTickets } = useContext(TechPageContext);
-  const { open, setOpen} = useContext(TechContext)
-
+  const { open, setOpen} = useContext(TechContext);
   const [searchText, setSearchText] = useState("");
-
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     console.log(searchText);
   };
-
 
   // console.log(userTickets);
   const claimed = tickets.filter((c) => c.assigned == false);
@@ -46,13 +40,9 @@ const Tech = () => {
 
   useEffect(() => {
     const getTickets = async () => {
-
       const { data } = await axios.get(
         `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
         );
-        console.log(data)
-
-
       setTickets(data);
     };
     getTickets();
