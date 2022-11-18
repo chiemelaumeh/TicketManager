@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto+Slab:wght@100;400&display=swap');
 body {
     background-color: var(--offWhite);
 }
@@ -17,7 +18,16 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
+    width: 20rem;
+    text-align: center;
+    
+}
+
+#CreateAccount {
+    font-size: 1.6rem;
+    text-decoration: underline var(--highLight);
+    padding-top: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .inputBox {
@@ -32,18 +42,23 @@ body {
 #AdminCreateAccountBTN {
     background-color: #40798C;
     border: none;
-    padding: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    border-radius: 140px 140px 140px 140px;
-    box-shadow: 5px 5px 10px 2px lightBlue;
-    transition: .5s ease;
+    border-radius: 8px;
+    border-style: none;
+    background-color: var(--lowLight);
+    cursor: pointer;
+    height: 40px;
+    padding: 10px 16px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    transition: ease .5s;
 }
 
 
 #AdminCreateAccountBTN:hover {
-    background-color: rgba(48, 48, 210, 0.752);
+    background-color: var(--highLight);
+    cursor: pointer;
+    transform: scale(1.1);
+    
 }
 
 #AdminCreateAccountBTN:active {
@@ -58,7 +73,7 @@ body {
 
 /* NAV BAR CSS */
 .NavBar {
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -69,53 +84,55 @@ body {
     justify-content: center;
     font-size: 3rem;
     color: var(--highLight);
+    font-family: 'Bebas Neue', cursive;
 
 }
 
 .NavBarComp {
-    justify-content: space-evenly;
-    align-items: center;
     margin-left: 18%;
     border: none;
-  /* font-size: 20px; */
-    padding: 0.25rem 0.5rem;
-    width: 12rem;
-    height: 2.5rem;
-    border-radius: 10rem;
-    background-color: #40798C;
-    color: #fff;
-    font-weight: 700;
-    transition: .4s ease;
+    border-radius: 8px;
+    background-color: var(--lowLight);
+    cursor: pointer;
+    height: 40px;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    transition: ease .5s;
+    color: var(--offBlack);
+    font-size: 1rem;
 }
 
 .NavBarComp:hover {
     background-color: var(--highLight);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
-.NavBarComp:active {
+/* .NavBarComp:active {
     box-shadow: 0 5px lightcoral;
-    transform: translate(4px);
-}
+    transform: scale(1.1);
+} */
 
 #LogOutBTN {
     position: static;
     margin-left: 90%;
     border: none;
-    /* font-size: 20px; */
-      padding: 0.25rem 0.5rem;
-      width: 5rem;
-      height: 2rem;
-      border-radius: 10rem;
-      background-color: #40798C;
-      color: #fff;
-      font-weight: 700;
-      transition: .4s ease;
+    border-radius: 8px;
+    border-style: none;
+    background-color: var(--lowLight);
+    cursor: pointer;
+    height: 40px;
+    padding: 10px 16px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    transition: ease .5s;
 }
 
 #LogOutBTN:hover {
     background-color: var(--highLight);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .error-reg {
@@ -131,12 +148,13 @@ body {
     justify-content: space-evenly;
     /* border: 1px solid green; */
     margin: auto;
-    background-color: var(--offWhite)
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ManageDiv {
     /* border: 1px solid blue; */
-    width: 90%;   
+    width: 70rem;   
     margin: auto;
     background-color: white;
     border-radius: 25px;

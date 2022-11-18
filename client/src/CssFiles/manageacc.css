@@ -34,25 +34,28 @@
 }
 
 .AccountTableCells{
-    width: 25%;
+    width: 14rem;
     border: 2px solid var(--gray);
-    margin: auto;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: white;
     border-left: none;
     border-right: none;
     border-top: none;
     height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
 }
 
 .ManageAccountH2{
     justify-content: space-evenly;
     display: flex;
     font-size: 1.6rem;
-    text-decoration: underline var(--gray);
+    text-decoration: underline var(--highLight);
+    padding-top: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Lables {
-    text-decoration: underline var(--gray);
+    text-decoration: underline var(--highLight);
 }
 
