@@ -16,6 +16,7 @@ const LoginForm = () => {
             if (data.accessToken === undefined) return alert('Not Authorized');
             setUser(data)
             sessionStorage.setItem('testToken', data.accessToken)
+            window.localStorage.setItem('isLoggedIn', true)
             actions.resetForm()
         } catch (error) {
             if (error.response.data.msg) return setErr(error.response.data)

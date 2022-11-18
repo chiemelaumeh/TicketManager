@@ -1,3 +1,14 @@
+* {
+    --offWhite: #ebf2fa;
+    --offBlack: #1d201f;
+    --highLight: #f07167;
+    --gray: rgb(96, 96, 96);
+    --lowLight: #40798c;
+  
+  }
+
+
+
 .Header {
     color: black;
     display: flex;
@@ -17,20 +28,31 @@
 
 .AccountTable{
     width: 62rem;
-    margin: auto;
+    margin: 0;
+
     text-align: left;
 }
 
 .AccountTableCells{
-    width: 15%;
-}
-
-.EditAndDelete{
-    width: 1%
+    width: 25%;
+    border: 2px solid var(--gray);
+    margin: auto;
+    font-size: 1.2rem;
+    background-color: white;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    height: 35px;
 }
 
 .ManageAccountH2{
-    justify-content: center;
+    justify-content: space-evenly;
     display: flex;
+    font-size: 1.6rem;
+    text-decoration: underline var(--gray);
+}
+
+.Lables {
+    text-decoration: underline var(--gray);
 }
 

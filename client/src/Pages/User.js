@@ -12,7 +12,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
-
+import { Link } from "react-router-dom";
 const User = () => {
   const { fetchReq, fileState, pic , setPic} = useContext(PicContext);
   const { handleLogOut} = useContext(LoginContext)
@@ -216,7 +216,9 @@ try{
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
           </button>
+          <Link to="/">
           <button className="ticket-submit" onClick={handleLogOut}>LogOut</button>
+          </Link>
         </div>
 
         <div className="card">

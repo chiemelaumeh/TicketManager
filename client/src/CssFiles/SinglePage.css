@@ -1,9 +1,9 @@
 * {
-    --offWhite: #ebf2fa;
-    --offBlack: #1d201f;
-    --highLight: #f07167;
-    --gray: rgb(96, 96, 96);
-    --lowLight: #40798c;
+  --offWhite: #ebf2fa;
+  --offBlack: #1d201f;
+  --highLight: #f07167;
+  --gray: rgb(96, 96, 96);
+  --lowLight: #40798c;
 
 }
 
@@ -11,60 +11,99 @@ body {
   background-color: var(--offWhite);
 }
 
-  .Line {
-    border-color: var(--offBlack);
-    border-style: solid;
-    border-width: 1px;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 16rem;
-  }
+.Line {
+  border-color: var(--offBlack);
+  border-style: solid;
+  border-width: 1px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 16rem;
+}
 
 
-  .singlePageContainer {
-    background-color: white;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    display: flex;
-    gap: 6rem;
-    justify-content: center;
-    border-style: solid;
-    border-width: medium;
-    width: 60%;
-    height: 25rem;
-    border-radius: 15px;
-  }
+.singlePageContainer {
+  background-color: white;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  gap: 6rem;
+  justify-content: center;
+  border-style: solid;
+  border-width: medium;
+  width: 60%;
+  height: 25rem;
+  border-radius: 15px;
+}
 
-  .SingleTicket {
-    border-style: solid;
-    border-width: 1px;
-    width: 35%;
-    height: 85%;
-    margin-top: 15px;
-    border-radius: 15px;
-  }
+.SingleTicket {
+  border-style: solid;
+  border-width: 1px;
+  width: 35%;
+  height: 85%;
+  margin-top: 15px;
+  border-radius: 15px;
+}
 
-  .TicketTitle {
-    color: var(--lowLight);
-    font-size: 22px;
-  }
+.TicketTitle {
+  color: var(--lowLight);
+  font-size: 22px;
+}
 
-  .ticketDescrip {
-    color: var(--gray);
-  }
+.ticketDescrip {
+  color: var(--gray);
+}
 
-  #camp {
-    color: var(--lowLight);
-  }
+#camp {
+  color: var(--lowLight);
+}
 
-  #highlight {
-    color: var(--offBlack)
-  }
+#highlight {
+  color: var(--offBlack)
+}
 
-  .Comment {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 15px;
-  }
+.Comment {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  height: 5rem;
+}
+
+.post-btn {
+  background-color: #40798c;
+  border: none;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  height: 2.2rem;
+  margin: 1rem 1rem;
+  padding: 0.25rem 0.5rem;
+  width: 8rem;
+}
+
+.post-btn:hover {
+  cursor: pointer;
+}
+
+.back-to-tickets {
+  background-color: #40798c;
+  border: none;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  height: 2rem;
+  margin: 0.5rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  width: 2rem;
+}
+
+.back-to-tickets:hover {
+  cursor: pointer;
+}
+
+.SingleTicket2 {
+  margin-right: 2rem;
+}

@@ -17,8 +17,11 @@ const SinglePage = () => {
     function handleChange(e) {
         setTechComment(e.target.value)
     };
+     //const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment", {
+            user_id: user.user_id,
 
     const postComment = async () => {
+
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
             user_id: user.user_id,
             ticket_id: ticket_id,
@@ -35,7 +38,7 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getComments = async () => {
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
             setComments(data)
         }
         getComments()
@@ -43,7 +46,9 @@ const SinglePage = () => {
 
     useEffect(() => {
         const getSingleTicket = async () => {
+            // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
+            console.log(data)
             setTicket(data[0])
         }
         getSingleTicket()
@@ -51,6 +56,11 @@ const SinglePage = () => {
 
     return (
         <div className='singlePageContainer'>
+
+            <Link to="/tech">
+                <button className="back-to-tickets">X</button>
+            </Link>
+
             <div className='SingleTicket'>
                 <h4>UserName Pic??</h4>
                 <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
@@ -61,19 +71,16 @@ const SinglePage = () => {
                 <h2>Ticket #{ticket.ticket_id}</h2>
                 <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
                 <h3 id='camp'>Priority: <span id='highlight'>{ticket.priority}</span></h3>
-                <h3 id='camp'>Date: <span id='highlight'>{ticket.create_date}</span></h3>
+                <h3 id='camp'>Date: <span id='highlight'>{ticket.to_char}</span></h3>
                 <div>
                     <div className='Comment'>{comments.map((data) => (
                         <Comment key={data.ticket_id} data={data} />
                     ))}
-
-                        <Link to="/tech">
-                            <button className="back-to-tickets">Tickets</button>
-                        </Link>
+                    
                     </div>
                     <form onSubmit={handleSubmit}>
                         <input type='text' value={techComment} onChange={handleChange} />
-                        <input type='submit' value='Submit Comment' />
+                        <input type='submit' value='Submit' className='post-btn' />
                     </form>
                 </div>
             </div>

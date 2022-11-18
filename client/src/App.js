@@ -5,6 +5,7 @@ import "./CssFiles/login.css"
 import "./CssFiles/TicketHistory.css"
 import './CssFiles/user.css'
 import "./CssFiles/admin.css"
+import "./CssFiles/profile.css"
 
 
 import CreateAccount from "./Components/Admin/CreateAccount";
@@ -24,7 +25,7 @@ import ProtectedRoutes from "./Components/ProtectedRoutes";
 
 const App = () => {
   const { user } = useContext(LoginContext)
-
+  const loggedIn = window.localStorage.getItem('isLoggedIn')
 
 
   return (
@@ -41,12 +42,12 @@ const App = () => {
             <Route path="/admin/CreateAccount" element={<CreateAccount />} />
           </Route>
 
-          <Route exact path="/tech" element={user.isAuth ? <Tech /> : <Navigate to='/' />}>
+          <Route exact path="/tech" element={user.isAuth ? <Tech /> : <Navigate to='/' /> || loggedIn ? <Tech /> : <Navigate to='/' />}>
           </Route>
-          <Route path="/tech/:ticket_id/" element={<SinglePage />} />
+          <Route path="/tech/:ticket_id" element={<SinglePage />} />
 
 
-          <Route path="/User" element={user.isAuth ? <User /> : <Navigate to='/' />} />
+          <Route path="/User" element={user.isAuth ? <User /> : <Navigate to='/' /> || loggedIn ? <User /> : <Navigate to='/' />} />
 
         </Routes>
       </div>

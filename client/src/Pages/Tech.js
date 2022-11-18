@@ -26,7 +26,7 @@ const Tech = () => {
   };
 
   // console.log(userTickets);
-  const claimed = tickets.filter((c) => c.assigned == false);
+  const claimed = tickets.filter((c) => c.assigned == true);
   // console.log(claimed)
   const unclaimed = tickets.filter((c) => c.assigned == false);
   // console.log(unclaimed)
@@ -41,7 +41,7 @@ const Tech = () => {
   useEffect(() => {
     const getTickets = async () => {
       const { data } = await axios.get(
-        `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
+        `https://taskappapi.onrender.com/tech/Tickets/campus/${user.campus_id}`
         );
       setTickets(data);
     };
@@ -52,7 +52,7 @@ const Tech = () => {
     <>
       <Navbar handleSearch={handleSearch} searchText={searchText} />
       <div className="mainticket">
-        <div className={open ? "open-sidenav" : "close-sidenav"}>
+        {/* <div className={open ? "close-sidenav" : "close-sidenav"}>
           <FaBars className="menubars" onClick={handleClick} />
           <div className={open ? "menu-items" : "menu-items-hide"}>
             <li className="menu-list">
@@ -68,7 +68,7 @@ const Tech = () => {
               SETTINGS <AiFillSetting className="menu-icon" />
             </li>
           </div>
-        </div>
+        </div> */}
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
           <div className="all-tickets">
