@@ -9,8 +9,8 @@ const ManageAccounts = () => {
     //    const {fakeData} = useContext()
     const [account, setAccount] = useState([])
     const [render, setRender] = useState(false)
-    const [edit, setEdit] = useState('')
-    // const [editAcc, setEditAcc] = useEffect(false)
+   
+    
     useEffect(() => {
         const getDatatFromDB = async () => {
             const { data } = await axios.get("http://localhost:6001/admin/Accounts");
@@ -24,40 +24,36 @@ const ManageAccounts = () => {
     const reRender = () => {
         setRender(!render)
     }
-    const changeEditState = () => {
-        setEdit(true)
-    }
+   
 
     return (
 
         <>
 
 
-    <div className="ManageDiv">
-        <h1 className="ManageAccountH2">Manage Accounts</h1>
+            <div className="ManageDiv">
+                <h1 className="ManageAccountH2">Manage Accounts</h1>
 
-                     <div className="AccountLables">
-                        <h2 className="Lables">User Name</h2>
-                        <h2 className="Lables">Email</h2>
-                        <h2 className="Lables">Role</h2>
-                        <h2 className="Lables">Campus</h2>
-                        <h2 className="Lables">Edit</h2>
-                    </div>
-     
-                    {account.map((data) => (
-                <DataTable key={data.user_id}
-                    data={data} reRender={reRender}
-                    edit={edit}
-                    changeEditState={changeEditState}
-                //  editAcc={editAcc} 
-                //  setEditAcc={setEditAcc}
-                />
+                <div className="AccountLables">
+                    <h2 className="Lables">User Name</h2>
+                    <h2 className="Lables">Email</h2>
+                    <h2 className="Lables">Role</h2>
+                    <h2 className="Lables">Campus</h2>
+                    <h2 className="Lables">Edit</h2>
+                </div>
 
-            ))}
-    </div>
+                {account.map((data) => (
+                    <DataTable key={data.user_id}
+                        data={data} reRender={reRender}
+                        
+                
+                    />
+
+                ))}
+            </div>
 
 
-       </>
+        </>
     )
 
 
