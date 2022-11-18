@@ -12,7 +12,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
-
+import { Link } from "react-router-dom";
 const User = () => {
   const { fetchReq, fileState, pic , setPic} = useContext(PicContext);
   const { handleLogOut} = useContext(LoginContext)
@@ -45,7 +45,7 @@ const User = () => {
     setUpdatePic(profilePic)
 
     const renderTickets = async (e) => {
-      const response = await axios.get(`https://taskappapi.onrender.com/user/${user_id}`);
+      const response = await axios.get(`http://localhost:6001/user/${user_id}`);
       // console.log(response.data);
       setSubmitTicket(false);
       setTickets(response.data);
@@ -71,7 +71,7 @@ const User = () => {
     let pfp = pic
     if(pfp === '') return
     const renderPFP = async () =>{
-      const {data} = await axios.patch(`https://taskappapi.onrender.com/user/${user_id}`, {pfp})
+      const {data} = await axios.patch(`http://localhost:6001/user/${user_id}`, {pfp})
       //setUpdatePic state to new photo once updated on db
       const newPhoto = data[0].profilepic
       setUpdatePic(newPhoto)
@@ -89,7 +89,7 @@ const User = () => {
 try{
   console.log(inputBox)
   const response = await axios.post(
-    "https://taskappapi.onrender.com/User/ticket/create",
+    "http://localhost:6001/User/ticket/create",
     {
       user_id: user_id,
       category,
@@ -216,7 +216,9 @@ try{
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
           </button>
+          <Link to="/">
           <button className="ticket-submit" onClick={handleLogOut}>LogOut</button>
+          </Link>
         </div>
 
         <div className="card">

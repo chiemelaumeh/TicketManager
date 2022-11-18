@@ -11,11 +11,12 @@ const LoginForm = () => {
 
     const onSubmit = async (values, actions) => {
         try {
-            const { data } = await axios.post('https://taskappapi.onrender.com/account/login', values)
+            const { data } = await axios.post('http://localhost:6001/account/login', values)
 
             if (data.accessToken === undefined) return alert('Not Authorized');
             setUser(data)
             sessionStorage.setItem('testToken', data.accessToken)
+            window.localStorage.setItem('isLoggedIn', true)
             actions.resetForm()
         } catch (error) {
             if (error.response.data.msg) return setErr(error.response.data)
