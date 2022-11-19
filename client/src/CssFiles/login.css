@@ -1,6 +1,17 @@
-body {
-  background-color: #EBF2FA;
+@import url('https://fonts.cdnfonts.com/css/primeform-pro');
+* {
+  --offWhite: #f4f3ee;
+  --offBlack: #1d201f;
+  --highLight: #f07167;
+  --gray: rgb(96, 96, 96);
+  --lowLight: #40798c;
+
 }
+
+
+/* .body {
+  background-color: var(--offBlack);
+} */
 
 input.input-error,
 select.input-error {
@@ -8,56 +19,64 @@ select.input-error {
 }
 
 .logo-header {
-  font-size: 3rem;
-  padding: 2rem 1rem;
-  width: 20rem;
+  font-size: 5rem;
+  position: relative;
+  left: 36%;
+  /* padding: 2rem 1rem; */
+  /* width: 20rem; */
   margin: 3rem auto;
-  color: #E3655B;
+  color: var(--highLight);
   padding-left: 2rem;
+  font-family: 'Primeform Pro', sans-serif;
+  /* -webkit-text-stroke: .1px var(--offBlack); */
+  
 }
 
 
 .loginbtn {
   border: none;
   font-size: 20px;
-  padding: 0.25rem 0.5rem;
   width: 12rem;
-  height: 2.5rem;
-  border-radius: 10rem;
   margin: 2rem 1.5rem;
-  background-color: #40798C;
-  color: #fff;
-  font-weight: 700;
+  border-radius: 8px;
+  background-color: var(--lowLight);
+  height: 40px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  transition: ease .5s;
+  box-shadow: 6px 5px 5px var(--gray);
+}
+.loginbtn:hover {
+  background-color: var(--highLight);
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
 }
 
 .login {
-  flex-wrap: wrap;
-  border: none;
+  /* flex-wrap: wrap; */
+  /* border: none; */
   padding: 2rem 1rem;
   width: 20rem;
-  border-radius: 1rem;
+  /* border-radius: 3rem; */
   margin: 3rem auto;
 
 }
 
 .loginEmail {
   margin: 0 0 2rem;
-  border-radius: 2rem;
+  /* border-radius: 10rem; */
   display: flex;
   flex-direction: column;
 }
 
 .loginPassword {
-  margin: 0 0 2rem;
-  border-radius: 2rem;
+  /* margin: 0 0 2rem; */
+  /* border-radius: 2rem; */
   display: flex;
   flex-direction: column;
 }
 
-.loginbtn:hover {
-  background-color: #40798C;
-  cursor: pointer;
-}
 
 .error-p {
   width: 5rem;
@@ -68,11 +87,17 @@ select.input-error {
 
 .label-text {
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 1.5rem;
+  font-family: 'Roboto Slab', serif;
+  color: var(--gray);
 }
 
 
 #input-login {
   width: 15rem;
   height: 2rem;
+  font-family: 'Roboto Slab', serif;
+  border-radius: 8px;
+  box-shadow: 4px 3px 3px var(--gray);
+  border: 1px solid var(--gray);
 }
