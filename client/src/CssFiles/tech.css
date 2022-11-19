@@ -2,14 +2,14 @@
   box-sizing: border-box;
 }
 
-* {
+/* * {
   --offWhite: #ebf2fa;
   --offBlack: #1d201f;
   --highLight: #f07167;
   --gray: rgb(96, 96, 96);
   --lowLight: #40798c;
 
-}
+} */
 
 
 .ticket:hover {

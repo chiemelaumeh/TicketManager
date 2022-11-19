@@ -1,11 +1,11 @@
-* {
+/* * {
     --offWhite: #ebf2fa;
     --offBlack: #1d201f;
     --highLight: #f07167;
     --gray: rgb(96, 96, 96);
     --lowLight: #40798c;
   
-  }
+  } */
 
 
 
@@ -37,7 +37,7 @@
     width: 14rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
-    background-color: white;
+    /* background-color: white; */
     border-left: none;
     /* border-right: none; */
     border-top: none;
@@ -50,7 +50,7 @@
     width: 12.5rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
-    background-color: white;
+    /* background-color: white; */
     border-left: none;
     /* border-right: none; */
     border-top: none;
@@ -63,7 +63,7 @@
     width: 12rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
-    background-color: white;
+    /* background-color: white; */
     border-left: none;
     /* border-right: none; */
     border-top: none;
@@ -76,7 +76,7 @@
     width: 15rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
-    background-color: white;
+    /* background-color: white; */
     border-left: none;
     /* border-right: none; */
     border-top: none;
@@ -93,9 +93,9 @@
 .ManageAccountH2{
     justify-content: space-evenly;
     display: flex;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     /* text-decoration: underline var(--highLight); */
-    padding-top: 15px;
+    padding-top: 1px;
     font-family: 'Montserrat', sans-serif;
 }
 

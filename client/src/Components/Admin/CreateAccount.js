@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import "../../CssFiles/admin.css"
+import { AiOutlineUser } from 'react-icons/ai'
 
 const CreateAccount = () => {
     const [err, setErr] = useState({
@@ -54,7 +55,7 @@ const CreateAccount = () => {
             </select>
             <input type='password' placeholder="Initial Password" className="inputBox" onChange={handleChange} value={values.password} name='password' />
             {err.password && <p className="error-reg">{err.password}</p>}
-            <button id="AdminCreateAccountBTN" type="submit">CREATE ACCOUNT</button>
+            <button id="AdminCreateAccountBTN" type="submit"><AiOutlineUser /> CREATE ACCOUNT</button>
         </form>
     )
 }

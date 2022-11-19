@@ -4,6 +4,9 @@ import { useFormik } from "formik"
 import { dataSchema } from "./schemaValid"
 import "../../CssFiles/login.css"
 import axios from 'axios';
+import { MdEmail } from 'react-icons/md'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { VscSignIn } from 'react-icons/vsc'
 
 const LoginForm = () => {
     const { setUser, user } = useContext(LoginContext)
@@ -41,11 +44,11 @@ const LoginForm = () => {
         <div className="login">
             <form onSubmit={handleSubmit}>
                 <div className="loginEmail">
-                    <label className="label-text">Email</label>
+                    <label className="label-text"><MdEmail /> Email</label>
                     <input type='email'
                         id="input-login"
                         name="email"
-                        placeholder="email"
+                        placeholder="Email"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -55,7 +58,7 @@ const LoginForm = () => {
                 </div>
 
                 <div className="loginPassword">
-                    <label className="label-text">Password</label>
+                    <label className="label-text"><RiLockPasswordFill /> Password</label>
                     <input type='password'
                         id="input-login"
                         name="password"
@@ -69,7 +72,7 @@ const LoginForm = () => {
 
                 </div>
 
-                <button className="loginbtn" type="submit">Log in</button>
+                <button className="loginbtn" type="submit"><VscSignIn /> Sign In</button>
             </form>
 
         </div>
