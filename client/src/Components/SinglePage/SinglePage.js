@@ -13,6 +13,7 @@ const SinglePage = () => {
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
+    const [load, setLoad] = useState(true)
 
     function handleChange(e) {
         setTechComment(e.target.value)
@@ -21,7 +22,7 @@ const SinglePage = () => {
 
 
     const postComment = async () => {
-
+        console.log(user)
         const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
             user_id: user.user_id,
             ticket_id: ticket_id,
@@ -41,6 +42,7 @@ const SinglePage = () => {
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
             setComments(data)
+            setLoad(false)
         }
         getComments()
     }, [techComment]);
@@ -55,39 +57,59 @@ const SinglePage = () => {
         getSingleTicket()
     }, []);
 
-    return (
-        <div className='singlePageContainer'>
 
-            <Link to="/tech">
-                <button className="back-to-tickets">X</button>
-            </Link>
+    if (!load) {
+        return (
+            <div className='singlePageContainer'>
+                <Link to="/tech">
+                    <button className="back-to-tickets">X</button>
+                </Link>
 
-            <div className='SingleTicket'>
-                <h4 className="userName">{ticket.username}</h4>
-                <img className ='testPfp' style={{width: '5 rem', height: '5 rem'}} src = {ticket.profilepic} alt=""/>
-                <h3 className='TicketTitle'>Ticket Category: {ticket.category}</h3>
-                <p className='ticketDescrip'>Ticket Description: {ticket.descrip}</p>
-            </div>
-            <div className='Line'></div>
-            <div className='SingleTicket2'>
-                <h2>Ticket #{ticket.ticket_id}</h2>
-                <h3 id='camp'>Campus: <span id='highlight'>{ticket.name}</span></h3>
-                <h3 id='camp'>Priority: <span id='highlight'>{ticket.priority}</span></h3>
-                <h3 id='camp'>Date: <span id='highlight'>{ticket.to_char}</span></h3>
-                <div>
-                    <div className='Comment'>{comments.map((data) => (
-                        <Comment key={data.ticket_id} data={data} />
-                    ))}
-
+                <div className='SingleTicket'>
+                    <div className='user-info'>
+                        <img className='img-profile' alt='' src = {ticket.profilepic} />
+                        <h4 className='img-username'>{ticket.username}</h4>
                     </div>
-                    <form onSubmit={handleSubmit}>
-                        <input type='text' value={techComment} onChange={handleChange} />
-                        <input type='submit' value='Submit' className='post-btn' />
-                    </form>
+
+                    <h3 className='TicketTitle'>Category: <span className='highlight'>{ticket.category}</span></h3>
+                    <div className='Desc-cont'>
+                        <h3 className='ticketDescrip'>Description: </h3>
+                        <h4 className='highlight-2'>{ticket.descrip}</h4>
+                    </div>
+                </div>
+                
+                <div className='Line'></div>
+                <div className='SingleTicket2'>
+                    <h3 className='camp'>TICKET #<span className='highlight'>{ticket.ticket_id}</span></h3>
+                    <div className='camp-3'>
+                        <h3 className='camp'>Campus: <span className='highlight'>{ticket.name}</span></h3>
+                        <h3 className='camp'>Priority: <span className='highlight'>{ticket.priority}</span></h3>
+                        <h3 className='camp'>Submission: <span className='highlight'>{ticket.to_char}</span></h3>
+                    </div>
+                    <div className='comment-cont'>
+                        <h1 className='tech-h1'>Tech Comments</h1>
+                        <div className='Comment'>
+                            {comments.map((data) => (
+                                <Comment key={data.ticket_id} data={data} load={load} />
+                            ))
+                            }
+                        </div>
+                        <form onSubmit={handleSubmit} className='form-post'>
+                            <input type='text' value={techComment} onChange={handleChange} className="input-post" placeholder='Post an update…' />
+                            <input type='submit' value='Submit' className='post-btn' />
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div className='singlePageContainer'>
+                <div className='loading-spinner'></div>
+            </div>
+        )
+    }
+
 }
 
 export default SinglePage;
