@@ -31,10 +31,10 @@ const DataTable = ({ data, reRender}) => {
                     <tbody>
                         <tr>
                             <td className="AccountTableCells">{data.username}</td>
-                            <td className="AccountTableCells">{data.email}</td>
-                            <td className="AccountTableCells">{data.accessrole}</td>
-                            <td className="AccountTableCells">{data.campus_name}</td>
-                            <td onClick={() => setOpen(true)}><FaPencilAlt /></td>
+                            <td className="AccountTableCells4">{data.email}</td>
+                            <td className="AccountTableCells3">{data.accessrole}</td>
+                            <td className="AccountTableCells2">{data.campus_name}</td>
+                            <td className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></td>
                             <Manage open={open} close={() => setOpen(false)} data={data} reRender={reRender}/>
                             <td onClick={() => { handledelete(data.user_id) }} ><BsTrash /></td>
                         </tr>
