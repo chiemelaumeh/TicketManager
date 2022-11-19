@@ -30,9 +30,11 @@ const TicketHistory = () => {
                 <h2 className="table-text" >Status</h2>
                 <h2 className="table-text" >ETR</h2>
             </div>
+            <div className="singleTicketContainer">
             {ticket.map((elem) => (
                 <AdminSingle elem={elem} key={elem.ticket_id} />
             ))}
+            </div>
         </div>
 
     )

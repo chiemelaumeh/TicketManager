@@ -61,15 +61,14 @@ const SinglePage = () => {
     if (!load) {
         return (
             <div className='singlePageContainer'>
-
                 <Link to="/tech">
                     <button className="back-to-tickets">X</button>
                 </Link>
 
                 <div className='SingleTicket'>
                     <div className='user-info'>
-                        <img className='img-profile' alt='' src='https://d3ki9tyy5l5ruj.cloudfront.net/obj/3d4665c7cf119dc9dc38232301b18fa68b9bb17c/avatar.svg' />
-                        <h4 className='img-username'>Username</h4>
+                        <img className='img-profile' alt='' src = {ticket.profilepic} />
+                        <h4 className='img-username'>{ticket.username}</h4>
                     </div>
 
                     <h3 className='TicketTitle'>Category: <span className='highlight'>{ticket.category}</span></h3>
@@ -77,8 +76,8 @@ const SinglePage = () => {
                         <h3 className='ticketDescrip'>Description: </h3>
                         <h4 className='highlight-2'>{ticket.descrip}</h4>
                     </div>
-
                 </div>
+                
                 <div className='Line'></div>
                 <div className='SingleTicket2'>
                     <h3 className='camp'>TICKET #<span className='highlight'>{ticket.ticket_id}</span></h3>
