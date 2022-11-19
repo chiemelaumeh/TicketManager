@@ -7,17 +7,21 @@
 
 } */
 
-/* body {
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto+Slab:wght@100;400&display=swap');
+
+body {
   background-color: var(--offWhite);
-} */
+}
 
 .Line {
-  border-color: var(--offBlack);
+  border-color: var(--highLight);
   border-style: solid;
   border-width: 1px;
   margin-top: auto;
   margin-bottom: auto;
-  height: 16rem;
+  height: 25rem;
 }
 
 
@@ -28,19 +32,19 @@
   margin-right: auto;
   text-align: center;
   display: flex;
-  gap: 6rem;
-  justify-content: center;
+  /* gap: 6rem; */
+  justify-content: space-between;
   border-style: solid;
   border-width: medium;
-  width: 60%;
-  height: 25rem;
+  width: 60rem;
+  height: 30rem;
   border-radius: 15px;
 }
 
 .SingleTicket {
-  border-style: solid;
+  /* border-style: solid; */
   border-width: 1px;
-  width: 35%;
+  width: 20rem;
   height: 85%;
   margin-top: 15px;
   border-radius: 15px;
@@ -48,26 +52,46 @@
 
 .TicketTitle {
   color: var(--lowLight);
-  font-size: 22px;
+  font-size: 21px;
+  text-align: left;
+  margin: 20px 10px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .ticketDescrip {
-  color: var(--gray);
-}
-
-#camp {
   color: var(--lowLight);
+  font-size: 18px;
+  text-align: left;
+  margin: 20px 10px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-#highlight {
-  color: var(--offBlack)
+.camp {
+  color: var(--lowLight);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  width: 20rem;
+  margin: 0.4rem;
+  height: 1.5rem;
 }
+
+.highlight {
+  color: var(--offBlack);
+  font-family: 'Roboto Slab', serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
 
 .Comment {
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  height: 5rem;
+  height: 10rem;
+  width: 25rem;
+  overflow: auto;
 }
 
 .post-btn {
@@ -88,16 +112,17 @@
 }
 
 .back-to-tickets {
-  background-color: #40798c;
+  color: #40798c;
   border: none;
-  border-radius: 10rem;
-  color: #fff;
-  font-size: 15px;
+  /* border-radius: 10rem; */
+  /* color: #fff; */
+  font-size: 24px;
   font-weight: 700;
   height: 2rem;
   margin: 0.5rem 0.5rem;
   padding: 0.25rem 0.5rem;
   width: 2rem;
+  background: transparent;
 }
 
 .back-to-tickets:hover {
@@ -106,4 +131,101 @@
 
 .SingleTicket2 {
   margin-right: 2rem;
+}
+
+.camp-3 {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+
+.tech-h1 {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.comment-cont {
+  width: 25rem;
+  margin-right: 1rem;
+}
+
+.comment-single {
+  width: fit-content;
+  margin-left: 12px;
+  margin-top: 6px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+
+}
+
+.input-post {
+  width: 15rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.img-profile {
+  background: transparent;
+  background-position: center center;
+  border: 1px dashed var(--color-icon);
+  fill: var(--color-icon);
+  align-items: center;
+  border-radius: 50%;
+  width: 4rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.img-username {
+  width: 8rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.Desc-cont {
+  height: 15rem;
+}
+
+.highlight-2 {
+  color: var(--offBlack);
+  font-family: 'Roboto Slab', serif;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  width: 19rem;
+  height: 12rem;
+  text-align: start;
+  padding: 3px;
+  margin-top: 0.5rem;
+}
+
+.form-post {
+  margin-top: 1rem;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 8px solid #f3f3f3;
+  border-top: 10px solid var(--offBlack);
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+  margin: auto;
 }

@@ -1,7 +1,14 @@
-const Comment = ({data}) => {
+const Comment = ({ data, load }) => {
+
+
+
 
     return (
-        <div>{data.comment}</div>
+        <>
+            <div className="comment-single">{data.comment}</div>
+
+        </>
+
     )
 
 }
