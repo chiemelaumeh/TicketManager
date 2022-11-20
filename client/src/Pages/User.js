@@ -2,6 +2,7 @@ import { Dialog } from "primereact/dialog";
 import { useState, useEffect, useContext } from "react";
 import PicContext from "../Contexts/UserPContext";
 import LoginContext from "../Contexts/loginContext";
+import { BiLogOut } from 'react-icons/bi'
 
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -14,8 +15,8 @@ import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Link } from "react-router-dom";
 const User = () => {
-  const { fetchReq, fileState, pic , setPic} = useContext(PicContext);
-  const { handleLogOut} = useContext(LoginContext)
+  const { fetchReq, fileState, pic, setPic } = useContext(PicContext);
+  const { handleLogOut } = useContext(LoginContext)
 
   const [imageCrop, setImageCrop] = useState(false);
   const [category, setCategory] = useState([]);
@@ -26,19 +27,19 @@ const User = () => {
   const [updatePic, setUpdatePic] = useState(null)
 
 
-    //access token through sessionStorage
-    const testToken = sessionStorage.getItem("testToken");
-    //set the payload portion into a variable
-    const getPayload = testToken.split(".")[1];
-    //parse the decoded payload to access obj
-    const payloadObj = JSON.parse(atob(getPayload));
-    
-    const { iat, email, userName, user_id, profilePic } = payloadObj;
+  //access token through sessionStorage
+  const testToken = sessionStorage.getItem("testToken");
+  //set the payload portion into a variable
+  const getPayload = testToken.split(".")[1];
+  //parse the decoded payload to access obj
+  const payloadObj = JSON.parse(atob(getPayload));
+
+  const { iat, email, userName, user_id, profilePic } = payloadObj;
 
 
   //This allows us to re-render the page //
   const [submitTicket, setSubmitTicket] = useState(false);
-  const [err, setErr]  = useState({})
+  const [err, setErr] = useState({})
 
   useEffect(() => {
     //set the photo initially from databse
@@ -65,13 +66,13 @@ const User = () => {
   ];
 
 
-  useEffect(()=>{
+  useEffect(() => {
     //once imaage is uploaded on s3 bucket
     //reassign pic to pfp
     let pfp = pic
-    if(pfp === '') return
-    const renderPFP = async () =>{
-      const {data} = await axios.patch(`http://localhost:6001/user/${user_id}`, {pfp})
+    if (pfp === '') return
+    const renderPFP = async () => {
+      const { data } = await axios.patch(`http://localhost:6001/user/${user_id}`, { pfp })
       //setUpdatePic state to new photo once updated on db
       const newPhoto = data[0].profilepic
       setUpdatePic(newPhoto)
@@ -86,30 +87,30 @@ const User = () => {
     e.preventDefault();
     console.log(category);
     console.log(inputBox)
-try{
-  console.log(inputBox)
-  const response = await axios.post(
-    "http://localhost:6001/User/ticket/create",
-    {
-      user_id: user_id,
-      category,
-      descrip: inputBox,
-      assigned: false,
-      priority: urgency,
-      eta: null,
-      email: email,
-      status: "in progress",
-      campus_id: 1,
-      create_date: date,
-      resolved: null,
+    try {
+      console.log(inputBox)
+      const response = await axios.post(
+        "http://localhost:6001/User/ticket/create",
+        {
+          user_id: user_id,
+          category,
+          descrip: inputBox,
+          assigned: false,
+          priority: urgency,
+          eta: null,
+          email: email,
+          status: "in progress",
+          campus_id: 1,
+          create_date: date,
+          resolved: null,
+        }
+      );
+      setSubmitTicket(true);
+      console.log(response);
+    } catch (error) {
+      console.log(error.response.data.error)
+      if (error.response.data.error) return setErr(error.response.data.error)
     }
-  );
-  setSubmitTicket(true);
-  console.log(response);
-}catch(error){
-  console.log(error.response.data.error)
-  if (error.response.data.error) return setErr(error.response.data.error)
-}
   };
 
   const dynamicColumns = columns.map((col, i) => {
@@ -134,7 +135,13 @@ try{
   return (
     <>
       <div className="user-main">
-        <h1 className="main-header">Welcome, {userName}!</h1>
+        <div className="main-header-container">
+          <h1 className="main-header">Welcome, {userName}!</h1>
+          <Link to="/">
+            <button className="logout-btn-user" onClick={handleLogOut}> <BiLogOut /> Sign Out</button>
+          </Link>
+        </div>
+
         <div className="profile_img text-center p-4">
           <div className="flex flex-column justify-content-center align-items-center">
             <img
@@ -185,7 +192,7 @@ try{
               onChange={(e) => setCategory(e.value)}
               placeholder="Select a Category"
             />
-            {err.category && <p>{err.category}</p>}
+            {err.category && <p className="error-userPage">{err.category}</p>}
           </div>
           <span id="urgency-Span">Please select an urgency.</span>
           <div className="ticket-Urgency">
@@ -196,33 +203,31 @@ try{
               onChange={(e) => setUrgency(e.value)}
               placeholder="Select Urgency"
             />
-             {err.priorty && <p>{err.priorty}</p>}
+            {err.priorty && <p className="error-userPage">{err.priorty}</p>}
           </div>
           <span className="date-Span">Please select Date</span>
           <div className="ticket-Date">
             <Calendar
-            className="date-Drop"
+              className="date-Drop"
               dateFormat="mm/dd/yy"
               value={date}
               onChange={(e) => setDate(e.value)}
             ></Calendar>
-            {err.create_date && <p>{err.create_date}</p>}
+            {err.create_date && <p className="error-userPage">{err.create_date}</p>}
           </div>
           <span className="span-Input">Please provide specific details.</span>
           <div className="paddingLayer">
             <textarea tabIndex="-1" placeholder="" className="input-Box" value={inputBox} onChange={(e) => setInputBox(e.target.value)}></textarea>
-            {err.descrip && <p>{err.descrip}</p>}
+            {err.descrip && <p className="error-userPage">{err.descrip}</p>}
           </div>
           <button className="ticket-submit" onClick={onSubmitForm}>
             Submit
           </button>
-          <Link to="/">
-          <button className="ticket-submit" onClick={handleLogOut}>LogOut</button>
-          </Link>
+
         </div>
 
         <div className="card">
-          <h2>Your Tickets</h2>
+          <h2 style={{ fontFamily: "'Primeform Pro','sans- serif'" }}>Your Tickets</h2>
 
           <DataTable
             value={tickets}
