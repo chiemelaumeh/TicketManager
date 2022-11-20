@@ -104,7 +104,7 @@ body {
     height: 40px;
     padding: 10px 13px;
     text-align: center;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Primeform Pro';
     transition: ease .5s;
     color: var(--offBlack);
     font-size: 1rem;
@@ -136,7 +136,7 @@ body {
     padding: 10px 16px;
     text-align: center;
     font-size: 1rem;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Primeform Pro';
     transition: ease .5s;
     box-shadow: 6px 5px 5px var(--gray);
 }
@@ -158,24 +158,31 @@ body {
 
 .AccountLables {
     display: flex;
-    justify-content: space-evenly;
     /* border: 1px solid green; */
     margin: auto;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
+    width: 62rem;
+    align-items: center;
+    /* margin-inline-start: 0rem; */
+    flex-direction: row;
+    /* margin-inline-start: 6rem; */
+    /* gap: 6px; */
+    margin-bottom: 1rem;
 }
 
 .ManageDiv {
     border: 2px solid var(--offBlack);
-    width: 70rem;   
+    width: 70rem;
     margin: auto;
     background-color: white;
     border-radius: 25px;
-    box-shadow: 6px 5px 5px var(--gray);    
+    box-shadow: 6px 5px 5px var(--gray);
+    padding-bottom: 2rem; 
 }
 
 .singleTicketContainer {
     height: 25rem;
-    overflow: scroll;
+    overflow: overlay;
     margin-bottom: 2rem;
 }
