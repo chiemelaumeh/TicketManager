@@ -34,9 +34,11 @@ const DataTable = ({ data, reRender}) => {
                             <td className="AccountTableCells4">{data.email}</td>
                             <td className="AccountTableCells3">{data.accessrole}</td>
                             <td className="AccountTableCells2">{data.campus_name}</td>
+                            <div className="AccountTableCell5">
                             <td className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></td>
                             <Manage open={open} close={() => setOpen(false)} data={data} reRender={reRender}/>
                             <td onClick={() => { handledelete(data.user_id) }} ><BsTrash /></td>
+                            </div>
                         </tr>
                         <tr>
                         </tr>

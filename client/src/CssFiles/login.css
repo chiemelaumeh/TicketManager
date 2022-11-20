@@ -20,7 +20,6 @@ select.input-error {
 
 .logo-header {
   font-size: 5rem;
-  position: relative;
   left: 36%;
   /* padding: 2rem 1rem; */
   /* width: 20rem; */
@@ -29,7 +28,14 @@ select.input-error {
   padding-left: 2rem;
   font-family: 'Primeform Pro', sans-serif;
   /* -webkit-text-stroke: .1px var(--offBlack); */
-  
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 
