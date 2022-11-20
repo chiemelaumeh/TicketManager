@@ -103,7 +103,7 @@ const SinglePage = () => {
                         </div>
                         <form onSubmit={handleSubmit} className='form-post'>
                             <input type='text' value={techComment} onChange={handleChange} className="input-post" placeholder='Post an update…' />
-                            <p style={{margin: 0, fontFamily: 'Roboto Slab', color: '#f07167'}}>{commentError === 404 ? "Type in a Comment" : null}</p>
+                            <p style={{margin: 0, fontFamily: 'Roboto Slab', color: '#f07167', fontSize: 12}}>{commentError === 404 ? "Type in a Comment" : null}</p>
                             <input type='submit' value='Submit' className='post-btn' />
                         </form>
                     </div>
