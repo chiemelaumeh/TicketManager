@@ -1,6 +1,7 @@
 const express = require("express");
 const pool = require("../config");
 const techRoute = express.Router();
+const {check, validationResult} = require("express-validator")
 
 techRoute.get("/tickets/campus/:id", async (req, res) => {
   try {
@@ -35,7 +36,7 @@ techRoute.get("/ticket/:id/comment", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT comment FROM ticket_Comments WHERE ticket_id = $1",
+      "SELECT * FROM ticket_Comments WHERE ticket_id = $1",
       [id]
     );
     res.status(200).send(rows);
@@ -44,9 +45,14 @@ techRoute.get("/ticket/:id/comment", async (req, res) => {
   }
 });
 
-techRoute.post("/ticket/comment", async (req, res) => {
-  try {
-    const { user_id, ticket_id, comment } = req.body;
+techRoute.post("/ticket/comment", [check('comment').not().isEmpty().withMessage('Type in a Comment')], async (req, res) => {
+
+const { user_id, ticket_id, comment } = req.body;
+const error =validationResult(req).formatWith(({msg})=> msg)
+if(!error.isEmpty()){
+  res.status(404).json({error: error.mapped() })
+}else{
+    try {
     const { rows } = await pool.query(
       "INSERT INTO ticket_Comments(user_id, ticket_id, comment) VALUES($1, $2, $3)",
       [user_id, ticket_id, comment]
@@ -55,6 +61,7 @@ techRoute.post("/ticket/comment", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
+}
 });
 // /* Add patch route for edit comment on single ticket page.*/
 // techRoute.patch("//edit/:id", async (req, res) => {
