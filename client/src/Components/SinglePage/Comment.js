@@ -1,7 +1,4 @@
-const Comment = ({ data, load }) => {
-
-
-
+const Comment = ({ data }) => {
 
     return (
         <>

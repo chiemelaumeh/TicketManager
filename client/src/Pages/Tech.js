@@ -12,6 +12,8 @@ import { AiFillSetting } from "react-icons/ai";
 import { FaTicketAlt } from "react-icons/fa";
 import TechContext from "../Contexts/TechContext";
 import TechPageContext from "../Contexts/TechPageContext";
+import ListClaimedTickets from "../Components/ListClaimedTickets";
+import ListUnclaimedTickets from "../Components/ListUnclaimedTickets";
 import axios from "axios";
 
 const Tech = () => {
@@ -91,17 +93,7 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                  <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
-                    <article
-                      className="ticket claimed-oneticket"
-                      key={tickets.ticket_id}
-                    >
-                      
-                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
-                      <p className="ticketCat">Category: {tickets.category}</p>
-                      <p className="ticketDescription">Status: {tickets.status}</p>
-                    </article>
-                  </Link>
+                    <ListUnclaimedTickets key={tickets.ticket_id} tickets={tickets}/>
                   );
                 })}
             </div>
@@ -124,17 +116,7 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                    <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
-                    <article
-                      className="ticket unclaimed-oneticket"
-                      key={tickets.ticket_id}
-                    >
-                      
-                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
-                      <p className="ticketCat">Category: {tickets.category}</p>
-                      <p className="ticketDescription">Status: {tickets.priority}</p>
-                    </article>
-                    </Link>
+                    <ListClaimedTickets key={tickets.ticket_id} tickets={tickets}/>
                   );
                 })}
             </div>
