@@ -6,77 +6,78 @@
     -webkit-tap-highlight-color: transparent;
 } */
 
-.main-header{
+.main-header {
     color: #F07167;
+    font-family: 'Primeform Pro', sans-serif;
+    font-size: 28px;
 }
 
-.avatar-image{
+.avatar-image {
     margin-left: 4rem;
 }
 
 
 .ticket-submit {
-      background-color: #EA4C89;
-      border-radius: 8px;
-      border-style: none;
-      box-sizing: border-box;
-      color: #FFFFFF;
-      cursor: pointer;
-      display: inline-block;
-      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      height: 40px;
-      line-height: 20px;
-      list-style: none;
-      margin: 0;
-      outline: none;
-      padding: 10px 16px;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      transition: color 100ms;
-      vertical-align: baseline;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-    
-    
-   
-  
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 6px 5px 5px var(--gray);
 }
 
 .ticket-submit,
 .ticket-submit:focus {
-  background-color: #40798C;
+    background-color: #40798C;
 }
 
-.create-Ticket{
+.create-Ticket {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial',Arial;
-    font-size: 18.0pt;
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'Primeform Pro', sans-serif;
+    font-size: 18.pt;
+    font-style: initial;
+    font-weight: 600;
 }
 
-.span-category{
+.span-category {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial',Arial;
-    font-size: 10.5pt;
+    font-family: 'Arial', Arial;
+    /* font-size: 10.5pt; */
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Primeform Pro', sans-serif;
 }
 
-.date-Span{
+.date-Span {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial',Arial;
-    font-size: 10.5pt;
+    font-family: 'Arial', Arial;
+    /* font-size: 10.5pt; */
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: .9rem;
+    font-family: 'Primeform Pro', sans-serif;
 }
 
 option {
@@ -87,26 +88,27 @@ option {
     padding: 0px 2px 1px;
 }
 
-.ticket-Creation-Container{
+.ticket-Creation-Container {
     margin-left: 4rem;
 }
 
-#urgency-Span{
+#urgency-Span {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial',Arial;
-    font-size: 10.5pt;
+    font-family: 'Arial', Arial;
+    /* font-size: 10.5pt; */
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Primeform Pro', sans-serif;
 }
 
-.category-Drop{
+.category-Drop {
     margin-top: .6rem;
     margin-bottom: .8rem;
     width: 300px;
 }
 
-.urgency-Drop{
+.urgency-Drop {
     margin-top: .6rem;
     width: 300px;
     margin-bottom: .9rem;
@@ -121,27 +123,31 @@ option {
 .span-Input {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial',Arial;
-    font-size: 10.5pt;
+    font-family: 'Arial', Arial;
+    /* font-size: 10.5pt; */
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Primeform Pro', sans-serif;
 }
 
 
 
 .input-Box {
-    margin-top: .6rem;
+    margin-top: 0.6rem;
     width: 300px;
     height: 100px;
-    margin-bottom: .9rem;
+    margin-bottom: 0.9rem;
+    font-family: 'Roboto Slab', serif;
+
 }
 
-.ticket-Table{
+.ticket-Table {
     width: 800px;
     margin-left: 2rem;
     margin-bottom: 5rem;
     float: none;
 }
+
 .card {
     text-align: center;
 }
@@ -151,8 +157,39 @@ option {
     justify-content: space-evenly;
 
 }
-.user-main{
+
+.user-main {
     margin-left: 15rem;
     display: flex;
     flex-direction: column;
+}
+
+.main-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.logout-btn-user {
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    background-color: var(--lowLight);
+    margin-top: 1.4rem;
+    margin-right: 2rem;
+    width: 6rem;
+    box-shadow: 6px 5px 5px var(--gray);
+}
+
+.error-userPage {
+    color: red;
+    margin-top: 1px;
 }
