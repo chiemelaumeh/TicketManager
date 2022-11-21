@@ -63,15 +63,28 @@
   cursor: pointer;
   font-family: "Roboto Slab", serif;
 }
-.signoff {
+.signoff-btn {
   height: 2.5rem;
   border: 0;
-  background-color: #222;
-  color: aliceblue;
+  background-color: var(--lowLight);
+  color: var(--offBlack);
   border-radius: 5px;
   margin: 0 1rem;
   padding: 5px;
   width: 4.5rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  cursor: pointer;
+  font-family: "Roboto Slab", serif;
+  transition: ease .5s;
+  box-shadow: 3px 2px 2px var(--gray);
+}
+
+.signoff-btn:hover {
+  background-color: var(--highLight);
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
 }
 .presearch {
   outline: 0;

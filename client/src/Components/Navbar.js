@@ -13,7 +13,7 @@ const Navbar = ({ handleSearch, searchText }) => {
       </div>
       <input type="TEXT" className="search" placeholder="Search" value={searchText} onChange={handleSearch} />
       <div className="postsearch">
-        <button className="signoff btn" onClick={handleLogOut}>LogOut</button>
+        <button className="signoff-btn" onClick={handleLogOut}>LogOut</button>
       </div>
     </nav>
   );
