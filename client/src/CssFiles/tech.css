@@ -71,11 +71,11 @@
   border-radius: 5px;
   margin: 0 1rem;
   padding: 5px;
-  width: 4.5rem;
+  width: 5.3rem;
   padding: 0.5rem 1rem;
   border: 0;
   cursor: pointer;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Montserrat', sans-serif;
   transition: ease .5s;
   box-shadow: 3px 2px 2px var(--gray);
 }
@@ -105,14 +105,14 @@
 }
 .logo {
   max-height: 3rem;
-  color: rgb(234, 79, 55);
+  color: var(--highLight);
   padding: 0.5rem 1rem;
   border: 0;
   font-family: 'Primeform Pro', sans-serif;
   font-size: 1.2rem;
 }
 .usernav {
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 body {
   margin: 0;
@@ -130,14 +130,15 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
+/* 
 .open-sidenav {
   width: 15%;
   position: relative;
   /* display: none; */
-  background-color: var(--lowLight);
-  overflow: hidden;
-}
+  /* background-color: var(--highLight); */
+  /* overflow: hidden; */
+/* } */
+
 .close-sidenav {
   /* display: none; */
   width: 2%;
@@ -151,7 +152,7 @@ body {
   grid-gap: 1px;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
-  height: 60vh;
+  height: 450px;
   overflow: scroll;
   overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
@@ -162,7 +163,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
-  height: 100vh;
+  /* height: 100vh; */
   overflow: scroll;
   overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
@@ -184,7 +185,7 @@ body {
   border-radius: 8px;
   /* padding-top: 1rem; */
   background-color: white;
-  height: 45vw;
+  height: 700px;
 }
 .portal-text {
   text-align: center;
@@ -196,7 +197,7 @@ body {
   /* border: 1px solid #222; */
   padding-bottom: 3rem;
   margin: auto;
-  color: var(--highLight);
+  color: var(--offBlack);
   border-radius: 2rem;
 }
 .all-tickets {
@@ -235,7 +236,7 @@ body {
 
 .unclaimed-oneticket:hover {
   transform: scale(1.05);
-  transition: 0.25s;
+  transition: 0.3s;
   background-color: #eee;
 }
 .ticket {
@@ -285,7 +286,7 @@ body {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   border-radius: 20%; 
-  color: rgba(234, 79, 55, 0.85);
+  color: var(--highLight);
   font-size: .9rem;
 }
 .claimedTicketNumber {
@@ -356,10 +357,11 @@ hr {
 }
 
 .tag {
-  color: #1c6f8b;
-  border: 1px solid rgb(234, 79, 55);
+  color: var(--offBlack);
+  /* border: 1px solid rgb(234, 79, 55); */
   padding: 0.75rem;
   border-radius: 5px;
-  font-family: "Roboto Slab", serif;
-  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: 100; */
+  font-size: 1.5rem;
 }
