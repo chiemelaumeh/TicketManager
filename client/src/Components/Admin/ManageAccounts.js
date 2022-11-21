@@ -35,13 +35,14 @@ const ManageAccounts = () => {
                 <h1 className="ManageAccountH2">Manage Accounts</h1>
 
                 <div className="AccountLables">
-                    <h2 className="Lables">User Name</h2>
-                    <h2 className="Lables">Email</h2>
-                    <h2 className="Lables">Role</h2>
-                    <h2 className="Lables">Campus</h2>
-                    <h2 className="Lables">Edit</h2>
+                    <div className="Lables">User Name</div>
+                    <div className="Lables">Email</div>
+                    <div className="Lables">Role</div>
+                    <div className="Lables">Campus</div>
+                    <div className="edit-Lables">Edit</div>
                 </div>
 
+               <div className="AccountsContainer">
                 {account.map((data) => (
                     <DataTable key={data.user_id}
                         data={data} reRender={reRender}
@@ -50,6 +51,7 @@ const ManageAccounts = () => {
                     />
 
                 ))}
+                </div> 
             </div>
 
 

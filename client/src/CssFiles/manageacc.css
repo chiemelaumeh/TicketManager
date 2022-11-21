@@ -26,14 +26,69 @@
     margin: auto;
 }
 
-.AccountTable{
+/* .AccountTable{
     width: 62rem;
     margin: 0;
 
     text-align: left;
-}
+} */
 
-.AccountTableCells{
+/* .AccountTableCells{
+    width: 14rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem; */
+    /* background-color: white; */
+    /* border-left: none; */
+    /* border-right: none; */
+    /* border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+} */
+
+/* .AccountTableCells2 {
+    width: 12.5rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem; */
+    /* background-color: white; */
+    /* border-left: none; */
+    /* border-right: none; */
+    /* border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+} */
+
+/* .AccountTableCells3 {
+    width: 12rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem; */
+    /* background-color: white; */
+    /* border-left: none; */
+    /* border-right: none; */
+    /* border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+} */
+
+/* .AccountTableCells4 {
+    width: 15rem;
+    border: 1px solid var(--lowLight);
+    font-size: 1rem; */
+    /* background-color: white; */
+    /* border-left: none; */
+    /* border-right: none; */
+    /* border-top: none;
+    height: 35px;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gray);
+} */
+
+.AccountTableCells,
+.AccountTableCells2,
+.AccountTableCells3,
+.AccountTableCells4{
     width: 14rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
@@ -44,45 +99,22 @@
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
+    text-align: center;
 }
-
-.AccountTableCells2 {
-    width: 12.5rem;
+.AccountTableCell5{
+    width: 6rem;
     border: 1px solid var(--lowLight);
-    font-size: 1rem;
+    /* font-size: 1rem; */
     /* background-color: white; */
     border-left: none;
     /* border-right: none; */
     border-top: none;
     height: 35px;
-    font-family: 'Roboto Slab', serif;
+    /* font-family: 'Roboto Slab', serif; */
     color: var(--gray);
-}
-
-.AccountTableCells3 {
-    width: 12rem;
-    border: 1px solid var(--lowLight);
-    font-size: 1rem;
-    /* background-color: white; */
-    border-left: none;
-    /* border-right: none; */
-    border-top: none;
-    height: 35px;
-    font-family: 'Roboto Slab', serif;
-    color: var(--gray);
-}
-
-.AccountTableCells4 {
-    width: 15rem;
-    border: 1px solid var(--lowLight);
-    font-size: 1rem;
-    /* background-color: white; */
-    border-left: none;
-    /* border-right: none; */
-    border-top: none;
-    height: 35px;
-    font-family: 'Roboto Slab', serif;
-    color: var(--gray);
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .editBTN {
@@ -96,10 +128,38 @@
     font-size: 1.9rem;
     /* text-decoration: underline var(--highLight); */
     padding-top: 1px;
-    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2rem;
+    font-family: 'Primeform Pro';
 }
 
 .Lables {
+    -webkit-text-decoration: underline var(--highLight);
     text-decoration: underline var(--highLight);
+    width: 14rem;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-inline-start: 5px;
+    font-family: 'Primeform Pro';
+}
+.edit-Lables{
+    -webkit-text-decoration: underline var(--highLight);
+    text-decoration: underline var(--highLight);
+    font-size: 1.5rem;
+    font-family: 'Primeform Pro';
+    margin-inline-start: 2.2rem;
+    width: 3rem;
+}
+
+.AccountsContainer{
+    overflow: overlay;
+    height: 27rem;
+}
+
+.AccountContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-between;
+    gap: 0.5rem;
 }
 

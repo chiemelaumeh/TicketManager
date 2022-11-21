@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, Link } from "react-router-dom";
 import '../../CssFiles/SinglePage.css';
-import Comment from './Comment';
+import ListComments from './ListComments';
+
 import CommentContext from '../../Contexts/CommentsContext';
 import SingleTicketContext from '../../Contexts/SingleTicketContext';
 import LoginContext from "../../Contexts/loginContext";
@@ -14,21 +15,28 @@ const SinglePage = () => {
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
     const [load, setLoad] = useState(true)
+    const [commentError, setCommentError] = useState('')
 
     function handleChange(e) {
         setTechComment(e.target.value)
+        setCommentError('')
     };
     //const response = await axios.post("https://taskappapi.onrender.com/tech/ticket/comment"
 
 
     const postComment = async () => {
-        console.log(user)
-        const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
-            user_id: user.user_id,
-            ticket_id: ticket_id,
-            comment: techComment
-        })
-        console.log(response)
+        // console.log(user)
+        try {
+            const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
+                user_id: user.user_id,
+                ticket_id: ticket_id,
+                comment: techComment
+            })
+        } catch (error) {
+            // console.log(error.response.data.error.comment)
+            setCommentError(error.response.status)
+        }
+
     };
 
     function handleSubmit(e) {
@@ -51,7 +59,7 @@ const SinglePage = () => {
         const getSingleTicket = async () => {
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
-            console.log(data)
+            // console.log(data)
             setTicket(data[0])
         }
         getSingleTicket()
@@ -67,7 +75,7 @@ const SinglePage = () => {
 
                 <div className='SingleTicket'>
                     <div className='user-info'>
-                        <img className='img-profile' alt='' src = {ticket.profilepic} />
+                        <img className='img-profile' alt='' src={ticket.profilepic} />
                         <h4 className='img-username'>{ticket.username}</h4>
                     </div>
 
@@ -77,7 +85,7 @@ const SinglePage = () => {
                         <h4 className='highlight-2'>{ticket.descrip}</h4>
                     </div>
                 </div>
-                
+
                 <div className='Line'></div>
                 <div className='SingleTicket2'>
                     <h3 className='camp'>TICKET #<span className='highlight'>{ticket.ticket_id}</span></h3>
@@ -89,13 +97,13 @@ const SinglePage = () => {
                     <div className='comment-cont'>
                         <h1 className='tech-h1'>Tech Comments</h1>
                         <div className='Comment'>
-                            {comments.map((data) => (
-                                <Comment key={data.ticket_id} data={data} load={load} />
-                            ))
-                            }
+                            <ListComments comments={comments} />
                         </div>
                         <form onSubmit={handleSubmit} className='form-post'>
                             <input type='text' value={techComment} onChange={handleChange} className="input-post" placeholder='Post an update…' />
+
+                            <p style={{margin: 0, fontFamily: 'Roboto Slab', color: 'red', fontSize: 12}}>{commentError === 404 ? "Type in a Comment" : null}</p>
+
                             <input type='submit' value='Submit' className='post-btn' />
                         </form>
                     </div>

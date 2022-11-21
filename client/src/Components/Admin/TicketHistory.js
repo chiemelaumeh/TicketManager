@@ -23,12 +23,12 @@ const TicketHistory = () => {
             <h2 className="ManageAccountH2">Ticket History</h2>
         </div>
             <div className="table-container">
-                <h2 className="table-text" >Ticket#</h2>
-                <h2 className="table-text" >Campus</h2>
-                <h2 className="table-text" >Category</h2>
-                <h2 className="table-text" >Urgency</h2>
-                <h2 className="table-text" >Status</h2>
-                <h2 className="table-text" >ETR</h2>
+                <div className="table-text" >Ticket#</div>
+                <div className="table-text" >Campus</div>
+                <div className="table-text" >Category</div>
+                <div className="table-text" >Urgency</div>
+                <div className="table-text" >Status</div>
+                <div className="table-text" >ETR</div>
             </div>
             <div className="singleTicketContainer">
             {ticket.map((elem) => (

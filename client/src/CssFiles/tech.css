@@ -257,12 +257,12 @@ body {
   margin: 0;
   height: 10px;
   margin-bottom: 0.35rem;
-  border: 1px solid #1c6f8b6a;
-  padding-bottom: 1.4rem;
+  /* border: 1px solid #1c6f8b6a; */
+ padding-bottom: 1.4rem; 
   padding-top: 0.1rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  border-radius: 100%;
+  border-radius: 20%; 
   color: rgba(234, 79, 55, 0.85);
 }
 .claimedTicketNumber {
