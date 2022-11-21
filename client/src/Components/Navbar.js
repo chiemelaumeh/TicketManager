@@ -8,7 +8,7 @@ const Navbar = ({ handleSearch, searchText }) => {
   return (
     <nav className="navbar">
       <div className="presearch">
-        <button className="navlink logo btn">ATHENA</button>
+        <button className="navlink logo">ATHENA</button>
 
       </div>
       <input type="TEXT" className="search" placeholder="Search" value={searchText} onChange={handleSearch} />

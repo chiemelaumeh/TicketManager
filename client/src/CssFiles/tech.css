@@ -23,7 +23,7 @@
   font-family: "Roboto Slab", serif;
   width: 100vw;
   height: 3rem;
-  border: 0.1px solid black;
+  /* border: 0.1px solid black; */
   border-radius: 5px;
   margin-top: 0;
   display: flex;
@@ -106,6 +106,10 @@
 .logo {
   max-height: 3rem;
   color: rgb(234, 79, 55);
+  padding: 0.5rem 1rem;
+  border: 0;
+  font-family: 'Primeform Pro', sans-serif;
+  font-size: 1.2rem;
 }
 .usernav {
   font-weight: 200;
@@ -147,7 +151,7 @@ body {
   grid-gap: 1px;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
-  height: 100vh;
+  height: 60vh;
   overflow: scroll;
   overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
@@ -173,24 +177,26 @@ body {
   padding-left: 4%;
 } */
 .ticket-board {
-  width: 95vw;
+  width: 90vw;
   padding: 1rem;
   margin: auto;
-  border: 1px solid #1c6f8b;
-  border-radius: rem;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
   /* padding-top: 1rem; */
+  background-color: white;
+  height: 45vw;
 }
 .portal-text {
   text-align: center;
   width: 20rem;
   height: 2rem;
   position: sticky;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
-  border: 1px solid #222;
+  /* border: 1px solid #222; */
   padding-bottom: 3rem;
   margin: auto;
-  color: rgb(234, 79, 55);
+  color: var(--highLight);
   border-radius: 2rem;
 }
 .all-tickets {
@@ -249,9 +255,10 @@ body {
 
 .ticketDescription {
   margin: 0;
-  height: 120px;
-  font-weight: 300;
-  color: red;
+  /* height: 120px; */
+  /* font-weight: 300; */
+  color: var(--highLight);
+  font-size: 1rem;
 }
 .claimedTicketDescription {
   margin: 0;
@@ -260,11 +267,13 @@ body {
 }
 .ticketDesc {
   margin: 0;
-  height: 120px;
-  font-weight: 300;
+  /* height: 120px; */
+  /* font-weight: 300; */
+  font-size: .9rem;
 }
 .ticketCat {
-  font-weight: 300;
+  /* font-weight: 300; */
+  font-size: .8rem;
 }
 .ticketNumber {
   margin: 0;
@@ -277,6 +286,7 @@ body {
   padding-right: 0.25rem;
   border-radius: 20%; 
   color: rgba(234, 79, 55, 0.85);
+  font-size: .9rem;
 }
 .claimedTicketNumber {
   margin: 0;
