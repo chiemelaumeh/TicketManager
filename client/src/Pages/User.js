@@ -226,13 +226,15 @@ const User = () => {
 
         </div>
 
-        <div className="card">
+        <div className="card"
+        style={{ height: 'calc(80vh - 145px)' }}>
           <h2 style={{ fontFamily: "'Primeform Pro','sans- serif'" }}>Your Tickets</h2>
 
           <DataTable
             value={tickets}
             className="ticket-Table"
             responsiveLayout="scroll"
+            scrollable scrollHeight="flex"
           >
             {dynamicColumns}
           </DataTable>
