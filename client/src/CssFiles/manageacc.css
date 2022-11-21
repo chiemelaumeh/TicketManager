@@ -113,6 +113,8 @@
     /* font-family: 'Roboto Slab', serif; */
     color: var(--gray);
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .editBTN {
@@ -126,7 +128,7 @@
     font-size: 1.9rem;
     /* text-decoration: underline var(--highLight); */
     padding-top: 1px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-family: 'Primeform Pro';
 }
 
@@ -144,10 +146,20 @@
     text-decoration: underline var(--highLight);
     font-size: 1.5rem;
     font-family: 'Primeform Pro';
+    margin-inline-start: 2.2rem;
+    width: 3rem;
 }
 
 .AccountsContainer{
     overflow: overlay;
     height: 27rem;
+}
+
+.AccountContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-between;
+    gap: 0.5rem;
 }
 

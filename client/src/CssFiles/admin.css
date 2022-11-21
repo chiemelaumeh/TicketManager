@@ -79,8 +79,11 @@ body {
 
 /* NAV BAR CSS */
 .NavBar {
+    display: flex;
     align-items: center;
     margin-bottom: 2.5rem;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .NavBarTitle {
@@ -96,7 +99,7 @@ body {
 }
 
 .NavBarComp {
-    margin-left: 17%;
+    /* margin-left: 17%; */
     border: none;
     border-radius: 8px;
     background-color: var(--lowLight);
@@ -162,12 +165,13 @@ body {
     margin: auto;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
-    width: 62rem;
+    width: 64rem;
     align-items: center;
     /* margin-inline-start: 0rem; */
     flex-direction: row;
     /* margin-inline-start: 6rem; */
     /* gap: 6px; */
+    margin-top: 2.2rem;
     margin-bottom: 1rem;
 }
 
