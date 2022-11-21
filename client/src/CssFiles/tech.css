@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto+Slab:wght@100;400&display=swap");
 :root {
   box-sizing: border-box;
 }
@@ -11,15 +12,15 @@
 
 } */
 
-
 .ticket:hover {
   cursor: pointer;
-  border:1px solid red;
+  border: 1px solid red;
 
   /* transform: scale(1.02); */
 }
 
 .navbar {
+  font-family: "Roboto Slab", serif;
   width: 100vw;
   height: 3rem;
   border: 0.1px solid black;
@@ -40,6 +41,7 @@
   border-radius: 5px;
   border: 1px solid rgba(169, 166, 166, 0.52);
   padding: 0 2rem;
+  font-family: "Roboto Slab", serif;
 }
 
 .postsearch {
@@ -52,12 +54,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Roboto Slab", serif;
 }
 
 .btn {
   padding: 0.5rem 1rem;
   border: 0;
   cursor: pointer;
+  font-family: "Roboto Slab", serif;
 }
 .signoff {
   height: 2.5rem;
@@ -100,10 +104,9 @@ body {
 .mainticket {
   /* border: 1px solid red; */
 
-padding: 2rem;
+  padding: 1rem;
 }
 .menubars {
-
   position: absolute;
   right: 0.5rem;
   top: 1.4rem;
@@ -112,12 +115,11 @@ padding: 2rem;
 }
 
 .open-sidenav {
-  width:15%;
+  width: 15%;
   position: relative;
   /* display: none; */
   background-color: var(--lowLight);
   overflow: hidden;
-
 }
 .close-sidenav {
   /* display: none; */
@@ -129,13 +131,14 @@ padding: 2rem;
 .unclaimed-tickets {
   /* border: 1px solid blue; */
   display: grid;
-  grid-gap:1px;
+  grid-gap: 1px;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
   height: 100vh;
-  overflow:scroll;
-  overflow-x:hidden;
+  overflow: scroll;
+  overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
+  font-family: "Roboto Slab", serif;
 }
 .claimed-tickets {
   /* border: 1px solid green; */
@@ -143,9 +146,10 @@ padding: 2rem;
   grid-template-columns: repeat(3, 1fr);
   width: 50%;
   height: 100vh;
-  overflow:scroll;
-  overflow-x:hidden;
+  overflow: scroll;
+  overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
+  font-family: "Roboto Slab", serif;
 }
 /* .ticket-board {
   width: 90%;
@@ -157,17 +161,24 @@ padding: 2rem;
 } */
 .ticket-board {
   width: 95vw;
-
+  padding: 1rem;
   margin: auto;
   border: 1px solid #1c6f8b;
-  border-radius: 1rem;
+  border-radius: rem;
   /* padding-top: 1rem; */
 }
 .portal-text {
   text-align: center;
-  width: 100%;
+  width: 20rem;
   height: 2rem;
   position: sticky;
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  border: 1px solid #222;
+  padding-bottom: 3rem;
+  margin: auto;
+  color: rgb(234, 79, 55);
+  border-radius: 2rem;
 }
 .all-tickets {
   /* background-color: aqua; */
@@ -175,67 +186,113 @@ padding: 2rem;
   display: flex;
   /* flex-direction: row; */
   justify-content: space-evenly;
-  
- 
-
+  padding: 1rem;
 }
 .claimed-oneticket {
   background-color: #ddd;
+  border: 1px solid #bbb;
+  color: #40798c;
+  font-size: 0.5rem;
+
   /* display: flex;
   justify-content: space-between;
   margin: 5px; */
- 
-  
 }
-.unclaimed-oneticket {
-  background-color: #e6ccee;
+.claimed-oneticket:hover {
+  transform: scale(1.05);
+  transition: 0.25s;
+  color: #40798c;
 
+  background-color: rgb(240, 233, 233);
+  border: 1px solid #40798c;
+}
+
+.unclaimed-oneticket {
+  background-color: #eee;
+  border: 1px solid #bbb;
+  color: #40798c;
+  font-size: 0.5rem;
+}
+
+.unclaimed-oneticket:hover {
+  transform: scale(1.05);
+  transition: 0.25s;
+  background-color: #eee;
 }
 .ticket {
-  height: 6.5rem;
+  height: 7rem;
   margin: 0.5rem;
-  padding: 1rem;
+  /* padding: 1rem; */
+  padding-top: 0.9rem;
+  padding-bottom: 0.5rem;
   width: 12rem;
   border-radius: 10px;
-  transition: ease-in-out .1s;
-  display: flex;
-  flex-direction: column;
-  color: #222;
+  transition: ease-in-out 0.1s;
+
+  text-align: center;
   font-weight: 400;
+
 }
 
 .ticketDescription {
   margin: 0;
   height: 120px;
+  font-weight: 300;
+  color: red;
 }
-
+.claimedTicketDescription {
+  margin: 0;
+  height: 120px;
+  font-weight: 300;
+}
+.ticketDesc {
+  margin: 0;
+  height: 120px;
+  font-weight: 300;
+}
+.ticketCat {
+  font-weight: 300;
+}
 .ticketNumber {
   margin: 0;
   height: 10px;
- 
+  margin-bottom: 0.35rem;
+  /* border: 1px solid #1c6f8b6a; */
+ padding-bottom: 1.4rem; 
+  padding-top: 0.1rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  border-radius: 20%; 
+  color: rgba(234, 79, 55, 0.85);
+}
+.claimedTicketNumber {
+  margin: 0;
+  height: 10px;
+  margin-bottom: 0.65rem;
+  
+  /* padding-bottom: 1.4rem; */
+  /* padding-top: 0.1rem; */
+  /* padding-left: 0.25rem; */
 
 }
 
-
-.menu-items{
+.menu-items {
   margin-top: 1.5rem;
   list-style: none;
   height: 20rem;
 
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
-  
 }
 .menu-items-hide li {
-  display: none
+  display: none;
 }
 .menu-items li {
   font-weight: 200;
-
 }
-.menu-list{
+.menu-list {
   font-size: 1rem;
   /* background-color: beige; */
   height: 3rem;
@@ -243,12 +300,10 @@ padding: 2rem;
   padding-left: 4rem;
   padding-top: 1rem;
   cursor: pointer;
-
 }
 .menu-list:hover {
   background-color: #1c6f8b;
-  transition: .8s;
-
+  transition: 0.8s;
 }
 
 .menu-icon {
@@ -258,4 +313,30 @@ padding: 2rem;
 a:-webkit-any-link {
   text-decoration: none;
 }
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  justify-items: center;
+  align-items: center;
+}
 
+hr {
+  width: 70%;
+  margin-top: 1rem;
+}
+
+.ticket-tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tag {
+  color: #1c6f8b;
+  border: 1px solid rgb(234, 79, 55);
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 100;
+}

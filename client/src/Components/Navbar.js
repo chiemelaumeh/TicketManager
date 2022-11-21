@@ -9,7 +9,7 @@ const Navbar = ({ handleSearch, searchText }) => {
     <nav className="navbar">
       <div className="presearch">
         <button className="navlink logo btn">ATHENA</button>
-        <button className="navlink usernav btn">Users</button>
+
       </div>
       <input type="TEXT" className="search" placeholder="Search" value={searchText} onChange={handleSearch} />
       <div className="postsearch">

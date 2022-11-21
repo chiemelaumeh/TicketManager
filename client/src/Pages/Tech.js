@@ -17,9 +17,9 @@ import ListUnclaimedTickets from "../Components/ListUnclaimedTickets";
 import axios from "axios";
 
 const Tech = () => {
-  const {user} = useContext(LoginContext)
+  const { user } = useContext(LoginContext);
   const { tickets, setTickets } = useContext(TechPageContext);
-  const { open, setOpen} = useContext(TechContext);
+  const { open, setOpen } = useContext(TechContext);
   const [searchText, setSearchText] = useState("");
 
   const handleSearch = (e) => {
@@ -44,7 +44,7 @@ const Tech = () => {
     const getTickets = async () => {
       const { data } = await axios.get(
         `https://taskappapi.onrender.com/tech/Tickets/campus/${user.campus_id}`
-        );
+      );
       setTickets(data);
     };
     getTickets();
@@ -73,6 +73,12 @@ const Tech = () => {
         </div> */}
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
+          <hr />
+
+          <div className="ticket-tag">
+            <p className="tag">CLAIMED TICKETS</p>
+            <p className="tag">UNCLAIMED TICKETS</p>
+          </div>
           <div className="all-tickets">
             <div className="claimed-tickets">
               {claimed
