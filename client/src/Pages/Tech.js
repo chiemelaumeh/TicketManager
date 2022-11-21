@@ -15,9 +15,9 @@ import TechPageContext from "../Contexts/TechPageContext";
 import axios from "axios";
 
 const Tech = () => {
-  const {user} = useContext(LoginContext)
+  const { user } = useContext(LoginContext);
   const { tickets, setTickets } = useContext(TechPageContext);
-  const { open, setOpen} = useContext(TechContext);
+  const { open, setOpen } = useContext(TechContext);
   const [searchText, setSearchText] = useState("");
 
   const handleSearch = (e) => {
@@ -42,7 +42,7 @@ const Tech = () => {
     const getTickets = async () => {
       const { data } = await axios.get(
         `https://taskappapi.onrender.com/tech/Tickets/campus/${user.campus_id}`
-        );
+      );
       setTickets(data);
     };
     getTickets();
@@ -71,6 +71,12 @@ const Tech = () => {
         </div> */}
         <div className="ticket-board">
           <h3 className="portal-text">TECH PORTAL</h3>
+          <hr />
+
+          <div className="ticket-tag">
+            <p className="tag">CLAIMED TICKETS</p>
+            <p className="tag">UNCLAIMED TICKETS</p>
+          </div>
           <div className="all-tickets">
             <div className="claimed-tickets">
               {claimed
@@ -91,17 +97,27 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                  <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
-                    <article
-                      className="ticket claimed-oneticket"
-                      key={tickets.ticket_id}
+                    <Link
+                      to={`/tech/${tickets.ticket_id}`}
+                      className="ticket-link"
                     >
-                      
-                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
-                      <p className="ticketCat">Category: {tickets.category}</p>
-                      <p className="ticketDescription">Status: {tickets.status}</p>
-                    </article>
-                  </Link>
+                      <article
+                        className="ticket claimed-oneticket"
+                        key={tickets.ticket_id}
+                      >
+                        <div className="ticket-list">
+                          <h4 className="claimedTicketNumber">
+                            Ticket {tickets.ticket_id}
+                          </h4>
+                          <p className="ticketCat">
+                            Category: {tickets.category}
+                          </p>
+                          <p className="claimedTicketDescription">
+                            Status: {tickets.status}
+                          </p>
+                        </div>
+                      </article>
+                    </Link>
                   );
                 })}
             </div>
@@ -124,16 +140,33 @@ const Tech = () => {
                 })
                 .map((tickets) => {
                   return (
-                    <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
-                    <article
-                      className="ticket unclaimed-oneticket"
-                      key={tickets.ticket_id}
+                    <Link
+                      to={`/tech/${tickets.ticket_id}`}
+                      className="ticket-link"
                     >
-                      
-                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
-                      <p className="ticketCat">Category: {tickets.category}</p>
-                      <p className="ticketDescription">Status: {tickets.priority}</p>
-                    </article>
+                      <article
+                        className="ticket unclaimed-oneticket"
+                        key={tickets.ticket_id}
+                      >
+                        <div className="ticket-list">
+                          <h4 className="ticketNumber">
+                             {tickets.ticket_id}
+                          </h4>
+
+                          <p className="ticketCat">
+                            Category: {tickets.category}
+                          </p>
+                          <p
+                            className={
+                              tickets.priority == "1- Urgent"
+                                ? "ticketDescription"
+                                : "ticketDesc"
+                            }
+                          >
+                            {tickets.priority}
+                          </p>
+                        </div>
+                      </article>
                     </Link>
                   );
                 })}
