@@ -20,24 +20,24 @@ const DataTable = ({ data, reRender}) => {
                 <table className="AccountTable">
                     <thead>
                         <tr>
-                            <th className="UserNameData" scope="col"></th>
-                            <th className="EmailData" scope="col"></th>
-                            <th className="RoleData" scope="col"></th>
-                            <th className="CampusData" scope="col"></th>
-                            <th className="EditAndDelete" scope="col"></th>
-                            <th className="EditAndDelete" scope="col"></th>
+                            <div className="UserNameData" scope="col"></div>
+                            <div className="EmailData" scope="col"></div>
+                            <div className="RoleData" scope="col"></div>
+                            <div className="CampusData" scope="col"></div>
+                            <div className="EditAndDelete" scope="col"></div>
+                            <div className="EditAndDelete" scope="col"></div>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td className="AccountTableCells">{data.username}</td>
-                            <td className="AccountTableCells4">{data.email}</td>
-                            <td className="AccountTableCells3">{data.accessrole}</td>
-                            <td className="AccountTableCells2">{data.campus_name}</td>
+                        <tr className="AccountContainer">
+                            <div className="AccountTableCells">{data.username}</div>
+                            <div className="AccountTableCells4">{data.email}</div>
+                            <div className="AccountTableCells3">{data.accessrole}</div>
+                            <div className="AccountTableCells2">{data.campus_name}</div>
                             <div className="AccountTableCell5">
-                            <td className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></td>
+                            <div className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></div>
                             <Manage open={open} close={() => setOpen(false)} data={data} reRender={reRender}/>
-                            <td onClick={() => { handledelete(data.user_id) }} ><BsTrash /></td>
+                            <div onClick={() => { handledelete(data.user_id) }} ><BsTrash /></div>
                             </div>
                         </tr>
                         <tr>

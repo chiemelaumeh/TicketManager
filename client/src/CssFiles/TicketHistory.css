@@ -15,18 +15,19 @@
     display: flex;
     -webkit-text-decoration: underline var(--highLight);
     text-decoration: underline var(--highLight);
-    width: 14rem;
+    width: 69rem;
     text-align: center;
     font-size: 1.5rem;
-    margin-inline-start: 5px;
+    margin-inline-start: 19px;
+    margin-bottom: 1rem;
     font-family: 'Primeform Pro';
 }
 
 
 .table-text {
-    /* width: 6rem; */
-    /* text-align: center; */
-    padding-top: 0px;
+    width: 180px;
+    text-align: center;
+    /* padding-top: 0px px; */
 }
 
 .single-ticket {
@@ -43,7 +44,7 @@
 }
 
 .ticket-div {
-    width: 11rem;
+    width: 10.5rem;
     height: 35px;
     text-align: center;
     padding-top: 0rem;
