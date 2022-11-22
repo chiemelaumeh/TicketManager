@@ -22,13 +22,24 @@ techRoute.get("/ticket/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(
-      "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.category,tickets.user_id, TO_CHAR(create_date, 'Mon dd, yyyy'), campus.name, accounts.userName, accounts.profilePic FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id JOIN accounts ON tickets.user_id = accounts.user_id WHERE ticket_id = $1",
+      "SELECT tickets.ticket_id, tickets.priority, tickets.descrip, tickets.assigned, tickets.category,tickets.user_id, TO_CHAR(create_date, 'Mon dd, yyyy'), campus.name, accounts.userName, accounts.profilePic FROM tickets JOIN campus ON tickets.campus_ID = campus.campus_id JOIN accounts ON tickets.user_id = accounts.user_id WHERE ticket_id = $1",
       [id]
     );
 
     res.status(200).send(rows)
   } catch (err) {
     console.error(err.message)
+  }
+});
+
+techRoute.put("/tickets/claim/:id", async (req, res) => {
+  const {id} = req.params
+  const {assigned} = req.body
+  try {
+    const { rows } = await pool.query('Update tickets set assigned = $1 where ticket_id = $2 RETURNING *',[assigned,id])
+    res.send(rows)
+  } catch (error) {
+    res.status(404).send("Error Claiming Ticket")
   }
 });
 
