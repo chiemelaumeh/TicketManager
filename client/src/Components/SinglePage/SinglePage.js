@@ -16,6 +16,7 @@ const SinglePage = () => {
     const [techComment, setTechComment] = useState('');
     const [load, setLoad] = useState(true)
     const [commentError, setCommentError] = useState('')
+    const [claimed, setClaimed] = useState('')
 
     function handleChange(e) {
         setTechComment(e.target.value)
@@ -46,16 +47,6 @@ const SinglePage = () => {
     };
 
     useEffect(() => {
-        const getComments = async () => {
-            // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
-            setComments(data)
-            setLoad(false)
-        }
-        getComments()
-    }, [techComment]);
-
-    useEffect(() => {
         const getSingleTicket = async () => {
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
@@ -63,7 +54,43 @@ const SinglePage = () => {
             setTicket(data[0])
         }
         getSingleTicket()
-    }, []);
+    }, [claimed]);
+
+    useEffect(() => {
+        const getComments = async () => {
+            // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
+            // console.log(data)
+            setComments(data)
+            setLoad(false)
+        }
+        getComments()
+    }, [techComment]);
+
+
+
+
+    const claimTicket = async (e) => {
+        const id = e.target.id
+        const assigned = user.userName
+        try {
+            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, {assigned})
+            setClaimed(true)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const unclaimTicket = async (e) => {
+        const id = e.target.id
+        const assigned = "Pending"
+        try {
+            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, {assigned})
+            setClaimed(false)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     if (!load) {
@@ -84,6 +111,12 @@ const SinglePage = () => {
                         <h3 className='ticketDescrip'>Description: </h3>
                         <h4 className='highlight-2'>{ticket.descrip}</h4>
                     </div>
+                    {
+                    ticket.assigned === "Pending" ? 
+                    (<button className='post-btn' id={ticket.ticket_id} onClick={claimTicket}>Claim Ticket</button>)
+                    :
+                    (<button className='post-btn' id={ticket.ticket_id} onClick={unclaimTicket}>Unclaim Ticket</button>)
+                }
                 </div>
 
                 <div className='Line'></div>
@@ -92,6 +125,7 @@ const SinglePage = () => {
                     <div className='camp-3'>
                         <h3 className='camp'>Campus: <span className='highlight'>{ticket.name}</span></h3>
                         <h3 className='camp'>Priority: <span className='highlight'>{ticket.priority}</span></h3>
+                        <h3 className='camp'>Claimed by: <span className='highlight'>{ticket.assigned}</span></h3>
                         <h3 className='camp'>Submission: <span className='highlight'>{ticket.to_char}</span></h3>
                     </div>
                     <div className='comment-cont'>

@@ -87,14 +87,14 @@ const User = () => {
     e.preventDefault();
 
     try {
-      console.log(inputBox)
+      // console.log(inputBox)
       const response = await axios.post(
         "http://localhost:6001/User/ticket/create",
         {
           user_id: user_id,
           category,
           descrip: inputBox,
-          assigned: false,
+          assigned: "Pending",
           priority: urgency,
           eta: null,
           email: email,

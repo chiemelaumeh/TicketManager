@@ -28,9 +28,9 @@ const Tech = () => {
   };
 
   // console.log(userTickets);
-  const claimed = tickets.filter((c) => c.assigned == true);
+  const claimed = tickets.filter((c) => c.assigned !== "Pending" && typeof c.assigned === 'string');
   // console.log(claimed)
-  const unclaimed = tickets.filter((c) => c.assigned == false);
+  const unclaimed = tickets.filter((c) => c.assigned === "Pending");
   // console.log(unclaimed)
   const handleClick = () => {
     if (open) {
