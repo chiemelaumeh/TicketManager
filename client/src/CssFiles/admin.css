@@ -190,3 +190,39 @@ body {
     overflow: overlay;
     margin-bottom: 2rem;
 }
+
+.editBtns {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--lowLight);
+    cursor: pointer;
+    height: 40px;
+    padding: 10px 13px;
+    text-align: center;
+    transition: ease .5s;
+    color: var(--offBlack);
+    font-size: 1rem;
+    box-shadow: 6px 5px 5px var(--gray);
+    margin: 1rem;
+}
+
+.editBtns:hover {
+    background-color: var(--highLight);
+    cursor: pointer;
+    transform: scale(1.1);
+    color: white;
+}
+
+.editForm {
+    font-family: 'Primeform Pro';
+    justify-content: center;
+    width: 18rem;
+}
+
+.module-box{
+    border: 2px solid var(--offBlack);
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 6px 5px 5px var(--gray);
+    width: 15rem;
+}
