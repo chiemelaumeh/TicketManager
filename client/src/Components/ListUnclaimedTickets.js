@@ -6,7 +6,7 @@ const ListUnclaimedTickets = ({tickets}) => {
         <>
         <Link to={`/tech/${tickets.ticket_id}`} className="ticket-link">
                   <article className="ticket claimed-oneticket" id={tickets.ticket_id}>
-                      <h4 className="ticketNumber">Ticket {tickets.ticket_id}</h4>
+                      <h4 className="ticketNumber">Ticket# {tickets.ticket_id}</h4>
                       <p className="ticketCat">Category: {tickets.category}</p>
 
                       <p className="ticketDesc">Status: {tickets.status}</p>

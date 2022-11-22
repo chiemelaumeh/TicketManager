@@ -118,7 +118,7 @@
 }
 
 .editBTN {
-    padding-left: 1.3rem;
+    padding-left: .6rem;
     width: 3rem;
 }
 
@@ -133,8 +133,8 @@
 }
 
 .Lables {
-    -webkit-text-decoration: underline var(--highLight);
-    text-decoration: underline var(--highLight);
+    /* -webkit-text-decoration: underline var(--highLight); */
+    /* text-decoration: underline var(--highLight); */
     width: 14rem;
     text-align: center;
     font-size: 1.5rem;
@@ -142,8 +142,8 @@
     font-family: 'Primeform Pro';
 }
 .edit-Lables{
-    -webkit-text-decoration: underline var(--highLight);
-    text-decoration: underline var(--highLight);
+    /* -webkit-text-decoration: underline var(--highLight);
+    text-decoration: underline var(--highLight); */
     font-size: 1.5rem;
     font-family: 'Primeform Pro';
     margin-inline-start: 2.2rem;
