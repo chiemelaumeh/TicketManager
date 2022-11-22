@@ -111,9 +111,7 @@
   font-family: 'Primeform Pro', sans-serif;
   font-size: 1.2rem;
 }
-.usernav {
-  /* font-weight: 200; */
-}
+
 body {
   margin: 0;
 }
@@ -157,6 +155,7 @@ body {
   overflow-x: hidden;
   grid-template-rows: repeat(1000, 1fr);
   font-family: "Roboto Slab", serif;
+  
 }
 .claimed-tickets {
   /* border: 1px solid green; */
@@ -186,6 +185,7 @@ body {
   /* padding-top: 1rem; */
   background-color: white;
   height: 700px;
+  box-shadow: 6px 5px 5px var(--gray);
 }
 .portal-text {
   text-align: center;
@@ -207,12 +207,15 @@ body {
   /* flex-direction: row; */
   justify-content: space-evenly;
   padding: 1rem;
+  
 }
 .claimed-oneticket {
   background-color: #ddd;
   border: 1px solid #bbb;
   color: #40798c;
   font-size: 0.5rem;
+  box-shadow: 3px 2px 2px var(--gray);
+  
 
   /* display: flex;
   justify-content: space-between;
@@ -232,6 +235,7 @@ body {
   border: 1px solid #bbb;
   color: #40798c;
   font-size: 0.5rem;
+  box-shadow: 3px 2px 2px var(--gray);
 }
 
 .unclaimed-oneticket:hover {
