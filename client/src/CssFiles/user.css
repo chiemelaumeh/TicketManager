@@ -14,6 +14,7 @@
 
 .avatar-image {
     margin-left: 4rem;
+    cursor: pointer;
 }
 
 
@@ -22,7 +23,6 @@
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
-    color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -43,6 +43,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: 6px 5px 5px var(--gray);
+    transition: ease .3s;
 }
 
 .ticket-submit,
@@ -95,7 +96,7 @@ option {
 #urgency-Span {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial', Arial;
+    /* font-family: 'Arial', Arial; */
     /* font-size: 10.5pt; */
     font-style: normal;
     font-weight: 500;
@@ -123,7 +124,7 @@ option {
 .span-Input {
     color: #000000;
     text-decoration: none;
-    font-family: 'Arial', Arial;
+    /* font-family: 'Arial', Arial; */
     /* font-size: 10.5pt; */
     font-style: normal;
     font-weight: 500;
@@ -175,7 +176,6 @@ option {
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
-    color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -187,9 +187,69 @@ option {
     margin-right: 2rem;
     width: 6rem;
     box-shadow: 6px 5px 5px var(--gray);
+    transition: ease .3s;
 }
 
 .error-userPage {
     color: red;
     margin-top: 1px;
 }
+
+
+.logout-btn-user:hover,
+.upload:hover,
+.file-box:hover,
+.ticket-submit:hover {
+    background-color: var(--highLight);
+    cursor: pointer;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+.upload {
+    border-radius: 8px;
+    border-style: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    height: 35px;
+    background-color: var(--lowLight);
+    margin-top: 1.4rem;
+    margin-right: 2rem;
+    width: 5rem;
+    box-shadow: 6px 5px 5px var(--gray);
+    transition: ease .3s;
+}
+
+
+.file-box {
+    border-radius: 8px;
+    border-style: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    height: 35px;
+    background-color: var(--lowLight);
+    margin-top: 1.4rem;
+    margin-right: 4rem;
+    width: 6rem;
+    box-shadow: 6px 5px 5px var(--gray);
+    transition: ease .3s;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+
+input[type=file] {
+    display: none;
+}
+
+
+
+
+/* transition: ease .5s; */

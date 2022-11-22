@@ -105,10 +105,15 @@ body {
   margin: 1rem 1rem;
   padding: 0.25rem 0.5rem;
   width: 8rem;
+  transition: ease .5s;
+  box-shadow: 4px 3px 3px var(--gray);
 }
 
 .post-btn:hover {
+  background-color: var(--highLight);
   cursor: pointer;
+  color: white;
+  transform: scale(1.1);
 }
 
 .back-to-tickets {
@@ -123,10 +128,12 @@ body {
   padding: 0.25rem 0.5rem;
   width: 2rem;
   background: transparent;
+  transition: ease .5s;
 }
 
 .back-to-tickets:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .SingleTicket2 {

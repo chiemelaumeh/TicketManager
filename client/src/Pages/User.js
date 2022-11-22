@@ -85,8 +85,7 @@ const User = () => {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    console.log(category);
-    console.log(inputBox)
+
     try {
       console.log(inputBox)
       const response = await axios.post(
@@ -106,6 +105,11 @@ const User = () => {
         }
       );
       setSubmitTicket(true);
+      setCategory([])
+      setUrgency([])
+      setDate(null)
+      setInputBox('')
+      setErr({})
       console.log(response);
     } catch (error) {
       console.log(error.response.data.error)
@@ -169,7 +173,10 @@ const User = () => {
             >
               <div>
                 <form onSubmit={fetchReq}>
-                  <input type="file" onChange={fileState}></input>
+                  <label className='file-box'>
+                    <input type="file" onChange={fileState}></input>
+                    Choose Image
+                  </label>
                   <input className="upload" type="submit" />
                 </form>
               </div>
@@ -227,7 +234,7 @@ const User = () => {
         </div>
 
         <div className="card"
-        style={{ height: 'calc(80vh - 145px)' }}>
+          style={{ height: 'calc(80vh - 145px)' }}>
           <h2 style={{ fontFamily: "'Primeform Pro','sans- serif'" }}>Your Tickets</h2>
 
           <DataTable

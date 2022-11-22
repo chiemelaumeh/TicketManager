@@ -13,8 +13,8 @@
 
 .table-container {
     display: flex;
-    -webkit-text-decoration: underline var(--highLight);
-    text-decoration: underline var(--highLight);
+    /* -webkit-text-decoration: underline var(--highLight);
+    text-decoration: underline var(--highLight); */
     width: 69rem;
     text-align: center;
     font-size: 1.5rem;
