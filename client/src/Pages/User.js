@@ -34,7 +34,7 @@ const User = () => {
   //parse the decoded payload to access obj
   const payloadObj = JSON.parse(atob(getPayload));
 
-  const { iat, email, userName, user_id, profilePic } = payloadObj;
+  const { iat, email, userName, user_id, profilePic, campus_id } = payloadObj;
 
 
   //This allows us to re-render the page //
@@ -99,11 +99,12 @@ const User = () => {
           eta: null,
           email: email,
           status: "in progress",
-          campus_id: 1,
+          campus_id: campus_id,
           create_date: date,
           resolved: null,
         }
       );
+
       setSubmitTicket(true);
       setCategory([])
       setUrgency([])

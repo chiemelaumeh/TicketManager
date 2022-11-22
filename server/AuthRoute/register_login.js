@@ -54,6 +54,7 @@ authRoute.post('/login', async (req, res) => {
 
     //check if email exists
     const { rows } = await pool.query('select accounts.user_id, accounts.username, accounts.accessrole, accounts.campus_name, accounts.email, accounts.profilepic, accounts.password, campus.campus_id from accounts,campus where accounts.campus_name = campus.name');
+    console.log(rows)
     const account = rows.filter(account => account.email === email);
 
     //if account length is 0 then there is no account found
@@ -72,6 +73,7 @@ authRoute.post('/login', async (req, res) => {
                 userName: user.username,
                 email: user.email,
                 password: user.password,
+                campus_id: user.campus_id,
                 profilePic: user.profilepic
             }, process.env.ACCESS_TOKEN);
 
