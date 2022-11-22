@@ -71,13 +71,14 @@
   border-radius: 5px;
   margin: 0 1rem;
   padding: 5px;
-  width: 5.3rem;
+  width: 7rem;
   padding: 0.5rem 1rem;
   border: 0;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto Slab', serif;
   transition: ease .5s;
   box-shadow: 3px 2px 2px var(--gray);
+  font-size: 1rem;
 }
 
 .signoff-btn:hover {
