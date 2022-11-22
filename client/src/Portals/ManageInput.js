@@ -15,6 +15,9 @@ const Manage = ({ close, open, data, reRender }) => {
     setEmail("");
     reRender();
   };
+  const handleSumbit = (e) => {
+    e.preventDefault()
+  }
   const handleUsername = (e) => {
     setUserName(e.target.value);
   };
@@ -27,7 +30,7 @@ const Manage = ({ close, open, data, reRender }) => {
     <>
       <div className="over-lay">
         <div className="module-box">
-          <form className="editForm">
+          <form className="editForm" onSubmit={(handleSumbit)}>
             <p>Current Name: {data.username}</p>
             <label className="editLabels">Edit Name: </label>
             <input
