@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import LoginContext from "../Contexts/loginContext";
+import { BiLogOut } from "react-icons/bi"
 
 const Navbar = ({ handleSearch, searchText }) => {
 
@@ -13,7 +14,7 @@ const Navbar = ({ handleSearch, searchText }) => {
       </div>
       <input type="TEXT" className="search" placeholder="Search" value={searchText} onChange={handleSearch} />
       <div className="postsearch">
-        <button className="signoff-btn" onClick={handleLogOut}>LogOut</button>
+        <button className="signoff-btn" onClick={handleLogOut}><BiLogOut /> LogOut</button>
       </div>
     </nav>
   );
