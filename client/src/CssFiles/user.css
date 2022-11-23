@@ -25,7 +25,7 @@
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Primeform Pro';
     font-size: 14px;
     font-weight: 500;
     height: 40px;
@@ -178,7 +178,7 @@ option {
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Primeform Pro';
     font-size: 14px;
     font-weight: 500;
     height: 40px;
@@ -193,6 +193,7 @@ option {
 .error-userPage {
     color: red;
     margin-top: 1px;
+    font-family: 'Primeform Pro';
 }
 
 
@@ -212,7 +213,7 @@ option {
     border-style: none;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Primeform Pro';
     font-size: 13px;
     font-weight: 500;
     height: 35px;
@@ -230,7 +231,7 @@ option {
     border-style: none;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Primeform Pro';
     font-size: 13px;
     font-weight: 500;
     height: 35px;

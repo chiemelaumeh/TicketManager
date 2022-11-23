@@ -3,10 +3,10 @@ import { useState } from "react"
 import { BsTrash } from "react-icons/bs"
 import { FaPencilAlt } from "react-icons/fa"
 import Manage from "../Portals/ManageInput"
-const DataTable = ({ data, reRender}) => {
+const DataTable = ({ data, reRender }) => {
     // console.log(data)
     const [open, setOpen] = useState(false)
-    
+
     const handledelete = async (id) => {
         await axios.delete(`http://localhost:6001/admin/Account/delete/${id}`)
         reRender()
@@ -35,9 +35,9 @@ const DataTable = ({ data, reRender}) => {
                             <div className="AccountTableCells3">{data.accessrole}</div>
                             <div className="AccountTableCells2">{data.campus_name}</div>
                             <div className="AccountTableCell5">
-                            <div className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></div>
-                            <Manage open={open} close={() => setOpen(false)} data={data} reRender={reRender}/>
-                            <div onClick={() => { handledelete(data.user_id) }} ><BsTrash /></div>
+                                <div className="editBTN" onClick={() => setOpen(true)}><FaPencilAlt /></div>
+                                <Manage open={open} close={() => setOpen(false)} data={data} reRender={reRender} />
+                                <div className='deleteBTN' onClick={() => { handledelete(data.user_id) }} ><BsTrash /></div>
                             </div>
                         </tr>
                         <tr>
