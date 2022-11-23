@@ -8,7 +8,7 @@ const DataTable = ({ data, reRender }) => {
     const [open, setOpen] = useState(false)
 
     const handledelete = async (id) => {
-        await axios.delete(`http://localhost:6001/admin/Account/delete/${id}`)
+        await axios.delete(`https://taskappapi.onrender.com/admin/Account/delete/${id}`)
         reRender()
         // console.log(id)
         // console.log(data.user_id)

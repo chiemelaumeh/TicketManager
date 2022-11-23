@@ -51,7 +51,7 @@ const SinglePage = () => {
     useEffect(() => {
         const getSingleTicket = async () => {
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
+            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
             // console.log(data)
             setTicket(data[0])
 
@@ -63,7 +63,7 @@ const SinglePage = () => {
         const getComments = async () => {
 
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
             // console.log(data)
             setComments(data)
             setLoad(true)

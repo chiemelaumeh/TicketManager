@@ -8,7 +8,7 @@ const Manage = ({ close, open, data, reRender }) => {
 
   const editOne = async (id) => {
     const { data } = await axios.patch(
-      `http://localhost:6001/admin/Accounts/edit/${id}`,
+      `https://taskappapi.onrender.com/admin/Accounts/edit/${id}`,
       { userName, email }
     );
     setUserName("");
