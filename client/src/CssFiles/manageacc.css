@@ -37,10 +37,10 @@
     width: 14rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem; */
-    /* background-color: white; */
-    /* border-left: none; */
-    /* border-right: none; */
-    /* border-top: none;
+/* background-color: white; */
+/* border-left: none; */
+/* border-right: none; */
+/* border-top: none;
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
@@ -50,10 +50,10 @@
     width: 12.5rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem; */
-    /* background-color: white; */
-    /* border-left: none; */
-    /* border-right: none; */
-    /* border-top: none;
+/* background-color: white; */
+/* border-left: none; */
+/* border-right: none; */
+/* border-top: none;
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
@@ -63,10 +63,10 @@
     width: 12rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem; */
-    /* background-color: white; */
-    /* border-left: none; */
-    /* border-right: none; */
-    /* border-top: none;
+/* background-color: white; */
+/* border-left: none; */
+/* border-right: none; */
+/* border-top: none;
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
@@ -76,10 +76,10 @@
     width: 15rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem; */
-    /* background-color: white; */
-    /* border-left: none; */
-    /* border-right: none; */
-    /* border-top: none;
+/* background-color: white; */
+/* border-left: none; */
+/* border-right: none; */
+/* border-top: none;
     height: 35px;
     font-family: 'Roboto Slab', serif;
     color: var(--gray);
@@ -88,7 +88,7 @@
 .AccountTableCells,
 .AccountTableCells2,
 .AccountTableCells3,
-.AccountTableCells4{
+.AccountTableCells4 {
     width: 14rem;
     border: 1px solid var(--lowLight);
     font-size: 1rem;
@@ -101,7 +101,8 @@
     color: var(--gray);
     text-align: center;
 }
-.AccountTableCell5{
+
+.AccountTableCell5 {
     width: 6rem;
     border: 1px solid var(--lowLight);
     /* font-size: 1rem; */
@@ -122,7 +123,7 @@
     width: 3rem;
 }
 
-.ManageAccountH2{
+.ManageAccountH2 {
     justify-content: space-evenly;
     display: flex;
     font-size: 1.9rem;
@@ -141,7 +142,8 @@
     margin-inline-start: 5px;
     font-family: 'Primeform Pro';
 }
-.edit-Lables{
+
+.edit-Lables {
     /* -webkit-text-decoration: underline var(--highLight);
     text-decoration: underline var(--highLight); */
     font-size: 1.5rem;
@@ -150,12 +152,12 @@
     width: 3rem;
 }
 
-.AccountsContainer{
+.AccountsContainer {
     overflow: overlay;
     height: 27rem;
 }
 
-.AccountContainer{
+.AccountContainer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -163,3 +165,7 @@
     gap: 0.5rem;
 }
 
+.editBTN:hover,
+.deleteBTN:hover {
+    cursor: pointer;
+}

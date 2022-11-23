@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto+Slab:wght@100;400&display=swap');
+
 body {
     background-color: var(--offWhite);
 }
@@ -20,7 +21,7 @@ body {
     margin-right: auto;
     width: 20rem;
     text-align: center;
-    
+
 }
 
 #CreateAccount {
@@ -30,7 +31,7 @@ body {
 }
 
 .inputBox {
-    margin-bottom: 10%;
+    margin-bottom: 8%;
     padding: 2%;
     /* box-shadow: 5px 5px 10px 2px; */
     /* border-radius: 10px 140px 30px 140px; */
@@ -38,6 +39,7 @@ body {
     text-align: center;
     box-shadow: 4px 3px 3px var(--gray);
     border-radius: 8px;
+    width: 20rem;
     font-family: 'Roboto Slab', serif;
 }
 
@@ -63,7 +65,7 @@ body {
     cursor: pointer;
     transform: scale(1.1);
     color: white;
-    
+
 }
 
 #AdminCreateAccountBTN:active {
@@ -127,7 +129,7 @@ body {
 
 #LogOutBTN {
     position: relative;
-    bottom: 75px;
+    bottom: -30px;
     margin-left: 90%;
     border: none;
     border-radius: 8px;
@@ -153,8 +155,9 @@ body {
 .error-reg {
     width: 5rem;
     height: 1rem;
-    margin: 10px 0px 0px 0px;
+    /* margin: 10px 0px 0px 0px; */
     color: red;
+    margin-top: 0rem;
 }
 
 
@@ -181,7 +184,7 @@ body {
     background-color: white;
     border-radius: 25px;
     box-shadow: 6px 5px 5px var(--gray);
-    padding-bottom: 2rem; 
+    padding-bottom: 2rem;
 }
 
 .singleTicketContainer {
@@ -218,7 +221,7 @@ body {
     width: 18rem;
 }
 
-.module-box{
+.module-box {
     border: 2px solid var(--offBlack);
     background-color: white;
     border-radius: 25px;

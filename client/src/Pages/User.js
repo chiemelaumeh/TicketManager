@@ -9,6 +9,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
 import axios from "axios";
 
+import { Button } from 'primereact/button';
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Dropdown } from "primereact/dropdown";
@@ -62,7 +63,7 @@ const User = () => {
     { field: "priority", header: "Urgency" },
     { field: "status", header: "Status" },
     { field: "assigned", header: "Tech" },
-    { field: "descrip", header: "Details" },
+    { field: "descrip", header: "Details" }
   ];
 
 

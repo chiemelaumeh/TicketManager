@@ -17,6 +17,7 @@ const LoginForm = () => {
             const { data } = await axios.post('http://localhost:6001/account/login', values)
 
             if (data.accessToken === undefined) return alert('Not Authorized');
+            console.log(data)
             setUser(data)
             sessionStorage.setItem('testToken', data.accessToken)
             window.localStorage.setItem('isLoggedIn', true)
@@ -62,7 +63,7 @@ const LoginForm = () => {
                     <input type='password'
                         id="input-login"
                         name="password"
-                        placeholder="password"
+                        placeholder="Password"
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}

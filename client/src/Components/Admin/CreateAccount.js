@@ -38,10 +38,15 @@ const CreateAccount = () => {
     return (
         <form className="AdminCreateAccount" onSubmit={onSubmit}>
             <h2 id="CreateAccount">CREATE ACCOUNT</h2>
-            <input type='text' placeholder="Full Name" className="inputBox" onChange={handleChange} value={values.name} name='name' />
-            {err.name && <p className="error-reg">{err.name}</p>}
-            <input type='text' placeholder="EMAIL" className="inputBox" onChange={handleChange} value={values.email} name='email' />
-            {err.email && <p className="error-reg">{err.email}</p>}
+            <div>
+                <input type='text' placeholder="Full Name" className="inputBox" onChange={handleChange} value={values.name} name='name' />
+                {err.name && <p className="error-reg">{err.name}</p>}
+            </div>
+            <div>
+                <input type='text' placeholder="EMAIL" className="inputBox" onChange={handleChange} value={values.email} name='email' />
+                {err.email && <p className="error-reg">{err.email}</p>}
+            </div>
+
             <select className="inputBox" onChange={handleChange} value={values.campus} name='campus' >
                 <option value='San Antonio'>San Antonio</option>
                 <option value='Austin'>Austin</option>
@@ -53,8 +58,11 @@ const CreateAccount = () => {
                 <option value='TECH'>TECH</option>
                 <option value='USER'>USER</option>
             </select>
-            <input type='password' placeholder="Initial Password" className="inputBox" onChange={handleChange} value={values.password} name='password' />
-            {err.password && <p className="error-reg">{err.password}</p>}
+            <div>
+                <input type='password' placeholder="Initial Password" className="inputBox" onChange={handleChange} value={values.password} name='password' />
+                {err.password && <p className="error-reg">{err.password}</p>}
+            </div>
+
             <button id="AdminCreateAccountBTN" type="submit"><AiOutlineUser /> CREATE ACCOUNT</button>
         </form>
     )

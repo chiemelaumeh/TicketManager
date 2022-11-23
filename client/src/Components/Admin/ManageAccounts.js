@@ -9,12 +9,13 @@ const ManageAccounts = () => {
     //    const {fakeData} = useContext()
     const [account, setAccount] = useState([])
     const [render, setRender] = useState(false)
-   
-    
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
         const getDatatFromDB = async () => {
             const { data } = await axios.get("http://localhost:6001/admin/Accounts");
             setAccount(data)
+            setLoading(false)
             console.log(data)
         }
         getDatatFromDB()
@@ -24,13 +25,11 @@ const ManageAccounts = () => {
     const reRender = () => {
         setRender(!render)
     }
-   
+
 
     return (
 
         <>
-
-
             <div className="ManageDiv">
                 <h1 className="ManageAccountH2">Manage Accounts</h1>
 
@@ -42,19 +41,17 @@ const ManageAccounts = () => {
                     <div className="edit-Lables">Edit</div>
                 </div>
 
-               <div className="AccountsContainer">
-                {account.map((data) => (
-                    <DataTable key={data.user_id}
-                        data={data} reRender={reRender}
-                        
-                
-                    />
+                {!loading && <div className="AccountsContainer">
+                    {account.map((data) => (
+                        <DataTable key={data.user_id}
+                            data={data} reRender={reRender}
 
-                ))}
-                </div> 
+
+                        />
+                    ))}
+                </div>}
+                {loading && <div className="AccountsContainer"><div className='loading-spinner-admin'></div></div>}
             </div>
-
-
         </>
     )
 

@@ -14,9 +14,10 @@ const SinglePage = () => {
     const { comments, setComments } = useContext(CommentContext);
     const { ticket, setTicket } = useContext(SingleTicketContext);
     const [techComment, setTechComment] = useState('');
-    const [load, setLoad] = useState(true)
+    const [load, setLoad] = useState(false)
     const [commentError, setCommentError] = useState('')
     const [claimed, setClaimed] = useState('')
+    const [render, setRender] = useState(false)
 
     function handleChange(e) {
         setTechComment(e.target.value)
@@ -33,6 +34,7 @@ const SinglePage = () => {
                 ticket_id: ticket_id,
                 comment: techComment
             })
+            setRender(!render)
         } catch (error) {
             // console.log(error.response.data.error.comment)
             setCommentError(error.response.status)
@@ -52,20 +54,22 @@ const SinglePage = () => {
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
             // console.log(data)
             setTicket(data[0])
+
         }
         getSingleTicket()
     }, [claimed]);
 
     useEffect(() => {
         const getComments = async () => {
+
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
             const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
             // console.log(data)
             setComments(data)
-            setLoad(false)
+            setLoad(true)
         }
         getComments()
-    }, [techComment]);
+    }, [render]);
 
 
 
@@ -74,7 +78,7 @@ const SinglePage = () => {
         const id = e.target.id
         const assigned = user.userName
         try {
-            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, {assigned})
+            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, { assigned })
             setClaimed(true)
         } catch (error) {
             console.log(error)
@@ -85,7 +89,7 @@ const SinglePage = () => {
         const id = e.target.id
         const assigned = "Pending"
         try {
-            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, {assigned})
+            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, { assigned })
             setClaimed(false)
         } catch (error) {
             console.log(error)
@@ -93,7 +97,7 @@ const SinglePage = () => {
     }
 
 
-    if (!load) {
+    if (load) {
         return (
             <div className='singlePageContainer'>
                 <Link to="/tech">
@@ -112,11 +116,11 @@ const SinglePage = () => {
                         <h4 className='highlight-2'>{ticket.descrip}</h4>
                     </div>
                     {
-                    ticket.assigned === "Pending" ? 
-                    (<button className='post-btn' id={ticket.ticket_id} onClick={claimTicket}>Claim Ticket</button>)
-                    :
-                    (<button className='post-btn' id={ticket.ticket_id} onClick={unclaimTicket}>Unclaim Ticket</button>)
-                }
+                        ticket.assigned === "Pending" ?
+                            (<button className='post-btn' id={ticket.ticket_id} onClick={claimTicket}>Claim Ticket</button>)
+                            :
+                            (<button className='post-btn' id={ticket.ticket_id} onClick={unclaimTicket}>Unclaim Ticket</button>)
+                    }
                 </div>
 
                 <div className='Line'></div>
@@ -136,7 +140,7 @@ const SinglePage = () => {
                         <form onSubmit={handleSubmit} className='form-post'>
                             <input type='text' value={techComment} onChange={handleChange} className="input-post" placeholder='Post an update…' />
 
-                            <p style={{margin: 0, fontFamily: 'Roboto Slab', color: 'red', fontSize: 12}}>{commentError === 404 ? "Type in a Comment" : null}</p>
+                            <p style={{ margin: 0, fontFamily: 'Roboto Slab', color: 'red', fontSize: 12 }}>{commentError === 404 ? "Type in a Comment" : null}</p>
 
                             <input type='submit' value='Submit' className='post-btn' />
                         </form>

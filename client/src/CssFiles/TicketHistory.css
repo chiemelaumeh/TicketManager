@@ -52,3 +52,28 @@
     border-left: none;
     border-top: none;
 }
+
+
+.adminSearch {
+    outline: 0;
+    width: 50%;
+    height: 80%;
+    border-radius: 5px;
+    border: 1px solid rgba(169, 166, 166, 0.52);
+    padding: 0.3rem 1rem;
+    font-family: "Roboto Slab", serif;
+    margin-left: 18rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.loading-spinner-admin {
+    width: 40px;
+    height: 40px;
+    border: 8px solid #f3f3f3;
+    border-top: 10px solid var(--offBlack);
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+    margin: 10rem auto;
+}
