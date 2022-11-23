@@ -96,6 +96,17 @@ const SinglePage = () => {
         }
     }
 
+    const markResolved = async (e) => {
+        const id = e.target.id
+        const status = "Resolved"
+        try {
+            await axios.put(`http://localhost:6001/tech/tickets/resolve/${id}`, { status })
+            setClaimed(false)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 
     if (load) {
         return (
@@ -115,11 +126,14 @@ const SinglePage = () => {
                         <h3 className='ticketDescrip'>Description: </h3>
                         <h4 className='highlight-2'>{ticket.descrip}</h4>
                     </div>
+                    
                     {
                         ticket.assigned === "Pending" ?
                             (<button className='post-btn' id={ticket.ticket_id} onClick={claimTicket}>Claim Ticket</button>)
                             :
-                            (<button className='post-btn' id={ticket.ticket_id} onClick={unclaimTicket}>Unclaim Ticket</button>)
+                            (<><button className='post-btn' id={ticket.ticket_id} onClick={markResolved}>Mark Resolved</button>
+                            <button className='post-btn' id={ticket.ticket_id} onClick={unclaimTicket}>Unclaim Ticket</button>
+                            </>)
                     }
                 </div>
 
