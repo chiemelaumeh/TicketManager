@@ -15,23 +15,27 @@ import TechPageContext from "../Contexts/TechPageContext";
 import ListClaimedTickets from "../Components/ListClaimedTickets";
 import ListUnclaimedTickets from "../Components/ListUnclaimedTickets";
 import axios from "axios";
+import ArchivedList from "../Components/ArchivedList";
 
 const Tech = () => {
   const { user } = useContext(LoginContext);
   const { tickets, setTickets } = useContext(TechPageContext);
   const { open, setOpen } = useContext(TechContext);
   const [searchText, setSearchText] = useState("");
+  const [viewArchive, setViewArchive] = useState(false)
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
-    console.log(searchText);
+    // console.log(searchText);
   };
 
   // console.log(userTickets);
-  const claimed = tickets.filter((c) => c.assigned !== "Pending" && typeof c.assigned === 'string');
+  const claimed = tickets.filter((c) => c.assigned !== "Pending" && typeof c.assigned === 'string' && c.status === "in progress");
   // console.log(claimed)
   const unclaimed = tickets.filter((c) => c.assigned === "Pending");
   // console.log(unclaimed)
+  const archived = tickets.filter((c) => c.status === "Resolved");
+
   const handleClick = () => {
     if (open) {
       setOpen(!true);
@@ -50,10 +54,102 @@ const Tech = () => {
     getTickets();
   }, []);
 
+  const handleArchiveView = () => {
+    setViewArchive(!viewArchive)
+    // console.log(archived)
+  }
+
   return (
     <>
       <Navbar handleSearch={handleSearch} searchText={searchText} />
       <div className="mainticket">
+
+        <div className="ticket-board">
+          <div className="tech-Header">
+          <div className="portal-text">TECH PORTAL</div>
+          </div>
+          <div className="resolve-btn-container">
+            <button className='resolved-post-btn' onClick={handleArchiveView}>{viewArchive ? "Return" : "Resolved Tickets"}</button>
+          </div>
+
+          <div>
+
+          </div>
+          <hr />
+          {
+            viewArchive ?
+            <>
+             <div className="resolved-header">RESOLVED TICKETS</div>
+              <div className="resolved-tickets">
+              <ArchivedList archived={archived} searchText={searchText} />
+              </div>
+            </>
+
+            :             
+            <>
+              <div className="ticket-tag">
+                <p className="tag">CLAIMED TICKETS</p>
+                <p className="tag">UNCLAIMED TICKETS</p>
+              </div>
+              <div className="all-tickets">
+                <div className="claimed-tickets">
+                    {claimed
+                      .filter((value) => {
+                        if (searchText === "") {
+                          return value;
+                        } else if (
+                          value.category
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase()) ||
+                          value.ticket_id
+                            .toString()
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase())
+                        ) {
+                          return value;
+                        }
+                      })
+                      .map((tickets) => {
+                        return (
+                          <ListUnclaimedTickets key={tickets.ticket_id} tickets={tickets}/>
+                        );
+                      })}
+                </div>
+                <div className="unclaimed-tickets">
+                    {unclaimed
+                      .filter((value) => {
+                        if (searchText === "") {
+                          return value;
+                        } else if (
+                          value.category
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase()) ||
+                          value.ticket_id
+                            .toString()
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase())
+                        ) {
+                          return value;
+                        }
+                      })
+                      .map((tickets) => {
+                        return (
+                          <ListClaimedTickets key={tickets.ticket_id} tickets={tickets}/>
+                        );
+                      })}
+                </div>
+              </div>
+            </>
+          }
+
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Tech;
+
         {/* <div className={open ? "close-sidenav" : "close-sidenav"}>
           <FaBars className="menubars" onClick={handleClick} />
           <div className={open ? "menu-items" : "menu-items-hide"}>
@@ -71,66 +167,3 @@ const Tech = () => {
             </li>
           </div>
         </div> */}
-        <div className="ticket-board">
-          <h3 className="portal-text">TECH PORTAL</h3>
-          <hr />
-
-          <div className="ticket-tag">
-            <p className="tag">CLAIMED TICKETS</p>
-            <p className="tag">UNCLAIMED TICKETS</p>
-          </div>
-          <div className="all-tickets">
-            <div className="claimed-tickets">
-              {claimed
-                .filter((value) => {
-                  if (searchText === "") {
-                    return value;
-                  } else if (
-                    value.category
-                      .toLowerCase()
-                      .includes(searchText.toLowerCase()) ||
-                    value.ticket_id
-                      .toString()
-                      .toLowerCase()
-                      .includes(searchText.toLowerCase())
-                  ) {
-                    return value;
-                  }
-                })
-                .map((tickets) => {
-                  return (
-                    <ListUnclaimedTickets key={tickets.ticket_id} tickets={tickets}/>
-                  );
-                })}
-            </div>
-            <div className="unclaimed-tickets">
-              {unclaimed
-                .filter((value) => {
-                  if (searchText === "") {
-                    return value;
-                  } else if (
-                    value.category
-                      .toLowerCase()
-                      .includes(searchText.toLowerCase()) ||
-                    value.ticket_id
-                      .toString()
-                      .toLowerCase()
-                      .includes(searchText.toLowerCase())
-                  ) {
-                    return value;
-                  }
-                })
-                .map((tickets) => {
-                  return (
-                    <ListClaimedTickets key={tickets.ticket_id} tickets={tickets}/>
-                  );
-                })}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Tech;

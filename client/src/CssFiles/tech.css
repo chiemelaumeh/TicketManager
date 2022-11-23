@@ -164,6 +164,82 @@ body {
   flex-wrap: wrap;
   align-content: flex-start;
 }
+
+.resolved-tickets {
+  display: flex;
+  width: 100%;
+  height: 30rem;
+  /* border-right: solid rgb(175, 175, 175) 1px; */
+  overflow: overlay;
+  font-family: "Roboto Slab", serif;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.resolved-post-btn{
+  background-color: #40798c;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  height: 2.5rem;
+  margin-right: 1rem;
+  position: static;
+  padding: 0.25rem 0.5rem;
+  width: 8rem;
+  transition: ease .5s;
+  box-shadow: 4px 3px 3px var(--gray);
+}
+
+.resolved-post-btn:hover {
+  background-color: var(--highLight);
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
+}
+
+.resolve-btn-container{
+  display: flex;
+  flex-direction: row-reverse;
+  height: 0rem;
+}
+
+.tech-Header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resolved-ticket{
+  height: 11.5rem;
+  margin: 0.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.5rem;
+  width: 12rem;
+  border-radius: 10px;
+  transition: ease-in-out 0.1s;
+  text-align: center;
+  font-weight: 400;
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  color: #40798c;
+  font-size: 0.5rem;
+  box-shadow: 3px 2px 2px var(--gray);
+}
+
+.resolved-header{
+  color: var(--offBlack);
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
 /* .ticket-board {
   width: 90%;
   display: flex;
@@ -187,12 +263,12 @@ body {
   text-align: center;
   width: 20rem;
   height: 2rem;
-  position: sticky;
+  /* position: sticky; */
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   /* border: 1px solid #222; */
   padding-bottom: 3rem;
-  margin: auto;
+  /* margin: auto; */
   color: var(--offBlack);
   border-radius: 2rem;
 }

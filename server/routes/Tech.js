@@ -43,6 +43,17 @@ techRoute.put("/tickets/claim/:id", async (req, res) => {
   }
 });
 
+techRoute.put("/tickets/resolve/:id", async (req, res) => {
+  const {id} = req.params
+  const {status} = req.body
+  try {
+    const { rows } = await pool.query('Update tickets set status = $1 where ticket_id = $2 RETURNING *',[status,id])
+    res.send(rows)
+  } catch (error) {
+    res.status(404).send("Error Resolving Ticket")
+  }
+});
+
 techRoute.get("/ticket/:id/comment", async (req, res) => {
   try {
     const { id } = req.params;
