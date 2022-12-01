@@ -13,7 +13,7 @@ Can view all tickets within the organization assigned, claim, comment, and resol
 # Getting Started
 - fork and clone this repo
 - create a local directory to clone this repo in
-- In your local directory terminal: <br>
+- In your local directory terminal command line type: <br>
   (1) git clone (repo URL)<br>
   (2) cd ./client <br>
   (3) npm install <br>
@@ -21,4 +21,13 @@ Can view all tickets within the organization assigned, claim, comment, and resol
   (5) cd ./server <br>
   (6) npm install <br>
 # Database PostgreSQL Setup
-
+- ensure you have latest PSQL install on local machine
+- On local terminal window command line type:<br>
+  (1) "createdb nameofdatabase"<br>
+  (2) "psql -l" (check if the database was created locally)<br>
+  (3) "psql databasename" (access the database) <br>
+- Navigate to directory server/db to migrate and create the tables and seed the dummy data<br>
+- Once in directory open terminal command line and type in "psql databasename -f testdb2.sql"
+- You can test of the tables and data are in the database by typing in the terminal command line:<br>
+  (1) "psql databasename"<br>
+  (2) "\d" (will list all tables in accessed database)<br>
