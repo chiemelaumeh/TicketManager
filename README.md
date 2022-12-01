@@ -13,7 +13,8 @@ Admin:<br>
 - View all tickets<br>
 <br>
 Tech:<br>
-Can view all tickets within the organization assigned, claim, comment, and resolve trouble tickets
+- View all tickets,
+- Claim, comment, and resolve trouble tickets
 # Getting Started
 - Fork and clone this repo
 - Create a local directory to clone this repo in
