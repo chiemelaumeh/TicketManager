@@ -3,9 +3,9 @@ Welcome to task app, this application is a touble ticketing application.<br>
 Within the application there are 3 account roles.
 # Roles
 User:<br>
--Create trouble tickets
--Upload an avatar
--View status of their tickets<br>
+- Create trouble tickets
+- Upload an avatar
+- View status of their tickets<br>
 <br>
 Admin:<br>
 Can create accounts, manage accounts, and view all tickets<br>
