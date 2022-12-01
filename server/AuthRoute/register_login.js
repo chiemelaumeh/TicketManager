@@ -1,7 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const pool = require('../config');
+// const pool = require('../config');
+const pool = require('../localPool.js')
 require('dotenv').config()
 const { check, validationResult } = require('express-validator')
 const authRoute = express.Router();
