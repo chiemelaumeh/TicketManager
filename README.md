@@ -32,7 +32,7 @@ Welcome to Task App (AKA Athena)! This application is for IT touble ticketing wi
   (1) "createdb [insert DB name]"<br>
   (2) "psql -l" (verify that the database was created locally)<br>
   (3) "psql [DB name]" (access the database) <br>
- - Navigate to directory ./server/db to migrate and create the tables and seed the test data<br>
+ - Navigate to directory ./server/db to create the tables and seed the test data<br>
 ** **
 **Important!**
 - You need to create seed data in the testdb.sql file for the accounts table before migration. 
