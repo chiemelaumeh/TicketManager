@@ -6,10 +6,10 @@ User:<br>
 - Create trouble tickets
 - Upload an avatar
 - View status of their tickets<br>
-<br>
 Admin:<br>
-Can create accounts, manage accounts, and view all tickets<br>
-<br>
+- Create accounts
+- Edit/delete accounts
+- View all tickets<br>
 Tech:<br>
 Can view all tickets within the organization assigned, claim, comment, and resolve trouble tickets
 # Getting Started
