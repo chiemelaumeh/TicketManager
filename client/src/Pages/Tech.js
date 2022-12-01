@@ -47,7 +47,7 @@ const Tech = () => {
   useEffect(() => {
     const getTickets = async () => {
       const { data } = await axios.get(
-        `https://taskappapi.onrender.com/tech/Tickets/campus/${user.campus_id}`
+        `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
       );
       setTickets(data);
     };
