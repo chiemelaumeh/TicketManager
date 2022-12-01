@@ -36,7 +36,7 @@ FOREIGN KEY(user_id) REFERENCES accounts(user_id) ON DELETE CASCADE,
 campus_id SERIAL,
 FOREIGN KEY(campus_id) REFERENCES campus(campus_id),
     create_date Date,
-    resolved Date,
+    resolved Date
 );
 
 CREATE TABLE ticket_Comments(

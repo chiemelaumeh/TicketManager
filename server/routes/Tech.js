@@ -1,5 +1,6 @@
 const express = require("express");
-const pool = require("../config");
+// const pool = require("../config");
+const pool = require('../localPool.js')
 const techRoute = express.Router();
 const {check, validationResult} = require("express-validator")
 

@@ -1,5 +1,6 @@
 const express = require('express');
-const pool = require("../config");
+// const pool = require("../config");
+const pool = require('../localPool.js')
 
 const adminRoute = express.Router();
 
