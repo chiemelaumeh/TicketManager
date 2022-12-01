@@ -19,7 +19,7 @@ Welcome to Task App (AKA Athena)! This application is for IT touble ticketing wi
 # Getting Started
 - Fork this repository.
 - Clone the repository and install dependeniecs from the CLI:<br>
-  (1)clone https://github.com/Blue-Digital/TasksApp.git<br>
+  (1) git clone (URL from FORK)<br>
   (2) cd client <br>
   (3) npm install or npm i <br>
   (4) cd .. <br>
@@ -35,8 +35,7 @@ Welcome to Task App (AKA Athena)! This application is for IT touble ticketing wi
  - Navigate to directory ./server/db to create the tables and seed the test data. <br>
 ** **
 **Important!**
-- You need to create seed data in the testdb.sql file for the accounts table before migration. 
-- You will need at least one user, one admin, and one tech account.
+- Seed data already has a test user, admin, and tech account<br>
 - The password must be at least five characters. To adjust the minimum characters, edit the schemaValid.js file located in ./client/src/Components/Login.
 ** **
 - Run the command "psql [your DB name] -f testdb2.sql".
@@ -50,14 +49,20 @@ Welcome to Task App (AKA Athena)! This application is for IT touble ticketing wi
 - In the second CLI, navigate to the client directory then run the following script: npm start.
 
 # Signing In
-- When the application is started, you will be prompted to sign in. Sign in using one of the accounts that you seeded the datatable with.
+- When the application is started, you will be prompted to sign in. Use one of these test accounts:<br>
+  email: "admin@test.com" or "tech@test.com" or "user@test.com"<br>
+  password: "password"  (They all have the same password)<br>
 
 # Notes
-- This application is set up for the following that will require editing:
--   JSON Web Token (JWT) (see authToken.js, register_login.js, .env, and .env_template)
--   AWS S3 (see s3.js)
--   A connection string for an external database (see config.js .env, and .env_template)
+This application is set up for the following that will require editing:
+- Create a .env file (look at .env.template for environment variables)
+- .env file needs to be set up prior to running application
+- AWS S3 (see s3.js and .env.template if you want to config photo upload ability)
 
-# Additional Resources for this Application 
+# Additional Resources for this Application
+- Express: https://expressjs.com/en/api.html
+- Axios: https://axios-http.com/docs/intro
+- PSQL: https://www.postgresql.org/docs/current/index.html
+- PG: https://node-postgres.com/apis/pool
 - JWT: https://jwt.io/
 - AWS S3: https://aws.amazon.com/s3/
