@@ -1,4 +1,4 @@
-# TasksApp
+# Tasks App
 Welcome to Task App (AKA Athena)! This application is for IT touble ticketing with three distinct UI/UX based on one of three roles.
 
 # Roles
@@ -52,7 +52,7 @@ Welcome to Task App (AKA Athena)! This application is for IT touble ticketing wi
 # Signing In
 - When the application is started, you will be prompted to sign in. Sign in using one of the accounts that you seeded the datatable with.
 
-# Notes About This Application
+# Notes
 - This application is set up for the following that will require editing:
 -   JSON Web Token (JWT) (see authToken.js, register_login.js, .env, and .env_template)
 -   AWS S3 (see s3.js)
