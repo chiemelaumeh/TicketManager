@@ -6,7 +6,7 @@ User:
 - Create trouble tickets
 - Upload an avatar
 - View status of their tickets<br>
-- <br>
+<br>
 Admin:<br>
 - Create accounts
 - Edit/delete accounts
