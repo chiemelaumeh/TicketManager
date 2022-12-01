@@ -2,24 +2,25 @@
 Welcome to task app, this application is a touble ticketing application.<br>
 Within the application there are 3 account roles.
 # Roles
-User:
-- Create trouble tickets
-- Upload an avatar
+User<br>
+- Create trouble tickets<br>
+- Upload an avatar<br>
 - View status of their tickets<br>
-<br>
-Admin:<br>
-- Create accounts
-- Edit/delete accounts
+
+Admin<br>
+- Create accounts<br>
+- Edit/delete accounts<br>
 - View all tickets<br>
-<br>
-Tech:
-- View all tickets,
-- Claim, comment, and resolve trouble tickets
+
+Tech<br>
+- View all tickets<br>
+- Claim, comment, and resolve tickets<br>
+
 # Getting Started
 - Fork and clone this repo
-- Create a local directory to clone this repo in
+- Create a local directory to clone thi
 - In your local directory terminal command line type: <br>
-  (1) git clone (repo URL)<br>
+  (1) git clone https://github.com/Blue-Digital/TasksApp.git<br>
   (2) cd ./client <br>
   (3) npm install <br>
   (4) cd .. <br>
