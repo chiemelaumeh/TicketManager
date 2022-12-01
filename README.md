@@ -5,11 +5,13 @@ Within the application there are 3 account roles.
 User:<br>
 - Create trouble tickets
 - Upload an avatar
-- View status of their tickets<br>
+- View status of their tickets
+- <br>
 Admin:<br>
 - Create accounts
 - Edit/delete accounts
-- View all tickets<br>
+- View all tickets
+- <br>
 Tech:<br>
 Can view all tickets within the organization assigned, claim, comment, and resolve trouble tickets
 # Getting Started
