@@ -49,24 +49,25 @@ authRoute.post('/register', [
 });
 
 authRoute.post('/login', async (req, res) => {
-    console.log("test")
     const { email, password } = req.body;
     //check for empty request values
     if (email === "" || password === "") return res.send('Fields cannot be empty');
-
+    
     //check if email exists
     const { rows } = await pool.query('select accounts.user_id, accounts.username, accounts.accessrole, accounts.campus_name, accounts.email, accounts.profilepic, accounts.password, campus.campus_id from accounts,campus where accounts.campus_name = campus.name');
-    // console.log(rows)
-    const account = rows.filter(account => account.email === email);
 
+
+    const account = rows.filter(account => account.email === email);
+    
     //if account length is 0 then there is no account found
     if (account.length === 0) return res.status(404).send({ msg: "Not Found" });
-
+    
     try {
         //create variable for found account and access at index
         const user = account[0]
         //compare the input password with the database hashed password
         const isAuthorized = await bcrypt.compare(password, user.password)
+  
 
         //if password matches create secret token and respond with token; else return incorrect password
         if (isAuthorized === true) {
