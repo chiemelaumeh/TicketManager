@@ -1,20 +1,21 @@
-require('dotenv').config();
-const {Pool} = require('pg');
+require("dotenv").config();
+const { Pool } = require("pg");
 
-const {
-    DATABASE_USER,
-    DATABASE_PORT,
-    DATABASE_HOST,
-    DATABASE_PW,
-    DATABASE_NAME} = process.env
+const devConfig = {
+  database: process.env.DATABASE_NAME,
+  port: process.env.DATABASE_PORT,
+  localhost: process.env.DATABASE_HOST,
+  password: process.env.DATABASE_PW,
+  user: process.env.DATABASE_USER,
+};
 
-    
-const pool = new Pool({
-    user: DATABASE_USER,
-    port: DATABASE_PORT,
-    host: DATABASE_HOST,
-    database: DATABASE_NAME,
-    password: DATABASE_PW
-});
+const connectionString = process.env.DATABASE_URL;
+
+const proConfig = {
+  connectionString,
+};
+const pool = new Pool(
+  process.env.NODE_ENV === "production" ? proConfig : devConfig
+);
 
 module.exports = pool;
