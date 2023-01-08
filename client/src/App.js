@@ -20,7 +20,7 @@ import Tech from "./Pages/Tech";
 import SinglePage from "./Components/SinglePage/SinglePage";
 import ProtectedRoutes from "./Components/ProtectedRoutes";
 
-
+//ticket manager app
 
 
 const App = () => {
