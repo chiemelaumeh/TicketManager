@@ -10,6 +10,7 @@ const port = process.env.PORT || 6001
 const userRoute = require("./routes/User")
 const adminRoute = require("./routes/Admin")
 const techRoute = require("./routes/Tech")
+const testRoute = require("./routes/test")
 const authRoute = require('./AuthRoute/register_login');
 const generateUploadURL = require('./s3.js');
 const authorizeToken = require("./AuthRoute/authToken");
@@ -36,12 +37,18 @@ app.get('/s3Url', async (req, res)=>{
   res.send({url})
 })
 
+
+app.get("/test", (req, res) =>{
+  res.json("Hello world")
+})
+
 //routes import
 app.use("/admin", adminRoute);
 app.use("/tech", techRoute);
 app.use("/user", userRoute)
 app.use("/account", authRoute);
 app.post('/test', authorizeToken);
+app.get("/test", testRoute)
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
