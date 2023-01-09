@@ -1,5 +1,5 @@
 # Ticket Manager
-Welcome to Ticket Manager, This application is for IT touble ticketing with three distinct UI/UX based on one of three roles.
+Welcome to Ticket Manager, this application is for IT touble ticketing with three different UI's (Admin, User, Tech) based on the role you sign in as.
 
 # Roles
 #### User
@@ -21,10 +21,10 @@ Welcome to Ticket Manager, This application is for IT touble ticketing with thre
 - Clone the repository and install dependeniecs from the CLI:<br>
   (1) git clone (URL from FORK)<br>
   (2) cd client <br>
-  (3) npm install or npm i <br>
+  (3) npm install  <br>
   (4) cd .. <br>
   (5) cd server <br>
-  (6) npm install or npm i <br>
+  (6) npm install <br>
   
 # Create the Database and Tables and Seed Data
 - Ensure you have latest PSQL version installed on your local machine running the command psql -V or psql --version.
