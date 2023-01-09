@@ -51,6 +51,7 @@ authRoute.post('/register', [
 authRoute.post('/login', async (req, res) => {
     const { email, password } = req.body;
     //check for empty request values
+    console.log(email)
     if (email === "" || password === "") return res.send('Fields cannot be empty');
     
     //check if email exists
