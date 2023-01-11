@@ -12,6 +12,7 @@ const adminRoute = require("./routes/Admin")
 const techRoute = require("./routes/Tech")
 const testRoute = require("./routes/test")
 const authRoute = require('./AuthRoute/register_login');
+// const loginRoute= require('./AuthRoute/register_login');
 const generateUploadURL = require('./s3.js');
 const authorizeToken = require("./AuthRoute/authToken");
 
@@ -38,9 +39,6 @@ app.get('/s3Url', async (req, res)=>{
 })
 
 
-app.get("/test", (req, res) =>{
-  res.json("Hello world")
-})
 
 //routes import
 app.use("/admin", adminRoute);
