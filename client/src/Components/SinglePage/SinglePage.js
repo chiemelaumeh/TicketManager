@@ -29,7 +29,7 @@ const SinglePage = () => {
     const postComment = async () => {
         // console.log(user)
         try {
-            const response = await axios.post("http://localhost:6001/tech/ticket/comment", {
+            const response = await axios.post("https://ticket-manager-api.onrender.com/tech/ticket/comment", {
                 user_id: user.user_id,
                 ticket_id: ticket_id,
                 comment: techComment
@@ -51,7 +51,7 @@ const SinglePage = () => {
     useEffect(() => {
         const getSingleTicket = async () => {
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}`)
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}`)
+            const { data } = await axios.get(`https://ticket-manager-api.onrender.com/${ticket_id}`)
             // console.log(data)
             setTicket(data[0])
 
@@ -63,7 +63,7 @@ const SinglePage = () => {
         const getComments = async () => {
 
             // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
-            const { data } = await axios.get(`http://localhost:6001/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`https://ticket-manager-api.onrender.com/${ticket_id}/comment`)
             // console.log(data)
             setComments(data)
             setLoad(true)
@@ -78,7 +78,7 @@ const SinglePage = () => {
         const id = e.target.id
         const assigned = user.userName
         try {
-            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, { assigned })
+            await axios.put(`https://ticket-manager-api.onrender.com/${id}`, { assigned })
             setClaimed(true)
         } catch (error) {
             console.log(error)
@@ -89,7 +89,7 @@ const SinglePage = () => {
         const id = e.target.id
         const assigned = "Pending"
         try {
-            await axios.put(`http://localhost:6001/tech/tickets/claim/${id}`, { assigned })
+            await axios.put(`https://ticket-manager-api.onrender.com/${id}`, { assigned })
             setClaimed(false)
         } catch (error) {
             console.log(error)
@@ -100,7 +100,7 @@ const SinglePage = () => {
         const id = e.target.id
         const status = "Resolved"
         try {
-            await axios.put(`http://localhost:6001/tech/tickets/resolve/${id}`, { status })
+            await axios.put(`https://ticket-manager-api.onrender.com/${id}`, { status })
             setClaimed(false)
         } catch (error) {
             console.log(error)
