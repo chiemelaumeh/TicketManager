@@ -47,7 +47,7 @@ const Tech = () => {
   useEffect(() => {
     const getTickets = async () => {
       const { data } = await axios.get(
-        `http://localhost:6001/tech/Tickets/campus/${user.campus_id}`
+        `https://ticket-manager-api.onrender.com/tech/Tickets/campus/${user.campus_id}`
       );
       setTickets(data);
     };

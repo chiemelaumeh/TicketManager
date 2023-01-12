@@ -13,7 +13,7 @@ const TicketHistory = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get('http://localhost:6001/admin/tickets')
+            const result = await axios.get('https://ticket-manager-api.onrender.com/admin/tickets')
             setTicket(result.data)
             setLoading(false)
         }
