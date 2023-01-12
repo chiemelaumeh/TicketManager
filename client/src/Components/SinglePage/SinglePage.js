@@ -64,8 +64,9 @@ const SinglePage = () => {
     useEffect(() => {
         const getComments = async () => {
 
-            const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
 
+            // const { data } = await axios.get(`https://taskappapi.onrender.com/tech/ticket/${ticket_id}/comment`)
+            const { data } = await axios.get(`https://ticket-manager-api.onrender.com/tech/ticket/${ticket_id}/comment`)
 
             // console.log(data)
             setComments(data)

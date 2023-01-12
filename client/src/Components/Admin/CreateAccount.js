@@ -22,7 +22,6 @@ const CreateAccount = () => {
 
         const result = await axios.post('https://ticket-manager-api.onrender.com/account/register', values)
 
-
         console.log(result)
         if (result.data.error) {
             setErr(result.data.error)
