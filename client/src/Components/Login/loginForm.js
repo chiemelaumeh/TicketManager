@@ -16,6 +16,7 @@ const LoginForm = () => {
 
     const onSubmit = async (values, actions) => {
         try {
+
             const { data } = await axios.post('https://ticket-manager-api.onrender.com/account/login', values)
 
 
@@ -52,7 +53,7 @@ const LoginForm = () => {
                     <input type='email'
                         id="input-login"
                         name="email"
-                   
+
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -66,7 +67,7 @@ const LoginForm = () => {
                     <input type='password'
                         id="input-login"
                         name="password"
-               
+
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
