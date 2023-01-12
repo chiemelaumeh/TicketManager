@@ -13,7 +13,7 @@ const ManageAccounts = () => {
 
     useEffect(() => {
         const getDatatFromDB = async () => {
-            const { data } = await axios.get("http://localhost:6001/admin/Accounts");
+            const { data } = await axios.get("https://ticket-manager-api.onrender.com/admin/Accounts");
             setAccount(data)
             setLoading(false)
             console.log(data)
