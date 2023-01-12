@@ -54,8 +54,3 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
 
-// will work on it tomorrow
-//went to roundrock
-// goo days work
-//git add 
-//git add
