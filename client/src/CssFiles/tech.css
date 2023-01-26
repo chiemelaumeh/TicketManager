@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto+Slab:wght@100;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
 :root {
   box-sizing: border-box;
 }
@@ -77,7 +78,6 @@
   cursor: pointer;
   font-family: 'Roboto Slab', serif;
   transition: ease .5s;
-  box-shadow: 3px 2px 2px var(--gray);
   font-size: 1rem;
 }
 
@@ -226,7 +226,7 @@ body {
   border: 1px solid #bbb;
   color: #40798c;
   font-size: 0.5rem;
-  box-shadow: 3px 2px 2px var(--gray);
+
 }
 
 .resolved-header{
@@ -250,14 +250,13 @@ body {
 } */
 .ticket-board {
   width: 95%;
-  padding: 1rem;
   margin: auto;
-  border: 2px solid var(--gray);
+  border: 1px solid var(--gray);
   border-radius: 8px;
   /* padding-top: 1rem; */
   background-color: white;
   height: 700px;
-  box-shadow: 6px 5px 5px var(--gray);
+
 }
 .portal-text {
   text-align: center;
@@ -285,7 +284,9 @@ body {
   border: 1px solid #bbb;
   color: #40798c;
   font-size: 0.5rem;
-  box-shadow: 3px 2px 2px var(--gray);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 00;
+  
   
 
   /* display: flex;
@@ -302,11 +303,14 @@ body {
 }
 
 .unclaimed-oneticket {
-  background-color: #eee;
+  background-color: #ddd;
   border: 1px solid #bbb;
   color: #40798c;
   font-size: 0.5rem;
-  box-shadow: 3px 2px 2px var(--gray);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 00;
+  
+  
 }
 
 .unclaimed-oneticket:hover {
@@ -338,7 +342,7 @@ body {
 }
 .claimedTicketDescription {
   margin: 0;
-  height: 120px;
+  height: 120px; 
   font-weight: 300;
 }
 .ticketDesc {

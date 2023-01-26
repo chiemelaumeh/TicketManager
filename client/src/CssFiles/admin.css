@@ -81,9 +81,11 @@ body {
 .NavBar {
     display: flex;
     align-items: center;
-    margin-bottom: 2.5rem;
+    justify-content: center;
+    /* margin-bottom: 2.5rem; */
     flex-direction: row;
-    justify-content: space-evenly;
+ 
+
 }
 
 .NavBarTitle {
@@ -115,6 +117,7 @@ body {
     transition: ease .25s;
     color: var(--offBlack);
     font-size: 1rem;
+    margin: 2rem;
 
 }
 
@@ -131,7 +134,7 @@ body {
 } */
 
 .LogOutBTN {
-    position: relative;
+    /* position: relative;
     bottom: -30px;
     margin-left: 90%;
     border: none;
@@ -145,7 +148,7 @@ body {
     font-size: 1rem;
     font-family: 'Primeform Pro';
     transition: ease .5s;
-    box-shadow: 6px 5px 5px var(--gray);
+    box-shadow: 6px 5px 5px var(--gray); */
 }
 
 #LogOutBTN:hover {
