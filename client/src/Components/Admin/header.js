@@ -13,14 +13,15 @@ const Header = () => {
 
     return (
         <>
-            <Link to="/">
-                <button onClick={handleLogOut} id="LogOutBTN"><BiLogOut /> Sign Out</button>
-            </Link>
+            
             <h1 className="NavBarTitle">ATHENA</h1>
             <nav className="NavBar">
-                <NavLink to="/admin/CreateAccount" className="NavBarComp"><AiOutlineUser /> Create Accout</NavLink>
-                <NavLink to="/admin/ManageAccounts" className="NavBarComp"><MdOutlineManageAccounts /> ManageAccounts</NavLink>
-                <NavLink to="/admin/TicketHistory" className="NavBarComp"><IoTicketOutline /> TicketHistory</NavLink>
+                <NavLink to="/admin/CreateAccount" className="NavBarComp"><AiOutlineUser /> Create Account</NavLink>
+                <NavLink to="/admin/ManageAccounts" className="NavBarComp"><MdOutlineManageAccounts /> Manage Accounts</NavLink>
+                <NavLink to="/admin/TicketHistory" className="NavBarComp"><IoTicketOutline /> Ticket History</NavLink>
+                <NavLink to="/">
+                <button onClick={handleLogOut} className="NavBarComp"><BiLogOut /> Sign Out</button>
+            </NavLink>
             </nav>
         </>
     )

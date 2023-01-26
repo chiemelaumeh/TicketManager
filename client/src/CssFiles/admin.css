@@ -32,13 +32,10 @@ body {
 
 .inputBox {
     margin-bottom: 8%;
-    padding: 2%;
-    /* box-shadow: 5px 5px 10px 2px; */
-    /* border-radius: 10px 140px 30px 140px; */
-    border: 1px solid var(--gray);
+    padding: .5rem .2rem;
+    border: 1px solid #ccc;
     text-align: center;
-    box-shadow: 4px 3px 3px var(--gray);
-    border-radius: 8px;
+    border-radius: 4px;
     width: 20rem;
     font-family: 'Roboto Slab', serif;
 }
@@ -46,7 +43,7 @@ body {
 #AdminCreateAccountBTN {
     background-color: #40798C;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     border-style: none;
     background-color: var(--lowLight);
     cursor: pointer;
@@ -54,9 +51,11 @@ body {
     padding: 10px 16px;
     text-align: center;
     font-family: 'Roboto Slab', serif;
-    transition: ease .5s;
-    font-size: 1.2rem;
-    box-shadow: 6px 5px 5px var(--gray);
+    transition: ease .25s;
+    font-size: .75rem;
+    width: 12rem;
+    margin: auto;
+    /* box-shadow: 6px 5px 5px var(--gray); */
 }
 
 
@@ -88,31 +87,35 @@ body {
 }
 
 .NavBarTitle {
-    /* margin-left: auto;
-    margin-right: auto; */
-    position: relative;
-    display: flex;
+   
     justify-content: center;
     font-size: 5rem;
     color: var(--highLight);
-    font-family: 'Primeform Pro', sans-serif;
+    letter-spacing: 2.5rem;
+    margin: 3rem auto;
+    color: var(--highLight);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    text-align: center;
+
+
 
 }
 
 .NavBarComp {
     /* margin-left: 17%; */
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: var(--lowLight);
     cursor: pointer;
     height: 40px;
     padding: 10px 13px;
     text-align: center;
     font-family: 'Primeform Pro';
-    transition: ease .5s;
+    transition: ease .25s;
     color: var(--offBlack);
     font-size: 1rem;
-    box-shadow: 6px 5px 5px var(--gray);
+
 }
 
 .NavBarComp:hover {
@@ -127,7 +130,7 @@ body {
     transform: scale(1.1);
 } */
 
-#LogOutBTN {
+.LogOutBTN {
     position: relative;
     bottom: -30px;
     margin-left: 90%;

@@ -14,7 +14,6 @@ import TicketHistory from "./Components/Admin/TicketHistory";
 import SharedLayout from "./Pages/SharedLayout";
 
 import Login from "./Pages/Login";
-import Admin from "./Pages/Admin";
 import User from "./Pages/User";
 import Tech from "./Pages/Tech";
 import SinglePage from "./Components/SinglePage/SinglePage";
