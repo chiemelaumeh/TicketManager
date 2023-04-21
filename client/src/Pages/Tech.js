@@ -150,20 +150,3 @@ const Tech = () => {
 
 export default Tech;
 
-        {/* <div className={open ? "close-sidenav" : "close-sidenav"}>
-          <FaBars className="menubars" onClick={handleClick} />
-          <div className={open ? "menu-items" : "menu-items-hide"}>
-            <li className="menu-list">
-              HOME <FaHome className="menu-icon" />
-            </li>
-            <li className="menu-list">
-              TICKETS <FaTicketAlt className="menu-icon" />
-            </li>
-            <li className="menu-list">
-              RESOLVED <FaCheck className="menu-icon" />
-            </li>
-            <li className="menu-list">
-              SETTINGS <AiFillSetting className="menu-icon" />
-            </li>
-          </div>
-        </div> */}

@@ -70,6 +70,5 @@ const CreateAccount = () => {
     )
 }
 
-//give the option a value= "option 1"
 
 export default CreateAccount
